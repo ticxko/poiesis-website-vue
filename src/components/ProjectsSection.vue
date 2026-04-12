@@ -64,7 +64,7 @@ const props = defineProps({
 
 const allProjects = ref([])
 const activeFilter = ref('all')
-const categories = ['Architecture', 'Architecture & Interior']
+const categories = ['Architecture', 'Architecture & Interior', 'Built Interior Design']
 const sectionRef = ref(null)
 const cardEls = ref([])
 let observer = null

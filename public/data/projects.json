@@ -389,5 +389,32 @@
       "private",
       "serene"
     ]
+  },
+  {
+    "id": "w-pantry-kitchen",
+    "title": "Wanggamet Pantry Kitchen",
+    "category": "Built Interior Design",
+    "year": "2023",
+    "location": "Bukit Permai, Cibubur",
+    "client": "Family of five",
+    "siteArea": "220 sqm",
+    "grossArea": "180 sqm",
+    "architect": "Irawan Listanto",
+    "thumbnail": "/images/13-w-pantry-kitchen/w-pantry-kitchen-001.jpg",
+    "images": [
+      "/images/13-w-pantry-kitchen/w-pantry-kitchen-001.jpg",
+      "/images/13-w-pantry-kitchen/w-pantry-kitchen-002.jpg",
+      "/images/13-w-pantry-kitchen/w-pantry-kitchen-003.jpg",
+      "/images/13-w-pantry-kitchen/w-pantry-kitchen-004.jpg",
+      "/images/13-w-pantry-kitchen/w-pantry-kitchen-005.jpg",
+      "/images/13-w-pantry-kitchen/w-pantry-kitchen-006.jpg",
+      "/images/13-w-pantry-kitchen/w-pantry-kitchen-007.jpg",
+      "/images/13-w-pantry-kitchen/w-pantry-kitchen-008.jpg",
+      "/images/13-w-pantry-kitchen/w-pantry-kitchen-009.jpg",
+      "/images/13-w-pantry-kitchen/w-pantry-kitchen-010.jpg",
+      "/images/13-w-pantry-kitchen/w-pantry-kitchen-011.jpg"
+    ],
+    "description": "",
+    "keywords": []
   }
 ]
