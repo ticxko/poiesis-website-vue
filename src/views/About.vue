@@ -44,40 +44,8 @@
       </div>
     </section>
 
-    <!-- Quote -->
-    <section class="section section--gray">
-      <div class="container">
-        <div class="about-quote-block">
-          <div class="quote-mark">"</div>
-          <blockquote>
-            At Poiesis Studio, we believe that spaces should have a soul. They aren't just
-            built from materials, but from personal stories and dreams of the people who
-            live in them.
-          </blockquote>
-          <cite>— Ar. Amita Ratih Purnamasari, S.Ars, IAI., Principal</cite>
-        </div>
-      </div>
-    </section>
-
-    <!-- Vision -->
-    <section class="section">
-      <div class="container">
-        <div class="about-intro-grid">
-          <div class="about-intro-left">
-            <span class="section-subtitle">Our Vision</span>
-            <h2 class="section-title">Narrative-Driven<br>Placemaking</h2>
-          </div>
-          <div class="about-intro-right">
-            <p>
-              Our vision is to become a leading architectural & interior design practice by
-              pioneering the art of narrative-driven placemaking. We aim to create soulful,
-              sustainable, and interconnected environments that are more than just structures —
-              they are living ecosystems designed to elevate the human experience.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
+    <!-- About Company & Vision -->
+    <CompanySection />
 
     <!-- Values -->
     <section class="section section--dark">
@@ -122,6 +90,7 @@
 </template>
 
 <script setup>
+import CompanySection from '../components/CompanySection.vue'
 import TeamSection from '../components/TeamSection.vue'
 import CtaSection from '../components/CtaSection.vue'
 
@@ -213,37 +182,6 @@ const services = [
     line-height: 1.8;
     color: $color-gray;
     margin-bottom: 20px;
-  }
-}
-
-.about-quote-block {
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
-
-  .quote-mark {
-    font-size: 80px;
-    font-weight: 700;
-    color: $color-accent;
-    line-height: 0.5;
-    margin-bottom: 20px;
-  }
-
-  blockquote {
-    font-size: 22px;
-    line-height: 1.7;
-    color: $color-dark;
-    margin-bottom: 24px;
-
-    @media (max-width: 768px) {
-      font-size: 18px;
-    }
-  }
-
-  cite {
-    font-size: 14px;
-    color: $color-gray;
-    font-style: normal;
   }
 }
 
