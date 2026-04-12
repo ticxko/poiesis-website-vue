@@ -13,13 +13,12 @@
           <li><router-link to="/contact" @click="closeMenu">Contact</router-link></li>
         </ul>
         <div class="nav-footer-mobile">
-          <p>mayang.poiesis@gmail.com</p>
           <p>+62 812 1832 1775</p>
         </div>
       </nav>
 
       <div class="header-right">
-        <a href="mailto:mayang.poiesis@gmail.com" class="header-email">mayang.poiesis@gmail.com</a>
+        <a href="tel:+6281218321775" class="header-phone">+62 812 1832 1775</a>
         <router-link to="/contact" class="btn-theme btn-theme--sm">Contact Us</router-link>
         <button class="menu-toggle" :class="{ open: menuOpen }" @click="toggleMenu" aria-label="Toggle menu">
           <span></span>
@@ -153,7 +152,7 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
   z-index: 1001;
 }
 
-.header-email {
+.header-phone {
   font-size: 14px;
   color: rgba(255, 255, 255, 0.7);
   transition: color $transition-base;
@@ -210,7 +209,7 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
 }
 
 @media (max-width: 992px) {
-  .header-email {
+  .header-phone {
     display: none;
   }
 

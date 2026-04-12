@@ -41,23 +41,12 @@
 
               <div class="contact-item">
                 <div class="contact-icon">
-                  <i class="pi pi-envelope"></i>
-                </div>
-                <div>
-                  <h4>Email</h4>
-                  <a href="mailto:mayang.poiesis@gmail.com">mayang.poiesis@gmail.com</a>
-                </div>
-              </div>
-
-              <div class="contact-item">
-                <div class="contact-icon">
                   <i class="pi pi-map-marker"></i>
                 </div>
                 <div>
                   <h4>Address</h4>
-                  <p>TransPark Bintaro Apartment Unit 3618<br>
-                  Jln. Prof. Dr. Satrio No.5, Bintaro<br>
-                  Jakarta, Indonesia</p>
+                  <p>Calamus C7-35 Citra Garden Bintaro<br>
+                  Ciputat, Banten, Tangerang Selatan 15413</p>
                 </div>
               </div>
 

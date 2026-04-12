@@ -4,28 +4,35 @@
       <div class="footer-grid">
         <div class="footer-col footer-brand">
           <router-link to="/" class="footer-logo">
-            <img src="/images/brand/poiesis-logo.png" alt="Poiesis" class="footer-logo-icon" />
-            <span class="footer-logo-text"><strong>POIESIS</strong> STUDIO</span>
+            <Image src="/images/brand/poiesis-logo-white.svg" alt="Poiesis W.A Architecture" class="footer-logo-img" />
           </router-link>
           <p class="footer-tagline">
             A Jakarta-based Architecture & Interior Design consultancy
             focused on narrative-driven placemaking. Design Through Stories.
           </p>
-          <div class="footer-social">
-            <a href="https://instagram.com/poiesis.id" target="_blank" rel="noopener" aria-label="Instagram">
-              <i class="pi pi-instagram"></i>
+          <div class="footer-instagram">
+            <a href="https://instagram.com/poiesis.id" target="_blank" rel="noopener" class="instagram-link">
+              <i class="pi pi-instagram instagram-icon"></i>
+              <span class="instagram-handle">@poiesis.id</span>
+              <svg class="verified-badge" viewBox="0 0 22 22" width="16" height="16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20.396 11c0-.87-.473-1.67-1.23-2.09.18-.84.08-1.72-.29-2.49-.56-.94-1.51-1.58-2.57-1.72-.34-.78-.93-1.42-1.68-1.82-.77-.41-1.65-.51-2.49-.29C11.71 1.82 10.91 1.35 10.04 1.35s-1.67.47-2.09 1.23c-.84-.18-1.72-.08-2.49.29-.94.56-1.58 1.51-1.72 2.57-.78.34-1.42.93-1.82 1.68-.41.77-.51 1.65-.29 2.49C.87 10.08.4 10.88.4 11.75s.47 1.67 1.23 2.09c-.18.84-.08 1.72.29 2.49.56.94 1.51 1.58 2.57 1.72.34.78.93 1.42 1.68 1.82.77.41 1.65.51 2.49.29.42.76 1.22 1.23 2.09 1.23s1.67-.47 2.09-1.23c.84.18 1.72.08 2.49-.29.94-.56 1.58-1.51 1.72-2.57.78-.34 1.42-.93 1.82-1.68.41-.77.51-1.65.29-2.49.76-.42 1.23-1.22 1.23-2.09z" fill="#1D9BF0"/>
+                <path d="M9.64 14.83l-3.57-3.57 1.41-1.41 2.16 2.16 4.6-4.6 1.41 1.41-6.01 6.01z" fill="#fff"/>
+              </svg>
             </a>
           </div>
         </div>
 
+        <Divider layout="vertical" class="footer-divider" />
+
         <div class="footer-col">
           <h4>Office</h4>
-          <p>TransPark Bintaro Apartment<br>Unit 3618, Jln. Prof. Dr. Satrio No.5<br>Bintaro, Jakarta, Indonesia</p>
+          <p>Calamus C7-35 Citra Garden Bintaro<br>Ciputat, Banten, Tangerang Selatan 15413</p>
           <p class="footer-contact-label">Have a project in mind?</p>
-          <a href="mailto:mayang.poiesis@gmail.com">mayang.poiesis@gmail.com</a>
           <p class="footer-hours">Mon – Fri: 09:00 – 18:00</p>
           <a href="tel:+6281218321775">+62 812 1832 1775</a>
         </div>
+
+        <Divider layout="vertical" class="footer-divider" />
 
         <div class="footer-col">
           <h4>Links</h4>
@@ -36,6 +43,8 @@
             <li><router-link to="/contact">Contact</router-link></li>
           </ul>
         </div>
+
+        <Divider layout="vertical" class="footer-divider" />
 
         <div class="footer-col">
           <h4>Services</h4>
@@ -58,6 +67,11 @@
   </footer>
 </template>
 
+<script setup>
+import Image from 'primevue/image'
+import Divider from 'primevue/divider'
+</script>
+
 <style lang="scss" scoped>
 @import '../assets/scss/variables';
 
@@ -69,32 +83,30 @@
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.5fr 1.2fr 0.8fr 1fr;
-  gap: 40px;
+  grid-template-columns: 1.5fr auto 1.2fr auto 0.8fr auto 1fr;
+  gap: 24px;
+  align-items: start;
   padding-bottom: 60px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+.footer-divider {
+  :deep(&::before) {
+    border-color: rgba(255, 255, 255, 0.15) !important;
+  }
+  align-self: stretch;
+  min-height: 100%;
+}
+
 .footer-logo {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
+  display: inline-block;
   margin-bottom: 20px;
 }
 
-.footer-logo-icon {
-  height: 32px;
-  width: auto;
-  filter: brightness(0) invert(1);
-}
-
-.footer-logo-text {
-  font-size: 16px;
-  letter-spacing: 2px;
-  color: $color-white;
-
-  strong {
-    font-weight: 700;
+.footer-logo-img {
+  :deep(img) {
+    height: 28px;
+    width: auto;
   }
 }
 
@@ -104,26 +116,37 @@
   margin-bottom: 24px;
 }
 
-.footer-social {
-  display: flex;
-  gap: 16px;
-
-  a {
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    display: flex;
+.footer-instagram {
+  .instagram-link {
+    display: inline-flex;
     align-items: center;
-    justify-content: center;
-    color: rgba(255, 255, 255, 0.7);
+    gap: 8px;
+    padding: 8px 14px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.06);
     transition: all $transition-base;
 
     &:hover {
-      background-color: $color-accent;
-      border-color: $color-accent;
-      color: $color-white;
+      background: rgba(255, 255, 255, 0.12);
     }
+  }
+
+  .instagram-icon {
+    font-size: 20px;
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .instagram-handle {
+    font-size: 14px;
+    font-weight: 500;
+    color: $color-white;
+  }
+
+  .verified-badge {
+    flex-shrink: 0;
   }
 }
 
@@ -181,6 +204,10 @@
 @media (max-width: 992px) {
   .footer-grid {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-divider {
+    display: none;
   }
 }
 
