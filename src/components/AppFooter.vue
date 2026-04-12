@@ -93,7 +93,6 @@ import Divider from 'primevue/divider'
 .footer-logo-icon {
   height: 32px;
   width: auto;
-  filter: brightness(0) invert(1);
 }
 
 .footer-heading-divider {
