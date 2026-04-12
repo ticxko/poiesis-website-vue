@@ -4,7 +4,7 @@
       <div class="footer-grid">
         <div class="footer-col footer-brand">
           <router-link to="/" class="footer-logo">
-            <Image src="/images/brand/poiesis-logo-white.svg" alt="Poiesis W.A Architecture" class="footer-logo-img" />
+            <img src="/images/brand/poiesis-logo.png" alt="Poiesis Studio" class="footer-logo-icon" />
           </router-link>
           <p class="footer-tagline">
             A Jakarta-based Architecture & Interior Design consultancy
@@ -22,20 +22,18 @@
           </div>
         </div>
 
-        <Divider layout="vertical" class="footer-divider" />
-
         <div class="footer-col">
           <h4>Office</h4>
+          <Divider class="footer-heading-divider" />
           <p>Calamus C7-35 Citra Garden Bintaro<br>Ciputat, Banten, Tangerang Selatan 15413</p>
           <p class="footer-contact-label">Have a project in mind?</p>
           <p class="footer-hours">Mon – Fri: 09:00 – 18:00</p>
           <a href="tel:+6281218321775">+62 812 1832 1775</a>
         </div>
 
-        <Divider layout="vertical" class="footer-divider" />
-
         <div class="footer-col">
           <h4>Links</h4>
+          <Divider class="footer-heading-divider" />
           <ul>
             <li><router-link to="/">Home</router-link></li>
             <li><router-link to="/about">About</router-link></li>
@@ -44,10 +42,9 @@
           </ul>
         </div>
 
-        <Divider layout="vertical" class="footer-divider" />
-
         <div class="footer-col">
           <h4>Services</h4>
+          <Divider class="footer-heading-divider" />
           <ul>
             <li>Architecture</li>
             <li>Interior Design</li>
@@ -68,7 +65,6 @@
 </template>
 
 <script setup>
-import Image from 'primevue/image'
 import Divider from 'primevue/divider'
 </script>
 
@@ -83,19 +79,10 @@ import Divider from 'primevue/divider'
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.5fr auto 1.2fr auto 0.8fr auto 1fr;
-  gap: 24px;
-  align-items: start;
+  grid-template-columns: 1.5fr 1.2fr 0.8fr 1fr;
+  gap: 40px;
   padding-bottom: 60px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.footer-divider {
-  :deep(&::before) {
-    border-color: rgba(255, 255, 255, 0.15) !important;
-  }
-  align-self: stretch;
-  min-height: 100%;
 }
 
 .footer-logo {
@@ -103,10 +90,17 @@ import Divider from 'primevue/divider'
   margin-bottom: 20px;
 }
 
-.footer-logo-img {
-  :deep(img) {
-    height: 28px;
-    width: auto;
+.footer-logo-icon {
+  height: 32px;
+  width: auto;
+  filter: brightness(0) invert(1);
+}
+
+.footer-heading-divider {
+  margin: 0 0 16px 0;
+
+  :deep(&::before) {
+    border-color: rgba(255, 255, 255, 0.2) !important;
   }
 }
 
@@ -121,13 +115,10 @@ import Divider from 'primevue/divider'
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 8px 14px;
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.06);
-    transition: all $transition-base;
+    transition: opacity $transition-base;
 
     &:hover {
-      background: rgba(255, 255, 255, 0.12);
+      opacity: 0.8;
     }
   }
 
@@ -155,7 +146,7 @@ import Divider from 'primevue/divider'
     font-size: 18px;
     font-weight: 600;
     color: $color-white;
-    margin-bottom: 24px;
+    margin-bottom: 12px;
   }
 
   p, a {
@@ -204,10 +195,6 @@ import Divider from 'primevue/divider'
 @media (max-width: 992px) {
   .footer-grid {
     grid-template-columns: 1fr 1fr;
-  }
-
-  .footer-divider {
-    display: none;
   }
 }
 
