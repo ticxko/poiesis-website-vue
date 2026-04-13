@@ -15,7 +15,8 @@
         >
           <span class="team-num">{{ String(index + 1).padStart(2, '0') }}</span>
           <div class="team-image">
-            <div class="team-placeholder">
+            <img v-if="member.photo" :src="member.photo" :alt="member.name" />
+            <div v-else class="team-placeholder">
               <i class="pi pi-user"></i>
             </div>
           </div>
@@ -31,13 +32,16 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
+import mayang from '../assets/01-mayang.png'
+import jessica from '../assets/02-jessica.png'
+import irawan from '../assets/03-irawan.png'
+import mikael from '../assets/04-mikael.png'
 
 const team = [
-  { name: 'Mayang Ratih', role: 'Principal' },
-  { name: 'Jessica Sarana', role: 'Partner' },
-  { name: 'Irawan Listanto', role: 'Senior Architect' },
-  { name: 'Mikael Christian Lolonlun', role: 'Architect & Interior Designer' },
-  { name: 'M. Adillah', role: 'Junior Architect' },
+  { name: 'Mayang Ratih', role: 'Principal', photo: mayang },
+  { name: 'Jessica Sarana', role: 'Partner', photo: jessica },
+  { name: 'Irawan Listanto', role: 'Senior Architect', photo: irawan },
+  { name: 'Mikael Christian Lolonlun', role: 'Architect & Interior Designer', photo: mikael },
 ]
 
 const sectionRef = ref(null)
@@ -69,11 +73,11 @@ onUnmounted(() => observer?.disconnect())
 
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 24px;
 
   @media (max-width: 992px) {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 
   @media (max-width: 576px) {
@@ -106,6 +110,18 @@ onUnmounted(() => observer?.disconnect())
 .team-image {
   aspect-ratio: 3 / 4;
   overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    display: block;
+  }
+
+  .team-card:hover img {
+    transform: scale(1.1);
+  }
 
   .team-placeholder {
     width: 100%;
