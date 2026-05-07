@@ -20,6 +20,11 @@
               </svg>
             </a>
           </div>
+
+          <div class="footer-iai">
+            <img src="/images/brand/logo-IAIs-03.png" alt="Ikatan Arsitek Indonesia" class="iai-logo" />
+            <p class="iai-text">Arsitek Madya professional tersertifikasi IAI STRA No. 2.01.0.0004763</p>
+          </div>
         </div>
 
         <div class="footer-col">
@@ -137,6 +142,29 @@ import Divider from 'primevue/divider'
 
   .verified-badge {
     flex-shrink: 0;
+  }
+}
+
+.footer-iai {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+  padding: 10px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 10px;
+
+  .iai-logo {
+    height: 28px;
+    width: auto;
+    flex-shrink: 0;
+  }
+
+  .iai-text {
+    font-size: 11px;
+    line-height: 1.6;
+    color: $color-white;
   }
 }
 
