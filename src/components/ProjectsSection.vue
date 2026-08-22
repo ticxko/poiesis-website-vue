@@ -31,7 +31,7 @@
         >
           <div class="card-media">
             <picture>
-              <source :srcset="smThumb(project.thumbnail) + '.webp'" type="image/webp" />
+              <source :srcset="smThumbWebp(project.thumbnail)" type="image/webp" />
               <img :src="smThumb(project.thumbnail)" :alt="project.title" loading="lazy" decoding="async" />
             </picture>
           </div>
@@ -65,9 +65,18 @@ const categories = computed(() => [...new Set(allProjects.value.map(p => p.categ
 
 // Grid tiles use a lightweight ~800px thumbnail instead of the full image.
 // e.g. /images/projects/x/01.png -> /images/projects/x/01-sm.jpg
+// Any ?v= cache-busting query on the source is preserved on the derivative.
 function smThumb(src) {
   if (!src) return src
-  return src.replace(/\.(png|jpe?g)$/i, '-sm.jpg')
+  const [path, q] = src.split('?')
+  const sm = path.replace(/\.(png|jpe?g)$/i, '-sm.jpg')
+  return q ? `${sm}?${q}` : sm
+}
+function smThumbWebp(src) {
+  if (!src) return src
+  const [path, q] = src.split('?')
+  const sm = path.replace(/\.(png|jpe?g)$/i, '-sm.jpg.webp')
+  return q ? `${sm}?${q}` : sm
 }
 
 const filteredProjects = computed(() => {

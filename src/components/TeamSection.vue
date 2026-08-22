@@ -25,7 +25,7 @@
 const team = [
   { name: 'Mayang Ratih', role: 'Principal', photo: '/images/studio/team-02.jpg' },
   { name: 'Jessica Sarana', role: 'Partner', photo: '/images/studio/team-01.jpg' },
-  { name: 'Irawan Listanto', role: 'Senior Architect', photo: '/images/studio/team-03.png' },
+  { name: 'Irawan Listanto', role: 'Senior Architect', photo: '/images/studio/team-03.jpg' },
   { name: 'Mikael Christian Lolonlun', role: 'Architect & Interior Designer', photo: '/images/studio/team-04.jpg' },
   { name: 'Nicholas Kuncoro Adi', role: 'Junior Architect', photo: '/images/studio/team-05.jpg' },
 ]

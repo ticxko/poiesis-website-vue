@@ -38,7 +38,7 @@
           </div>
         </div>
         <div class="company-about-image media">
-          <img src="/images/projects/halaman/05.png" alt="Poiesis Studio project" loading="lazy" />
+          <img src="/images/projects/halaman/05.jpg" alt="Poiesis Studio project" loading="lazy" />
         </div>
       </div>
 
