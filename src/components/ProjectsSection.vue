@@ -153,6 +153,10 @@ onUnmounted(() => observer?.disconnect())
   row-gap: 56px;
 
   @media (max-width: 991px) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  /* Single column on phones. Kept at this selector's specificity so it wins over
+     the 991px rule above (equal specificity, later source order) — a plain
+     `.project-grid` rule would lose to `.projects-section.is-all .project-grid`. */
+  @media (max-width: 640px) { grid-template-columns: 1fr; }
 }
 @media (max-width: 640px) { .project-grid { grid-template-columns: 1fr; } }
 
