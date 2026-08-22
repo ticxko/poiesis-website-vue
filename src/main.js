@@ -3,6 +3,7 @@ import PrimeVue from 'primevue/config'
 import Aura from '@primevue/themes/aura'
 import router from './router'
 import App from './App.vue'
+import { initImageFade } from './utils/imgFade'
 
 import 'primeicons/primeicons.css'
 import './assets/scss/main.scss'
@@ -21,3 +22,6 @@ app.use(PrimeVue, {
 
 app.use(router)
 app.mount('#app')
+
+// Soft fade-in for images as they load (see src/utils/imgFade.js)
+initImageFade()

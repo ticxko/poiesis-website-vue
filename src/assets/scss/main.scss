@@ -233,6 +233,20 @@ h1, h2, h3, h4, h5, h6 { font-weight: 600; line-height: 1.2; }
 .fade-in { opacity: 0; transform: translateY(var(--reveal-shift)); transition: var(--transition-reveal); }
 .fade-in.visible { opacity: 1; transform: none; }
 
+/* Soft image reveal — photos fade up from blank as they load (see utils/imgFade.js).
+   Uses an animation (not a transition) so it never clobbers component transitions
+   on `transform` such as the hero's Ken Burns scale. */
+img.img-fade { opacity: 0; }
+img.img-fade--in { animation: imgFadeIn 0.9s var(--ease) both; }
+@keyframes imgFadeIn {
+  from { opacity: 0; filter: blur(8px); }
+  to   { opacity: 1; filter: blur(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  img.img-fade { opacity: 1; }
+  img.img-fade--in { animation: none; }
+}
+
 /* --- Scrollbar --- */
 ::-webkit-scrollbar { width: 10px; }
 ::-webkit-scrollbar-track { background: var(--nat-cream); }
