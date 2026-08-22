@@ -30,7 +30,10 @@
           class="project-card fade-in"
         >
           <div class="card-media">
-            <img :src="project.thumbnail" :alt="project.title" loading="lazy" />
+            <picture>
+              <source :srcset="smThumb(project.thumbnail) + '.webp'" type="image/webp" />
+              <img :src="smThumb(project.thumbnail)" :alt="project.title" loading="lazy" decoding="async" />
+            </picture>
           </div>
           <div class="card-row">
             <div class="card-meta">
@@ -59,6 +62,13 @@ const sectionRef = ref(null)
 let observer = null
 
 const categories = computed(() => [...new Set(allProjects.value.map(p => p.category))])
+
+// Grid tiles use a lightweight ~800px thumbnail instead of the full image.
+// e.g. /images/projects/x/01.png -> /images/projects/x/01-sm.jpg
+function smThumb(src) {
+  if (!src) return src
+  return src.replace(/\.(png|jpe?g)$/i, '-sm.jpg')
+}
 
 const filteredProjects = computed(() => {
   const list = activeFilter.value === 'all'
