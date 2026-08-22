@@ -1,169 +1,56 @@
 <template>
-  <section class="section section--gray team-section" ref="sectionRef">
+  <section class="section section--cream" id="team">
     <div class="container">
-      <div class="section-header">
-        <span class="section-subtitle">People</span>
-        <h2 class="section-title">Meet Our Team</h2>
+      <div class="team-head ps-reveal">
+        <p class="ps-label">People</p>
+        <h2 class="ps-h1 team-title">A small studio — both principals on site, weekly.</h2>
       </div>
 
       <div class="team-grid">
-        <div
-          class="team-card fade-in"
-          v-for="(member, index) in team"
-          :key="member.name"
-          :ref="el => { if (el) cardRefs[index] = el }"
-        >
-          <span class="team-num">{{ String(index + 1).padStart(2, '0') }}</span>
-          <div class="team-image">
-            <div class="team-placeholder">
-              <i class="pi pi-user"></i>
-            </div>
-          </div>
-          <div class="team-overlay">
-            <h3>{{ member.name }}</h3>
-            <p>{{ member.role }}</p>
-          </div>
-        </div>
+        <figure class="team-card ps-reveal" v-for="m in team" :key="m.name">
+          <div class="team-photo"><img :src="m.photo" :alt="m.name" loading="lazy" /></div>
+          <figcaption>
+            <h3 class="team-name">{{ m.name }}</h3>
+            <p class="ps-label team-role">{{ m.role }}</p>
+          </figcaption>
+        </figure>
       </div>
     </div>
   </section>
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
-
+// NOTE: names/roles are studio-provided. Portrait mapping confirmed by the
+// studio — Mayang = team-02, Jessica = team-01 (the deck order was reversed).
 const team = [
-  { name: 'Mayang Ratih', role: 'Principal' },
-  { name: 'Jessica Sarana', role: 'Partner' },
-  { name: 'Irawan Listanto', role: 'Senior Architect' },
-  { name: 'Mikael Christian Lolonlun', role: 'Architect & Interior Designer' },
-  { name: 'M. Adillah', role: 'Junior Architect' },
+  { name: 'Mayang Ratih', role: 'Principal', photo: '/images/studio/team-02.jpg' },
+  { name: 'Jessica Sarana', role: 'Partner', photo: '/images/studio/team-01.jpg' },
+  { name: 'Irawan Listanto', role: 'Senior Architect', photo: '/images/studio/team-03.png' },
+  { name: 'Mikael Christian Lolonlun', role: 'Architect & Interior Designer', photo: '/images/studio/team-04.jpg' },
+  { name: 'Nicholas Kuncoro Adi', role: 'Junior Architect', photo: '/images/studio/team-05.jpg' },
 ]
-
-const sectionRef = ref(null)
-const cardRefs = ref([])
-let observer = null
-
-onMounted(() => {
-  observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          cardRefs.value.forEach((el, i) => {
-            if (el) setTimeout(() => el.classList.add('visible'), i * 120)
-          })
-          observer.disconnect()
-        }
-      })
-    },
-    { threshold: 0.2 }
-  )
-  if (sectionRef.value) observer.observe(sectionRef.value)
-})
-
-onUnmounted(() => observer?.disconnect())
 </script>
 
 <style lang="scss" scoped>
-@import '../assets/scss/variables';
+.team-head { margin-bottom: 52px; }
+.team-title { margin-top: 14px; max-width: 20ch; }
 
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 24px;
 
-  @media (max-width: 992px) {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  @media (max-width: 576px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  @media (max-width: 991px) { grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  @media (max-width: 560px) { grid-template-columns: repeat(2, 1fr); }
 }
-
-.team-card {
-  position: relative;
-  overflow: hidden;
-  cursor: default;
-}
-
-.team-num {
-  position: absolute;
-  top: 16px;
-  left: 16px;
-  font-size: 14px;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.7);
-  z-index: 3;
-  opacity: 0;
-  transition: opacity $transition-base;
-
-  .team-card:hover & {
-    opacity: 1;
-  }
-}
-
-.team-image {
+.team-card { margin: 0; }
+.team-photo {
   aspect-ratio: 3 / 4;
   overflow: hidden;
-
-  .team-placeholder {
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, $color-dark, lighten($color-dark, 15%));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.5s ease;
-
-    i {
-      font-size: 48px;
-      color: rgba(255, 255, 255, 0.15);
-    }
-  }
-
-  .team-card:hover .team-placeholder {
-    transform: scale(1.1);
-  }
+  background: var(--nat-warm-sand);
+  img { width: 100%; height: 100%; object-fit: cover; object-position: center 22%; transition: transform var(--dur-slow) var(--ease); }
 }
-
-.team-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.7);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 24px;
-  opacity: 0;
-  transition: opacity $transition-base;
-
-  .team-card:hover & {
-    opacity: 1;
-  }
-
-  h3 {
-    font-size: 18px;
-    font-weight: 600;
-    color: $color-white;
-    margin-bottom: 4px;
-    transform: translateY(10px);
-    transition: transform 0.4s ease;
-
-    .team-card:hover & {
-      transform: translateY(0);
-    }
-  }
-
-  p {
-    font-size: 14px;
-    color: $color-accent;
-    transform: translateY(10px);
-    transition: transform 0.5s ease;
-
-    .team-card:hover & {
-      transform: translateY(0);
-    }
-  }
-}
+.team-card:hover .team-photo img { transform: scale(1.04); }
+.team-name { font: var(--weight-medium) var(--t-body)/1.3 var(--font-ui); margin-top: 14px; }
+.team-role { font-size: 11px; margin-top: 4px; }
 </style>

@@ -1,17 +1,12 @@
 <template>
   <main>
-    <section class="page-banner">
-      <div class="banner-bg">
-        <img src="/images/01-foresty-garden/foresty-garden-001.png" alt="Projects" />
-        <div class="banner-overlay"></div>
-      </div>
-      <div class="container banner-content">
-        <h1>Our Projects</h1>
-        <div class="breadcrumb">
-          <router-link to="/">Home</router-link>
-          <span>/</span>
-          <span>Projects</span>
-        </div>
+    <section class="page-plate">
+      <img src="/images/hero/spanish.jpg" alt="" />
+      <span class="plate-scrim" aria-hidden="true"></span>
+      <span class="plate-tri" aria-hidden="true"></span>
+      <div class="container plate-inner">
+        <p class="ps-label plate-eyebrow">Selected work · 28 projects</p>
+        <h1 class="ps-display plate-title">Work</h1>
       </div>
     </section>
 
@@ -24,49 +19,20 @@ import ProjectsSection from '../components/ProjectsSection.vue'
 </script>
 
 <style lang="scss" scoped>
-@import '../assets/scss/variables';
-
-.page-banner {
+.page-plate {
   position: relative;
-  height: 50vh;
-  min-height: 400px;
+  height: 56vh;
+  min-height: 380px;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
+  align-items: flex-end;
+  overflow: hidden;
+  background: var(--stripe-dark);
 
-.banner-bg {
-  position: absolute;
-  inset: 0;
-  img { width: 100%; height: 100%; object-fit: cover; }
+  > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 }
-
-.banner-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(23, 23, 23, 0.7);
-}
-
-.banner-content {
-  position: relative;
-  z-index: 2;
-
-  h1 {
-    font-size: 52px;
-    font-weight: 700;
-    color: $color-white;
-    margin-bottom: 16px;
-    @media (max-width: 768px) { font-size: 36px; }
-  }
-}
-
-.breadcrumb {
-  font-size: 14px;
-  color: rgba(255, 255, 255, 0.6);
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  a { color: rgba(255, 255, 255, 0.6); &:hover { color: $color-accent; } }
-}
+.plate-scrim { position: absolute; inset: 0; background: var(--scrim); }
+.plate-tri { position: absolute; top: 0; right: 0; width: 26vw; height: 26vw; background: var(--pink-studio); opacity: .16; clip-path: var(--tri-tr); }
+.plate-inner { position: relative; z-index: 2; width: 100%; padding-bottom: 44px; }
+.plate-eyebrow { color: rgba(255,255,255,.78); }
+.plate-title { color: #fff; margin-top: 10px; }
 </style>

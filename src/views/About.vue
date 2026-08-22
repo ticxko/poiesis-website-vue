@@ -1,65 +1,59 @@
 <template>
   <main>
-    <!-- Page Banner -->
-    <section class="page-banner">
-      <div class="banner-bg">
-        <img src="/images/00-company-intro/company-intro-016.jpg" alt="About Poiesis Studio" />
-        <div class="banner-overlay"></div>
-      </div>
-      <div class="container banner-content">
-        <h1>About Us</h1>
-        <div class="breadcrumb">
-          <router-link to="/">Home</router-link>
-          <span>/</span>
-          <span>About</span>
-        </div>
+    <!-- Plate -->
+    <section class="page-plate">
+      <img src="/images/studio/company-05.jpg" alt="" />
+      <span class="plate-scrim" aria-hidden="true"></span>
+      <span class="plate-tri" aria-hidden="true"></span>
+      <div class="container plate-inner">
+        <p class="ps-label plate-eyebrow">Design Through Stories</p>
+        <h1 class="ps-display plate-title">The studio</h1>
       </div>
     </section>
 
-    <!-- About Intro -->
+    <!-- Intro -->
     <section class="section">
       <div class="container">
-        <div class="about-intro-grid">
-          <div class="about-intro-left">
-            <span class="section-subtitle">Our Story</span>
-            <h2 class="section-title">Design Through<br>Stories</h2>
+        <div class="split about-intro ps-reveal">
+          <div>
+            <p class="ps-label">Our story</p>
+            <h2 class="ps-h1 about-intro-head">We design through stories.</h2>
           </div>
-          <div class="about-intro-right">
-            <p>
-              Poiesis Studio is a Jakarta-based Architecture & Interior Design consultancy
-              founded by Mayang Ratih as Principal and Jessica Sarana as Partner. Our design
-              methodology is focused on the process of narrative approach.
+          <div>
+            <p class="ps-body">
+              Poiesis Studio is a Jakarta-based Architecture &amp; Interior Design consultancy
+              founded by Ar. Amita Ratih Purnamasari (Mayang) as Principal and Jessica Sarana
+              as Partner. Our methodology is focused on the process of a narrative approach.
             </p>
-            <p>
-              We pose that before any spatial program or aesthetic form is designed, a
-              foundational story must be established. This design approach is applied through
-              a phenomenological understanding of the user's experience and background.
+            <p class="ps-body">
+              Before any spatial program or aesthetic form is drawn, a foundational story
+              must be established — read through a phenomenological understanding of how a
+              person lives, and where they have come from.
             </p>
-            <p>
-              The result is an architecture & interior design that has profound connection
-              to its context, function and most importantly to the people it serves.
+            <p class="ps-body">
+              The result is architecture &amp; interior design with a profound connection to
+              its context, its function, and most importantly to the people it serves.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- About Company & Vision -->
     <CompanySection />
 
-    <!-- Values -->
-    <section class="section section--dark">
+    <!-- Design process -->
+    <section class="section section--white">
       <div class="container">
-        <div class="section-header" style="text-align: center;">
-          <span class="section-subtitle">Our Values</span>
-          <h2 class="section-title">What Drives Us</h2>
+        <div class="process-head ps-reveal">
+          <p class="ps-label">How we work</p>
+          <h2 class="ps-h1 process-title">A considered process — from the first conversation to the final coat.</h2>
         </div>
-        <div class="values-grid">
-          <div class="value-card" v-for="value in values" :key="value.title">
-            <span class="value-icon">*</span>
-            <h3>{{ value.title }}</h3>
-            <p>{{ value.desc }}</p>
-          </div>
+        <div class="process-grid">
+          <article class="process-item ps-reveal" v-for="(s, i) in steps" :key="s.title">
+            <span class="process-num">{{ String(i + 1).padStart(2, '0') }}</span>
+            <h3 class="process-item-title">{{ s.title }}</h3>
+            <p class="process-item-desc">{{ s.desc }}</p>
+          </article>
         </div>
       </div>
     </section>
@@ -67,24 +61,23 @@
     <!-- Services -->
     <section class="section">
       <div class="container">
-        <div class="section-header">
-          <span class="section-subtitle">What We Do</span>
-          <h2 class="section-title">Our Services</h2>
+        <div class="services-head ps-reveal">
+          <p class="ps-label">What we do</p>
+          <h2 class="ps-h1">Five disciplines, one practice.</h2>
         </div>
-        <div class="services-list-grid">
-          <div class="service-list-item" v-for="(service, i) in services" :key="service">
-            <span class="service-list-num">{{ String(i + 1).padStart(2, '0') }}</span>
-            <span class="service-list-name">{{ service }}</span>
-            <span class="service-list-line"></span>
-          </div>
+        <div class="services-list">
+          <article class="service-item ps-reveal" v-for="(s, i) in services" :key="s.name">
+            <div class="service-lead">
+              <span class="service-num">{{ String(i + 1).padStart(2, '0') }}</span>
+              <h3 class="service-name">{{ s.name }}</h3>
+            </div>
+            <p class="service-desc">{{ s.desc }}</p>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- Team -->
     <TeamSection />
-
-    <!-- CTA -->
     <CtaSection />
   </main>
 </template>
@@ -94,165 +87,82 @@ import CompanySection from '../components/CompanySection.vue'
 import TeamSection from '../components/TeamSection.vue'
 import CtaSection from '../components/CtaSection.vue'
 
-const values = [
-  { title: 'Story-Led Design', desc: 'We lead our design with story. We believe that by listening carefully, we can write a unique narrative that gives each project its soul.' },
-  { title: 'Sustainable Connection', desc: 'We are passionate to design open and flexible spaces that bring people together with each other and with nature.' },
-  { title: 'Craft & Making', desc: 'We take a hands-on, resourceful approach to materials. We find beauty in honest materials and details to ensure every space is beautifully built.' },
+const steps = [
+  { title: 'Discovery', desc: 'We begin by listening — to how you live, what you value, and the story the space must hold.' },
+  { title: 'Concept', desc: 'That story becomes form: massing, light, flow, and the material language of the project.' },
+  { title: 'Permit & Approvals', desc: 'Regulatory drawings prepared and lodged, so the build is properly sanctioned and sound.' },
+  { title: 'Construction Documentation', desc: 'Precise technical drawings that let every detail be built exactly as it was drawn.' },
+  { title: 'Specification & Budget', desc: 'Considered materials and finishes, set against a clear, transparent cost estimate.' },
+  { title: 'Tender & Appointment', desc: 'Selecting and appointing the right hands to bring the work into being.' },
 ]
-
 const services = [
-  'Architecture', 'Interior Design', 'Master Planning',
-  'Landscape', 'Furniture', 'Renovation', 'Construction Management'
+  { name: 'Architecture', desc: 'Ground-up buildings shaped around a story — from private homes to community-scale places.' },
+  { name: 'Interior Design', desc: 'Interiors composed in light, material and proportion, tuned to the way you truly live.' },
+  { name: 'Master Planning', desc: 'The larger frame — how buildings, landscape and people come together across a whole site.' },
+  { name: 'Landscape', desc: 'Gardens and outdoor rooms that let the architecture breathe and meet the natural world.' },
+  { name: 'Furniture', desc: 'Bespoke pieces designed for the space and made in honest, tactile materials.' },
 ]
 </script>
 
 <style lang="scss" scoped>
-@import '../assets/scss/variables';
-
-.page-banner {
+.page-plate {
   position: relative;
-  height: 50vh;
-  min-height: 400px;
+  height: 56vh;
+  min-height: 380px;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+  align-items: flex-end;
+  overflow: hidden;
+  background: var(--stripe-dark);
+  > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 }
+.plate-scrim { position: absolute; inset: 0; background: var(--scrim); }
+.plate-tri { position: absolute; top: 0; right: 0; width: 26vw; height: 26vw; background: var(--pink-studio); opacity: .16; clip-path: var(--tri-tr); }
+.plate-inner { position: relative; z-index: 2; width: 100%; padding-bottom: 44px; }
+.plate-eyebrow { color: rgba(255,255,255,.78); }
+.plate-title { color: #fff; margin-top: 10px; }
 
-.banner-bg {
-  position: absolute;
-  inset: 0;
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-}
+.about-intro-head { margin-top: 14px; max-width: 16ch; }
+.about-intro .ps-body + .ps-body { margin-top: 1em; }
 
-.banner-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(23, 23, 23, 0.7);
-}
-
-.banner-content {
-  position: relative;
-  z-index: 2;
-
-  h1 {
-    font-size: 52px;
-    font-weight: 700;
-    color: $color-white;
-    margin-bottom: 16px;
-
-    @media (max-width: 768px) {
-      font-size: 36px;
-    }
-  }
-}
-
-.breadcrumb {
-  font-size: 14px;
-  color: rgba(255, 255, 255, 0.6);
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-
-  a {
-    color: rgba(255, 255, 255, 0.6);
-    &:hover { color: $color-accent; }
-  }
-}
-
-.about-intro-grid {
+/* Process — numbered items in two columns, Cormorant numeral as the quiet jewel */
+.process-head { margin-bottom: 56px; }
+.process-title { margin-top: 14px; max-width: 24ch; }
+.process-grid {
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 80px;
-  align-items: start;
-
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: var(--gap-col);
+  @media (max-width: 768px) { grid-template-columns: 1fr; }
 }
-
-.about-intro-right {
-  p {
-    font-size: 16px;
-    line-height: 1.8;
-    color: $color-gray;
-    margin-bottom: 20px;
-  }
+.process-item {
+  padding: 32px 4px 34px 0;
+  border-top: var(--border-hairline);
 }
+.process-num {
+  display: block;
+  font: var(--weight-light) 34px/1 var(--font-editorial);
+  font-style: italic;
+  color: var(--ink-label);
+  margin-bottom: 16px;
+}
+.process-item-title { font: var(--weight-medium) var(--t-lead)/1.3 var(--font-ui); }
+.process-item-desc { margin-top: 10px; color: var(--ink-soft); font-size: 15px; line-height: 1.62; max-width: 44ch; }
 
-.values-grid {
+/* Services — five disciplines as an editorial list, names in the serif jewel */
+.services-head { margin-bottom: 48px; }
+.service-item {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
-
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-  }
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: 20px 48px;
+  padding: 36px 0;
+  border-top: var(--border-hairline);
+  align-items: baseline;
+  transition: padding-left var(--transition-hover);
+  &:last-child { border-bottom: var(--border-hairline); }
+  &:hover { padding-left: 12px; }
+  @media (max-width: 768px) { grid-template-columns: 1fr; gap: 12px; }
 }
-
-.value-card {
-  text-align: center;
-  padding: 40px 30px;
-
-  .value-icon {
-    font-size: 32px;
-    color: $color-accent;
-    font-weight: 700;
-    display: block;
-    margin-bottom: 20px;
-  }
-
-  h3 {
-    font-size: 20px;
-    font-weight: 600;
-    color: $color-white;
-    margin-bottom: 12px;
-  }
-
-  p {
-    font-size: 15px;
-    color: rgba(255, 255, 255, 0.6);
-    line-height: 1.7;
-  }
-}
-
-.services-list-grid {
-  max-width: 800px;
-}
-
-.service-list-item {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  padding: 24px 0;
-  border-bottom: 1px solid $color-border;
-  transition: padding-left $transition-base;
-
-  &:hover {
-    padding-left: 12px;
-  }
-}
-
-.service-list-num {
-  font-size: 14px;
-  font-weight: 600;
-  color: $color-accent;
-  flex-shrink: 0;
-}
-
-.service-list-name {
-  font-size: 22px;
-  font-weight: 500;
-}
-
-.service-list-line {
-  flex: 1;
-  height: 1px;
-  background-color: $color-border;
-}
+.service-lead { display: flex; align-items: baseline; gap: 18px; }
+.service-num { font: var(--weight-regular) 12px/1 var(--font-mono); color: var(--ink-label); }
+.service-name { font: var(--weight-light) clamp(26px, 3vw, 38px)/1.05 var(--font-editorial); letter-spacing: .005em; }
+.service-desc { color: var(--ink-soft); font-size: 16px; line-height: 1.65; max-width: 52ch; }
 </style>

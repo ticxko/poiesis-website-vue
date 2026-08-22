@@ -3,48 +3,40 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-col footer-brand">
-          <router-link to="/" class="footer-logo">
-            <img src="/images/brand/poiesis-logo.png" alt="Poiesis Studio" class="footer-logo-icon" />
+          <router-link to="/" class="footer-logo" aria-label="Poiesis Studio, home">
+            <img src="/images/brand/poiesis-mark-color.svg" alt="" class="footer-mark" />
+            <span class="footer-wordmark">Poiesis Studio</span>
           </router-link>
           <p class="footer-tagline">
-            A Jakarta-based Architecture & Interior Design consultancy
-            focused on narrative-driven placemaking. Design Through Stories.
+            A Jakarta-based Architecture &amp; Interior Design consultancy focused on
+            narrative-driven placemaking. Design Through Stories.
           </p>
-          <div class="footer-instagram">
-            <a href="https://instagram.com/poiesis.id" target="_blank" rel="noopener" class="instagram-link">
-              <i class="pi pi-instagram instagram-icon"></i>
-              <span class="instagram-handle">@poiesis.id</span>
-              <svg class="verified-badge" viewBox="0 0 22 22" width="16" height="16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M20.396 11c0-.87-.473-1.67-1.23-2.09.18-.84.08-1.72-.29-2.49-.56-.94-1.51-1.58-2.57-1.72-.34-.78-.93-1.42-1.68-1.82-.77-.41-1.65-.51-2.49-.29C11.71 1.82 10.91 1.35 10.04 1.35s-1.67.47-2.09 1.23c-.84-.18-1.72-.08-2.49.29-.94.56-1.58 1.51-1.72 2.57-.78.34-1.42.93-1.82 1.68-.41.77-.51 1.65-.29 2.49C.87 10.08.4 10.88.4 11.75s.47 1.67 1.23 2.09c-.18.84-.08 1.72.29 2.49.56.94 1.51 1.58 2.57 1.72.34.78.93 1.42 1.68 1.82.77.41 1.65.51 2.49.29.42.76 1.22 1.23 2.09 1.23s1.67-.47 2.09-1.23c.84.18 1.72.08 2.49-.29.94-.56 1.58-1.51 1.72-2.57.78-.34 1.42-.93 1.82-1.68.41-.77.51-1.65.29-2.49.76-.42 1.23-1.22 1.23-2.09z" fill="#1D9BF0"/>
-                <path d="M9.64 14.83l-3.57-3.57 1.41-1.41 2.16 2.16 4.6-4.6 1.41 1.41-6.01 6.01z" fill="#fff"/>
-              </svg>
-            </a>
-          </div>
+          <a href="https://instagram.com/poiesis.id" target="_blank" rel="noopener" class="instagram-link">
+            <i class="pi pi-instagram instagram-icon"></i>
+            <span class="instagram-handle">@poiesis.id</span>
+          </a>
         </div>
 
         <div class="footer-col">
-          <h4>Office</h4>
-          <Divider class="footer-heading-divider" />
-          <p>Calamus C7-35 Citra Garden Bintaro<br>Ciputat, Banten, Tangerang Selatan 15413</p>
-          <p class="footer-contact-label">Have a project in mind?</p>
-          <p class="footer-hours">Mon – Fri: 09:00 – 18:00</p>
-          <a href="tel:+6281218321775">+62 812 1832 1775</a>
+          <h4 class="ps-label">Studio</h4>
+          <p>Calamus C7-35, Citra Garden Bintaro<br>Ciputat, Tangerang Selatan 15413<br>Banten, Indonesia</p>
+          <p class="footer-hours">Mon – Fri · 09.00 – 18.00 WIB</p>
+          <a class="footer-contact" href="tel:+6281218321775"><i class="pi pi-phone" aria-hidden="true"></i><span>+62 812 1832 1775</span></a>
+          <a class="footer-contact" href="mailto:mayang.poiesis@gmail.com"><i class="pi pi-envelope" aria-hidden="true"></i><span>mayang.poiesis@gmail.com</span></a>
         </div>
 
         <div class="footer-col">
-          <h4>Links</h4>
-          <Divider class="footer-heading-divider" />
+          <h4 class="ps-label">Navigate</h4>
           <ul>
             <li><router-link to="/">Home</router-link></li>
-            <li><router-link to="/about">About</router-link></li>
-            <li><router-link to="/projects">Projects</router-link></li>
-            <li><router-link to="/contact">Contact</router-link></li>
+            <li><router-link to="/projects">Work</router-link></li>
+            <li><router-link to="/about">Studio</router-link></li>
+            <li><router-link to="/contact">Enquire</router-link></li>
           </ul>
         </div>
 
         <div class="footer-col">
-          <h4>Services</h4>
-          <Divider class="footer-heading-divider" />
+          <h4 class="ps-label">Services</h4>
           <ul>
             <li>Architecture</li>
             <li>Interior Design</li>
@@ -58,148 +50,114 @@
       </div>
 
       <div class="footer-bottom">
-        <p>&copy; {{ new Date().getFullYear() }} Poiesis Studio. PT. Pencipta Organik Imaji. All rights reserved.</p>
+        <span>&copy; {{ year }} Poiesis Studio · PT. Pencipta Organik Imaji</span>
+        <span>Design Through Stories</span>
       </div>
     </div>
   </footer>
 </template>
 
 <script setup>
-import Divider from 'primevue/divider'
+import { ref } from 'vue'
+const year = ref(2026)
 </script>
 
 <style lang="scss" scoped>
-@import '../assets/scss/variables';
-
 .site-footer {
-  background-color: $color-darker;
-  color: rgba(255, 255, 255, 0.7);
+  background: var(--ground-alt);
+  color: var(--ink);
+  border-top: 1px solid var(--rule-soft);
   padding: 80px 0 0;
 }
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.5fr 1.2fr 0.8fr 1fr;
-  gap: 40px;
-  padding-bottom: 60px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  grid-template-columns: 1.6fr 1.2fr 0.8fr 1fr;
+  gap: 48px var(--gap-col);
+  padding-bottom: 56px;
+  border-bottom: 1px solid var(--rule-soft);
 }
 
-.footer-logo {
-  display: inline-block;
-  margin-bottom: 20px;
-}
-
-.footer-logo-icon {
-  height: 32px;
-  width: auto;
-}
-
-.footer-heading-divider {
-  margin: 0 0 16px 0;
-
-  :deep(&::before) {
-    border-color: rgba(255, 255, 255, 0.2) !important;
-  }
+/* `.footer-brand` prefix raises specificity above `.footer-col a { display:block }`
+   so the mark + wordmark sit on one row (not stacked). */
+.footer-brand .footer-logo { display: inline-flex; align-items: center; gap: 11px; margin-bottom: 24px; }
+.footer-mark { width: 26px; height: auto; }
+.footer-wordmark {
+  font: var(--weight-medium) 13px/1 var(--font-ui);
+  letter-spacing: var(--track-wordmark);
+  text-transform: uppercase;
+  color: var(--ink);
 }
 
 .footer-tagline {
-  font-size: 15px;
-  line-height: 1.8;
-  margin-bottom: 24px;
+  font: var(--weight-regular) 15px/1.7 var(--font-ui);
+  color: var(--ink-soft);
+  max-width: 42ch;
+  margin-bottom: 22px;
 }
 
-.footer-instagram {
-  .instagram-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    transition: opacity $transition-base;
-
-    &:hover {
-      opacity: 0.8;
-    }
-  }
-
-  .instagram-icon {
-    font-size: 20px;
-    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .instagram-handle {
-    font-size: 14px;
-    font-weight: 500;
-    color: $color-white;
-  }
-
-  .verified-badge {
-    flex-shrink: 0;
-  }
+.footer-brand .instagram-link {
+  display: inline-flex;
+  align-items: center;      /* vertically centre icon against the handle */
+  gap: 12px;                /* breathing space between icon and @poiesis.id */
+  transition: opacity var(--transition-hover);
+  &:hover { opacity: 0.75; }
 }
+.instagram-icon {
+  font-size: 18px;
+  line-height: 1;           /* keep the glyph box tight so centring is true */
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.instagram-handle { font: var(--weight-medium) 14px/1 var(--font-ui); color: var(--ink); }
 
 .footer-col {
-  h4 {
-    font-size: 18px;
-    font-weight: 600;
-    color: $color-white;
-    margin-bottom: 12px;
-  }
+  h4 { color: var(--pink-crimson); margin-bottom: 18px; }
 
-  p, a {
-    font-size: 15px;
-    line-height: 1.8;
-    display: block;
-  }
+  p, a { font: var(--weight-regular) 14.5px/1.75 var(--font-ui); color: var(--ink-soft); display: block; }
+  a { transition: color var(--transition-hover); }
+  a:hover { color: var(--pink-crimson); }
 
-  a:hover {
-    color: $color-accent;
-  }
-
-  ul li {
-    font-size: 15px;
-    line-height: 2.2;
-
-    a:hover {
-      color: $color-accent;
-    }
-  }
+  ul li { font: var(--weight-regular) 14.5px/1; margin-bottom: 12px; color: var(--ink-soft); }
+  ul li a { display: inline; }
 }
 
-.footer-contact-label {
-  font-size: 13px;
-  color: $color-accent;
-  margin-top: 20px;
-  margin-bottom: 4px;
+.footer-hours { margin-top: 16px; color: var(--ink-label) !important; }
+/* Contact rows: icon + text, vertically centred. `.footer-col a.footer-contact`
+   (0,2,1) beats `.footer-col a { display:block }` so the flex row survives. */
+.footer-col a.footer-contact {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 10px;
+  font-weight: 500;
+  color: var(--ink);
 }
-
-.footer-hours {
-  margin-top: 12px;
-  font-size: 14px;
-  color: rgba(255, 255, 255, 0.4);
-}
+.footer-col a.footer-contact .pi { font-size: 14px; line-height: 1; color: var(--ink-label); }
+.footer-col a.footer-contact:hover { color: var(--pink-crimson); }
+.footer-col a.footer-contact:hover .pi { color: var(--pink-crimson); }
 
 .footer-bottom {
   padding: 24px 0;
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
 
-  p {
-    font-size: 14px;
-    color: rgba(255, 255, 255, 0.4);
+  span {
+    font: var(--weight-medium) var(--t-label)/1 var(--font-ui);
+    letter-spacing: var(--track-caps);
+    text-transform: uppercase;
+    color: var(--ink-label);
   }
 }
 
-@media (max-width: 992px) {
-  .footer-grid {
-    grid-template-columns: 1fr 1fr;
-  }
+@media (max-width: 991px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
 }
-
 @media (max-width: 576px) {
-  .footer-grid {
-    grid-template-columns: 1fr;
-  }
+  .footer-grid { grid-template-columns: 1fr; }
 }
 </style>

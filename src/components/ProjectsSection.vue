@@ -1,17 +1,18 @@
 <template>
-  <section class="section projects-section" ref="sectionRef">
+  <section class="section projects-section" :class="{ 'is-all': !limit }" ref="sectionRef">
     <div class="container">
-      <div class="section-header">
-        <span class="section-subtitle">Portfolio</span>
-        <h2 class="section-title">Recent Projects</h2>
+      <div class="projects-head ps-reveal">
+        <p class="ps-label">Selected work</p>
+        <div class="projects-head-row">
+          <h2 class="ps-h1 projects-title">
+            {{ limit ? 'Every project begins as a conversation, not a plan.' : 'Built work and design studies across the city and beyond.' }}
+          </h2>
+          <router-link v-if="limit && showViewAll" to="/projects" class="cta projects-head-cta">All projects</router-link>
+        </div>
       </div>
 
-      <div class="project-filters">
-        <button
-          class="filter-btn"
-          :class="{ active: activeFilter === 'all' }"
-          @click="setFilter('all')"
-        >Show All</button>
+      <div class="project-filters" v-if="!limit">
+        <button class="filter-btn" :class="{ active: activeFilter === 'all' }" @click="setFilter('all')">All</button>
         <button
           v-for="cat in categories"
           :key="cat"
@@ -27,27 +28,17 @@
           :key="project.id"
           :to="`/project/${project.id}`"
           class="project-card fade-in"
-          :ref="el => { if (el) cardEls.push(el.$el || el) }"
         >
-          <div class="card-image">
+          <div class="card-media">
             <img :src="project.thumbnail" :alt="project.title" loading="lazy" />
           </div>
-          <div class="card-overlay">
-            <div class="card-info">
-              <span class="card-category">{{ project.category }}</span>
-              <h3 class="card-title">{{ project.title }}</h3>
-              <span class="card-year">{{ project.year }}</span>
+          <div class="card-row">
+            <div class="card-meta">
+              <span class="card-title">{{ project.title }}</span>
+              <span class="card-sub">{{ project.category }} · {{ project.year }}</span>
             </div>
-            <span class="card-arrow">
-              <i class="pi pi-arrow-up-right"></i>
-            </span>
+            <span class="cta card-cta">Discover</span>
           </div>
-        </router-link>
-      </div>
-
-      <div class="projects-cta" v-if="showViewAll">
-        <router-link to="/projects" class="btn-theme btn-theme--outline">
-          View All Projects <i class="pi pi-arrow-right"></i>
         </router-link>
       </div>
     </div>
@@ -59,15 +50,15 @@ import { ref, computed, onMounted, onUnmounted, nextTick } from 'vue'
 
 const props = defineProps({
   limit: { type: Number, default: 6 },
-  showViewAll: { type: Boolean, default: true }
+  showViewAll: { type: Boolean, default: true },
 })
 
 const allProjects = ref([])
 const activeFilter = ref('all')
-const categories = ['Architecture', 'Architecture & Interior', 'Interior']
 const sectionRef = ref(null)
-const cardEls = ref([])
 let observer = null
+
+const categories = computed(() => [...new Set(allProjects.value.map(p => p.category))])
 
 const filteredProjects = computed(() => {
   const list = activeFilter.value === 'all'
@@ -78,17 +69,14 @@ const filteredProjects = computed(() => {
 
 function setFilter(cat) {
   activeFilter.value = cat
-  nextTick(() => animateCards())
+  nextTick(animateCards)
 }
 
 function animateCards() {
-  cardEls.value = []
-  nextTick(() => {
-    const cards = document.querySelectorAll('.project-card')
-    cards.forEach((el, i) => {
-      el.classList.remove('visible')
-      setTimeout(() => el.classList.add('visible'), i * 80)
-    })
+  const cards = document.querySelectorAll('.projects-section .project-card')
+  cards.forEach((el, i) => {
+    el.classList.remove('visible')
+    setTimeout(() => el.classList.add('visible'), i * 60)
   })
 }
 
@@ -99,18 +87,17 @@ onMounted(async () => {
   } catch (e) {
     console.error('Failed to load projects:', e)
   }
-
-  observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          animateCards()
-          observer.disconnect()
-        }
-      })
-    },
-    { threshold: 0.1 }
-  )
+  await nextTick()
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  if (reduce || !('IntersectionObserver' in window)) {
+    document.querySelectorAll('.projects-section .project-card').forEach(el => el.classList.add('visible'))
+    return
+  }
+  observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) { animateCards(); observer.disconnect() }
+    })
+  }, { threshold: 0.08 })
   if (sectionRef.value) observer.observe(sectionRef.value)
 })
 
@@ -118,150 +105,81 @@ onUnmounted(() => observer?.disconnect())
 </script>
 
 <style lang="scss" scoped>
-@import '../assets/scss/variables';
+.projects-head { margin-bottom: 48px; }
+.projects-head-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 16px;
+}
+.projects-title { max-width: var(--measure-headline); }
+.projects-head-cta { flex-shrink: 0; padding-bottom: 6px; }
 
+/* --- Filters --- */
 .project-filters {
   display: flex;
-  gap: 12px;
-  margin-bottom: 40px;
+  gap: 10px;
   flex-wrap: wrap;
+  margin-bottom: 40px;
 }
-
 .filter-btn {
   background: none;
-  border: 1px solid $color-border;
-  padding: 10px 24px;
-  font-family: inherit;
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: 0.5px;
-  color: $color-gray;
+  border: var(--border-hairline);
+  padding: 10px 20px;
+  font: var(--weight-medium) 11px/1 var(--font-ui);
+  letter-spacing: var(--track-caps);
+  text-transform: uppercase;
+  color: var(--ink-label);
   cursor: pointer;
-  border-radius: 50px;
-  transition: all $transition-base;
+  transition: all var(--transition-hover);
 
-  &:hover,
-  &.active {
-    background-color: $color-dark;
-    color: $color-white;
-    border-color: $color-dark;
+  &:hover, &.active {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: var(--nat-cream);
   }
 }
 
+/* --- Grid --- */
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-
-  @media (max-width: 992px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @media (max-width: 576px) {
-    grid-template-columns: 1fr;
-  }
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: var(--gap-col);
+  row-gap: var(--gap-row);
 }
+.projects-section.is-all .project-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  row-gap: 56px;
+
+  @media (max-width: 991px) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) { .project-grid { grid-template-columns: 1fr; } }
 
 .project-card {
-  position: relative;
+  display: block;
+  color: inherit;
+  opacity: 0;
+  transform: translateY(var(--reveal-shift));
+  transition: opacity var(--dur-slow) var(--ease), transform var(--dur-slow) var(--ease);
+  &.visible { opacity: 1; transform: none; }
+}
+.card-media {
+  aspect-ratio: 3 / 4;
   overflow: hidden;
-  display: block;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-
-  &.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .card-image {
-    aspect-ratio: 1 / 1;
-    overflow: hidden;
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease;
-    }
-  }
-
-  &:hover .card-image img {
-    transform: scale(1.05);
-  }
+  background: var(--ground-alt);
+  img { width: 100%; height: 100%; object-fit: cover; transition: opacity var(--transition-hover), transform var(--dur-slow) var(--ease); }
 }
+.project-card:hover .card-media img { opacity: 0.9; transform: scale(1.03); }
 
-.card-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(23, 23, 23, 0.87);
+.card-row {
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 30px;
-  opacity: 0;
-  transition: opacity $transition-base;
-
-  .project-card:hover & {
-    opacity: 1;
-  }
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-top: 14px;
 }
-
-.card-info {
-  transform: translateY(20px);
-  transition: transform $transition-slow;
-
-  .project-card:hover & {
-    transform: translateY(0);
-  }
-}
-
-.card-category {
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: $color-accent;
-  display: block;
-  margin-bottom: 8px;
-}
-
-.card-title {
-  font-size: 22px;
-  font-weight: 600;
-  color: $color-white;
-  margin-bottom: 4px;
-}
-
-.card-year {
-  font-size: 14px;
-  color: rgba(255, 255, 255, 0.5);
-}
-
-.card-arrow {
-  position: absolute;
-  top: 24px;
-  right: 24px;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: $color-white;
-  opacity: 0;
-  transform: translateY(10px);
-  transition: all $transition-slow;
-
-  .project-card:hover & {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.projects-cta {
-  text-align: center;
-  margin-top: 60px;
-}
+.card-title { display: block; font: var(--weight-medium) var(--t-lead)/1.25 var(--font-ui); }
+.card-sub { display: block; font: var(--weight-regular) var(--t-small)/1.5 var(--font-ui); color: var(--ink-label); margin-top: 3px; }
+.project-card:hover .card-cta { font-weight: 700; }
 </style>

@@ -1,31 +1,31 @@
 <template>
   <header class="site-header" :class="{ scrolled: isScrolled, 'menu-open': menuOpen }">
-    <div class="container header-inner">
-      <router-link to="/" class="logo">
-        <img src="/images/brand/poiesis-logo.png" alt="Poiesis Studio" class="logo-img" />
+    <div class="navbar">
+      <router-link to="/" class="brand" @click="closeMenu" aria-label="Poiesis Studio, home">
+        <img src="/images/brand/poiesis-mark-color.svg" alt="" class="brand-mark" />
+        <span class="brand-rule" aria-hidden="true"></span>
+        <span class="brand-text">
+          <span class="brand-name">Poiesis Studio</span>
+          <span class="brand-desc">Architecture &amp; Interior Design</span>
+        </span>
       </router-link>
 
-      <nav class="main-nav" :class="{ open: menuOpen }">
+      <nav class="main-nav" :class="{ open: menuOpen }" aria-label="Main">
         <ul class="nav-links">
           <li><router-link to="/" @click="closeMenu">Home</router-link></li>
-          <li><router-link to="/about" @click="closeMenu">About</router-link></li>
-          <li><router-link to="/projects" @click="closeMenu">Projects</router-link></li>
-          <li><router-link to="/contact" @click="closeMenu">Contact</router-link></li>
+          <li><router-link to="/projects" @click="closeMenu">Work</router-link></li>
+          <li><router-link to="/about" @click="closeMenu">Studio</router-link></li>
+          <li><router-link to="/contact" class="nav-enquire" @click="closeMenu">Enquire</router-link></li>
         </ul>
         <div class="nav-footer-mobile">
           <p>+62 812 1832 1775</p>
+          <p>@poiesis.id</p>
         </div>
       </nav>
 
-      <div class="header-right">
-        <a href="tel:+6281218321775" class="header-phone">+62 812 1832 1775</a>
-        <router-link to="/contact" class="btn-theme btn-theme--sm">Contact Us</router-link>
-        <button class="menu-toggle" :class="{ open: menuOpen }" @click="toggleMenu" aria-label="Toggle menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </div>
+      <button class="menu-toggle" :class="{ open: menuOpen }" @click="toggleMenu" aria-label="Toggle menu" aria-expanded="menuOpen">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </header>
 </template>
@@ -36,141 +36,105 @@ import { ref, onMounted, onUnmounted } from 'vue'
 const isScrolled = ref(false)
 const menuOpen = ref(false)
 
-function handleScroll() {
-  isScrolled.value = window.scrollY > 50
-}
-
+function handleScroll() { isScrolled.value = window.scrollY > 8 }
 function toggleMenu() {
   menuOpen.value = !menuOpen.value
   document.body.style.overflow = menuOpen.value ? 'hidden' : ''
 }
-
 function closeMenu() {
   menuOpen.value = false
   document.body.style.overflow = ''
 }
 
-onMounted(() => window.addEventListener('scroll', handleScroll))
+onMounted(() => window.addEventListener('scroll', handleScroll, { passive: true }))
 onUnmounted(() => window.removeEventListener('scroll', handleScroll))
 </script>
 
 <style lang="scss" scoped>
-@import '../assets/scss/variables';
-
 .site-header {
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  height: $header-height;
-  background-color: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(4px);
-  transition: all $transition-base;
+  z-index: 50;
+  background: var(--ground);
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--transition-hover), box-shadow var(--transition-hover);
 
   &.scrolled {
-    background-color: $color-white;
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+    border-bottom-color: var(--rule-soft);
+    box-shadow: 0 1px 20px rgba(44, 44, 44, 0.04);
   }
 }
 
-.header-inner {
+.navbar {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 26px var(--gutter);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 100%;
+  gap: 20px;
 }
 
-.logo {
+/* --- Brand lockup --- */
+.brand {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
+  color: var(--ink);
   z-index: 1001;
-  transition: color $transition-base;
+}
+.brand-mark { width: 30px; height: auto; }
+.brand-rule { width: 1px; height: 24px; background: var(--rule); margin: 0 6px; }
+.brand-name {
+  display: block;
+  font: var(--weight-medium) 13px/1.2 var(--font-ui);
+  letter-spacing: var(--track-wordmark);
+  text-transform: uppercase;
+}
+.brand-desc {
+  display: block;
+  font: var(--weight-regular) 11px/1.28 var(--font-ui);
+  color: var(--ink-label);
+  margin-top: 3px;
 }
 
-.logo-img {
-  height: 36px;
-  width: auto;
-}
-
-.main-nav {
-  .nav-links {
-    display: flex;
-    gap: 40px;
-
-    a {
-      font-size: 15px;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: rgba(255, 255, 255, 0.8);
-      position: relative;
-      padding: 4px 0;
-      transition: color $transition-base;
-
-      &::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 0;
-        height: 2px;
-        background-color: $color-accent;
-        transition: width $transition-slow;
-      }
-
-      &:hover,
-      &.router-link-exact-active {
-        color: $color-white;
-
-        &::after {
-          width: 100%;
-        }
-      }
-
-      .scrolled & {
-        color: $color-gray;
-
-        &:hover,
-        &.router-link-exact-active {
-          color: $color-dark;
-        }
-      }
-    }
-  }
-
-  .nav-footer-mobile {
-    display: none;
-  }
-}
-
-.header-right {
+/* --- Nav --- */
+.nav-links {
   display: flex;
   align-items: center;
-  gap: 24px;
-  z-index: 1001;
+  gap: 30px;
 }
+.nav-links a {
+  font: var(--weight-medium) 11.5px/1 var(--font-ui);
+  letter-spacing: var(--track-caps);
+  text-transform: uppercase;
+  color: var(--ink);
+  transition: font-weight var(--transition-hover), color var(--transition-hover);
 
-.header-phone {
-  font-size: 14px;
-  color: rgba(255, 255, 255, 0.7);
-  transition: color $transition-base;
-
-  .scrolled & {
-    color: $color-gray;
+  &:hover { font-weight: 700; }
+  &.router-link-exact-active:not(.nav-enquire) {
+    color: var(--pink-crimson);
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 3px;
   }
-
-  &:hover {
-    color: $color-accent;
-  }
 }
-
-.btn-theme--sm {
-  padding: 12px 24px;
-  font-size: 12px;
+.nav-enquire {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 13px 22px;
+  background: var(--neutral-white);   /* plain white box */
+  color: var(--ink);                  /* dark, legible label */
+  border: 1px solid var(--ink);       /* thin black line */
+  transition: background var(--transition-hover);
 }
+/* Higher specificity than `.nav-links a:hover` so only the background shifts to
+   light grey on hover — the label keeps its weight (no width jump). */
+.nav-links a.nav-enquire:hover { background: var(--accent-quiet); font-weight: var(--weight-medium); }
+.nav-links a.nav-enquire.router-link-exact-active { color: var(--ink); }
+.nav-footer-mobile { display: none; }
 
+/* --- Mobile toggle --- */
 .menu-toggle {
   display: none;
   flex-direction: column;
@@ -181,90 +145,55 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
   padding: 8px;
   z-index: 1001;
 
-  span {
-    display: block;
-    width: 28px;
-    height: 2px;
-    background-color: $color-white;
-    transition: all $transition-base;
-
-    .scrolled & {
-      background-color: $color-dark;
-    }
-
-    .menu-open & {
-      background-color: $color-white;
-    }
-  }
-
-  &.open span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 6px);
-  }
-  &.open span:nth-child(2) {
-    opacity: 0;
-  }
-  &.open span:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -6px);
-  }
+  span { display: block; width: 26px; height: 2px; background: var(--ink); transition: all var(--transition-hover); }
+  &.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
+  &.open span:nth-child(2) { opacity: 0; }
+  &.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
 }
 
-@media (max-width: 992px) {
-  .header-phone {
-    display: none;
-  }
-
-  .btn-theme--sm {
-    display: none;
-  }
-
-  .menu-toggle {
-    display: flex;
-  }
+@media (max-width: 991px) {
+  .brand-desc { display: none; }
+  .menu-toggle { display: flex; }
 
   .main-nav {
     position: fixed;
-    top: 0;
-    right: -100%;
-    width: 320px;
+    inset: 0 -100% 0 auto;
+    width: min(80vw, 340px);
     height: 100vh;
-    background-color: $color-darker;
-    padding: 120px 40px 40px;
-    transition: right $transition-slow;
+    background: var(--ground-raised);
+    padding: 110px 40px 40px;
+    transition: right var(--dur-slow) var(--ease);
     z-index: 1000;
+    display: flex;
+    flex-direction: column;
 
-    &.open {
-      right: 0;
-    }
+    &.open { right: 0; }
 
     .nav-links {
       flex-direction: column;
+      align-items: flex-start;
       gap: 0;
 
+      li { width: 100%; }
       a {
-        color: rgba(255, 255, 255, 0.7);
-        font-size: 20px;
-        padding: 16px 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-
-        &:hover,
-        &.router-link-exact-active {
-          color: $color-white;
-        }
-
-        &::after {
-          display: none;
-        }
+        display: block;
+        width: 100%;
+        font-size: 15px;
+        padding: 18px 0;
+        border-bottom: var(--border-soft);
+        &:hover { font-weight: 700; }
+      }
+      .nav-enquire {
+        margin-top: 24px;
+        justify-content: center;
+        border: 1px solid var(--accent-solid);
       }
     }
 
     .nav-footer-mobile {
       display: block;
-      margin-top: 40px;
-      p {
-        color: rgba(255, 255, 255, 0.5);
-        font-size: 14px;
-        margin-bottom: 8px;
-      }
+      margin-top: auto;
+      p { font: var(--weight-regular) 13px/1.8 var(--font-ui); color: var(--ink-label); }
     }
   }
 }

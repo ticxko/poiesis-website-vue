@@ -1,40 +1,16 @@
 <template>
-  <section class="section section--gray services-section" ref="sectionRef">
+  <section class="section section--white services-section" id="services">
     <div class="container">
-      <div class="services-header">
-        <div>
-          <span class="section-subtitle">What We Do</span>
-          <h2 class="section-title">Our Services</h2>
-        </div>
-        <p class="section-desc">
-          We offer comprehensive architectural and interior design services,
-          from initial concept through to construction management.
-        </p>
+      <div class="services-head ps-reveal">
+        <p class="ps-label">What we do</p>
+        <h2 class="ps-h1 services-title">Eight disciplines, one continuous conversation.</h2>
       </div>
 
       <div class="services-grid">
-        <div
-          class="service-card fade-in"
-          v-for="(service, index) in services"
-          :key="service.title"
-          :ref="el => { if (el) cardRefs[index] = el }"
-        >
-          <span class="service-num">{{ String(index + 1).padStart(2, '0') }}</span>
-          <div class="service-icon">
-            <i :class="service.icon"></i>
-          </div>
-          <h3 class="service-title">{{ service.title }}</h3>
-          <p class="service-desc">{{ service.desc }}</p>
-        </div>
-      </div>
-
-      <div class="services-features">
-        <div class="feature-item" v-for="feature in features" :key="feature.title">
-          <span class="feature-icon">*</span>
-          <div>
-            <h4>{{ feature.title }}</h4>
-            <p>{{ feature.desc }}</p>
-          </div>
+        <div class="service ps-reveal" v-for="(s, i) in services" :key="s.title">
+          <span class="service-num">{{ String(i + 1).padStart(2, '0') }}</span>
+          <h3 class="service-title">{{ s.title }}</h3>
+          <p class="service-desc ps-body">{{ s.desc }}</p>
         </div>
       </div>
     </div>
@@ -42,169 +18,39 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
-
 const services = [
-  { title: 'Architecture', icon: 'pi pi-building', desc: 'Complete architectural design from concept to construction documentation for residential and commercial projects.' },
-  { title: 'Interior Design', icon: 'pi pi-home', desc: 'Thoughtful interior spaces that reflect your story, personality, and lifestyle through materials and spatial planning.' },
-  { title: 'Master Planning', icon: 'pi pi-map', desc: 'Strategic site planning that considers context, environment, and community to create cohesive developments.' },
-  { title: 'Landscape', icon: 'pi pi-sun', desc: 'Outdoor spaces designed to complement architecture and create a seamless connection between built and natural environments.' },
-  { title: 'Renovation', icon: 'pi pi-wrench', desc: 'Transforming existing spaces with sensitivity to their history while meeting contemporary needs and standards.' },
-  { title: 'Construction Management', icon: 'pi pi-cog', desc: 'End-to-end project oversight ensuring quality craftsmanship, timeline adherence, and budget management.' },
+  { title: 'Architecture', desc: 'Complete architectural design, from concept and narrative to construction documentation.' },
+  { title: 'Interior Design', desc: 'Interiors that carry the story through material, light and spatial planning.' },
+  { title: 'Master Planning', desc: 'Site and community planning that reads context, environment and connection.' },
+  { title: 'Landscape', desc: 'Gardens and outdoor rooms that tie the built and the natural together.' },
+  { title: 'Furniture', desc: 'Bespoke, buildable pieces detailed for the hand and the room they belong to.' },
+  { title: 'Permit Document', desc: 'IMB and regulatory drawing sets prepared to see a project through approval.' },
+  { title: 'Renovation', desc: 'Adaptive, resourceful reworking of existing spaces for how life is lived now.' },
+  { title: 'Construction Management', desc: 'On-site oversight of craft, timeline and budget, from excavation to handover.' },
 ]
-
-const features = [
-  { title: 'Story-Led Design', desc: 'Every project begins with a narrative' },
-  { title: 'Sustainable Connection', desc: 'Bringing people together with nature' },
-  { title: 'Experienced Team', desc: 'Dedicated architects and designers' },
-  { title: 'Craft & Making', desc: 'Honest materials, beautiful details' },
-  { title: 'Client Focused', desc: 'Your vision is our priority' },
-  { title: 'Quality Craftsmanship', desc: 'Thoughtfully built environments' },
-]
-
-const sectionRef = ref(null)
-const cardRefs = ref([])
-let observer = null
-
-onMounted(() => {
-  observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          cardRefs.value.forEach((el, i) => {
-            if (el) setTimeout(() => el.classList.add('visible'), i * 100)
-          })
-          observer.disconnect()
-        }
-      })
-    },
-    { threshold: 0.15 }
-  )
-  if (sectionRef.value) observer.observe(sectionRef.value)
-})
-
-onUnmounted(() => observer?.disconnect())
 </script>
 
 <style lang="scss" scoped>
-@import '../assets/scss/variables';
-
-.services-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  margin-bottom: 60px;
-  gap: 40px;
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-}
+.services-head { margin-bottom: 56px; }
+.services-title { margin-top: 14px; max-width: var(--measure-headline); }
 
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-  margin-bottom: 80px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 40px var(--gap-col);
 
-  @media (max-width: 992px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @media (max-width: 576px) {
-    grid-template-columns: 1fr;
-  }
+  @media (max-width: 991px) { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px 28px; }
+  @media (max-width: 520px) { grid-template-columns: 1fr; }
 }
 
-.service-card {
-  background: $color-white;
-  padding: 40px 30px;
-  border-left: 3px solid $color-border;
-  transition: all $transition-base;
-  position: relative;
-
-  &:hover {
-    border-left-color: $color-accent;
-    box-shadow: $shadow-card;
-    transform: translateY(-4px);
-  }
-}
-
-.service-num {
-  font-size: 48px;
-  font-weight: 700;
-  color: rgba(0, 0, 0, 0.06);
-  position: absolute;
-  top: 16px;
-  right: 20px;
-  line-height: 1;
-}
-
-.service-icon {
-  width: 56px;
-  height: 56px;
+.service {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: $color-gray-light;
-  border-radius: 50%;
-  margin-bottom: 20px;
-
-  i {
-    font-size: 22px;
-    color: $color-dark;
-  }
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 22px;
+  border-top: var(--border-hairline);
 }
-
-.service-title {
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 12px;
-}
-
-.service-desc {
-  font-size: 14px;
-  color: $color-gray;
-  line-height: 1.7;
-}
-
-.services-features {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-
-  @media (max-width: 768px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @media (max-width: 576px) {
-    grid-template-columns: 1fr;
-  }
-}
-
-.feature-item {
-  display: flex;
-  gap: 16px;
-  align-items: flex-start;
-
-  .feature-icon {
-    font-size: 24px;
-    color: $color-accent;
-    font-weight: 700;
-    line-height: 1;
-    flex-shrink: 0;
-  }
-
-  h4 {
-    font-size: 16px;
-    font-weight: 600;
-    margin-bottom: 4px;
-  }
-
-  p {
-    font-size: 14px;
-    color: $color-gray;
-  }
-}
+.service-num { font: var(--weight-regular) 12px/1 var(--font-mono); color: var(--pink-crimson); }
+.service-title { font: var(--weight-medium) var(--t-lead)/1.25 var(--font-ui); text-transform: none; letter-spacing: 0; }
+.service-desc { font-size: 14.5px; }
 </style>

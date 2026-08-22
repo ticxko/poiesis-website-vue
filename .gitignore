@@ -12,6 +12,10 @@ dist
 dist-ssr
 *.local
 
+# Working backups (timestamped snapshots kept locally, not versioned)
+*.bak
+*.bak-*
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

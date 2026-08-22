@@ -1,37 +1,33 @@
 <template>
   <section class="hero">
-    <!-- Slideshow backgrounds -->
-    <div class="hero-slideshow">
+    <div class="hero-slideshow" aria-hidden="true">
       <div
         class="hero-slide"
         v-for="(slide, index) in slides"
         :key="index"
-        :class="{ active: currentSlide === index, prev: prevSlide === index }"
+        :class="{ active: currentSlide === index }"
       >
         <img :src="slide.image" :alt="slide.alt" />
       </div>
-      <div class="hero-overlay"></div>
+      <span class="hero-tri"></span>
+      <span class="hero-scrim"></span>
     </div>
 
-    <!-- Content -->
     <div class="container hero-content">
-      <p class="hero-subtitle fade-up" ref="subtitle">Architecture & Interior Design</p>
-      <h1 class="hero-title fade-up" ref="title">
-        We Create Spaces<br>
-        That Tell <span class="text-accent">Stories</span>
-      </h1>
-      <p class="hero-desc fade-up" ref="desc">
-        A Jakarta-based architecture and interior design consultancy focused on
-        narrative-driven placemaking. We believe that before any spatial program is designed,
-        a foundational story must be established.
-      </p>
-      <div class="hero-actions fade-up" ref="actions">
-        <router-link to="/projects" class="btn-theme btn-theme--white">View Projects</router-link>
-        <router-link to="/contact" class="btn-theme btn-theme--outline hero-btn-outline">Get In Touch</router-link>
+      <div class="hero-lead">
+        <p class="ps-label hero-eyebrow fade-up" ref="eyebrow">Jakarta, Indonesia</p>
+        <h1 class="ps-display hero-title fade-up" ref="title">Spaces with soul.</h1>
+        <p class="hero-origin fade-up" ref="origin">
+          <span class="greek" lang="grc">ποίησις</span>
+          <span class="gloss">the art of bringing a story into being</span>
+        </p>
+      </div>
+      <div class="hero-meta fade-up" ref="meta">
+        <p class="ps-label">Narrative-driven placemaking</p>
+        <p class="ps-label hero-meta-dim">Est. PT. Pencipta Organik Imaji</p>
       </div>
     </div>
 
-    <!-- Slide indicators -->
     <div class="hero-indicators">
       <button
         v-for="(slide, index) in slides"
@@ -40,21 +36,7 @@
         :class="{ active: currentSlide === index }"
         @click="goToSlide(index)"
         :aria-label="`Go to slide ${index + 1}`"
-      >
-        <span class="indicator-fill"></span>
-      </button>
-    </div>
-
-    <!-- Slide counter -->
-    <div class="hero-counter">
-      <span class="counter-current">{{ String(currentSlide + 1).padStart(2, '0') }}</span>
-      <span class="counter-sep">/</span>
-      <span class="counter-total">{{ String(slides.length).padStart(2, '0') }}</span>
-    </div>
-
-    <div class="hero-scroll">
-      <span>Scroll</span>
-      <div class="scroll-line"></div>
+      ><span class="indicator-fill"></span></button>
     </div>
   </section>
 </template>
@@ -63,288 +45,152 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 
 const slides = [
-  { image: '/images/hero/wanggamet.jpg', alt: 'Wanggamet Kitchen — Poiesis Studio' },
   { image: '/images/hero/edge.jpg', alt: 'Edge House — Poiesis Studio' },
-  { image: '/images/hero/mampang.jpeg', alt: 'Mampang — Poiesis Studio' },
-  { image: '/images/hero/cempaka.jpg', alt: 'Rumah Cempaka — Poiesis Studio' },
-  { image: '/images/hero/intro.jpg', alt: 'Poiesis Studio' },
   { image: '/images/hero/spanish.jpg', alt: 'Spanish Villa — Poiesis Studio' },
+  { image: '/images/hero/cempaka.jpg', alt: 'Rumah Cempaka — Poiesis Studio' },
+  { image: '/images/hero/mampang.jpeg', alt: '485 — Poiesis Studio' },
+  { image: '/images/hero/wanggamet.jpg', alt: 'Wanggamet — Poiesis Studio' },
 ]
 
 const currentSlide = ref(0)
-const prevSlide = ref(-1)
 let slideInterval = null
 
-const subtitle = ref(null)
+const eyebrow = ref(null)
 const title = ref(null)
-const desc = ref(null)
-const actions = ref(null)
+const origin = ref(null)
+const meta = ref(null)
 
 function goToSlide(index) {
   if (index === currentSlide.value) return
-  prevSlide.value = currentSlide.value
   currentSlide.value = index
   resetInterval()
 }
-
-function nextSlide() {
-  prevSlide.value = currentSlide.value
-  currentSlide.value = (currentSlide.value + 1) % slides.length
-}
-
-function resetInterval() {
-  clearInterval(slideInterval)
-  slideInterval = setInterval(nextSlide, 5000)
-}
+function nextSlide() { currentSlide.value = (currentSlide.value + 1) % slides.length }
+function resetInterval() { clearInterval(slideInterval); slideInterval = setInterval(nextSlide, 6000) }
 
 onMounted(() => {
-  // Animate text in
-  const els = [subtitle.value, title.value, desc.value, actions.value]
-  els.forEach((el, i) => {
-    if (el) setTimeout(() => el.classList.add('visible'), 300 + i * 200)
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  ;[eyebrow.value, title.value, origin.value, meta.value].forEach((el, i) => {
+    if (el) setTimeout(() => el.classList.add('visible'), reduce ? 0 : 200 + i * 160)
   })
-
-  // Start slideshow
-  slideInterval = setInterval(nextSlide, 5000)
+  if (!reduce) slideInterval = setInterval(nextSlide, 6000)
 })
-
 onUnmounted(() => clearInterval(slideInterval))
 </script>
 
 <style lang="scss" scoped>
-@import '../assets/scss/variables';
-
 .hero {
   position: relative;
-  height: 100vh;
-  min-height: 700px;
+  min-height: 88vh;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   overflow: hidden;
+  background: var(--stripe-dark);
 }
 
-/* --- Slideshow --- */
-.hero-slideshow {
-  position: absolute;
-  inset: 0;
-}
-
+.hero-slideshow { position: absolute; inset: 0; z-index: 0; }
 .hero-slide {
   position: absolute;
   inset: 0;
   opacity: 0;
-  transition: opacity 1.2s ease;
-  z-index: 0;
+  transition: opacity 1.4s var(--ease);
 
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transform: scale(1);
-    transition: transform 6s ease;
-  }
-
-  &.active {
-    opacity: 1;
-    z-index: 1;
-
-    img {
-      transform: scale(1.05);
-    }
-  }
-
-  &.prev {
-    opacity: 0;
-    z-index: 0;
-  }
+  img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.02); transition: transform 7s ease; }
+  &.active { opacity: 1; img { transform: scale(1.09); } }
 }
-
-.hero-overlay {
+.hero-tri {
   position: absolute;
-  inset: 0;
+  top: 0; right: 0;
+  width: 34vw; height: 34vw;
+  background: var(--pink-studio);
+  opacity: 0.16;
+  clip-path: var(--tri-tr);
   z-index: 2;
-  background: linear-gradient(
-    to bottom,
-    rgba(23, 23, 23, 0.55) 0%,
-    rgba(23, 23, 23, 0.7) 100%
-  );
 }
+.hero-scrim { position: absolute; inset: 0; z-index: 2; background: var(--scrim); }
 
-/* --- Content --- */
 .hero-content {
   position: relative;
   z-index: 3;
-  max-width: 800px;
-}
-
-.hero-subtitle {
-  font-size: 14px;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  color: $color-accent;
-  margin-bottom: 24px;
-}
-
-.hero-title {
-  font-size: 62px;
-  font-weight: 700;
-  color: $color-white;
-  line-height: 1.1;
-  letter-spacing: -1px;
-  margin-bottom: 24px;
-
-  @media (max-width: 768px) {
-    font-size: 36px;
-  }
-}
-
-.hero-desc {
-  font-size: 17px;
-  color: rgba(255, 255, 255, 0.7);
-  line-height: 1.8;
-  max-width: 560px;
-  margin-bottom: 40px;
-}
-
-.hero-actions {
+  width: 100%;
+  padding-bottom: 52px;
   display: flex;
-  gap: 16px;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
   flex-wrap: wrap;
 }
+.hero-eyebrow { color: rgba(255, 255, 255, 0.78); }
+.hero-title { color: #fff; margin-top: 10px; }
 
-.hero-btn-outline {
-  color: $color-white;
-  border-color: rgba(255, 255, 255, 0.4);
-
-  &:hover {
-    background-color: $color-white;
-    color: $color-dark;
-    border-color: $color-white;
-  }
+/* ποίησις — the brand's intellectual signature, in the editorial serif */
+.hero-origin {
+  margin-top: 20px;
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-family: var(--font-editorial);
+}
+.hero-origin .greek {
+  font-style: italic;
+  font-weight: var(--weight-regular);
+  font-size: clamp(24px, 3.4vw, 40px);
+  line-height: 1;
+  letter-spacing: .01em;
+  color: #fff;
+}
+.hero-origin .gloss {
+  position: relative;
+  padding-left: 20px;
+  font-style: italic;
+  font-size: clamp(15px, 1.7vw, 20px);
+  line-height: 1.3;
+  color: rgba(255, 255, 255, 0.74);
+}
+.hero-origin .gloss::before {
+  content: "";
+  position: absolute; left: 0; top: 0.7em;
+  width: 12px; height: 1px;
+  background: var(--pink-soft);
 }
 
-/* --- Slide Indicators --- */
+.hero-meta { text-align: right; }
+.hero-meta .ps-label { color: rgba(255, 255, 255, 0.78); }
+.hero-meta-dim { color: rgba(255, 255, 255, 0.5) !important; margin-top: 4px; }
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(var(--reveal-shift));
+  transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+  &.visible { opacity: 1; transform: none; }
+}
+
 .hero-indicators {
   position: absolute;
-  bottom: 40px;
   left: 50%;
+  bottom: 22px;
   transform: translateX(-50%);
   display: flex;
   gap: 8px;
   z-index: 4;
 }
-
 .indicator {
-  width: 40px;
-  height: 3px;
-  background: rgba(255, 255, 255, 0.25);
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-  transition: background $transition-base;
-
-  &:hover {
-    background: rgba(255, 255, 255, 0.4);
-  }
-
-  .indicator-fill {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 0;
-    background: $color-white;
-  }
-
-  &.active .indicator-fill {
-    animation: indicatorProgress 5s linear forwards;
-  }
+  width: 34px; height: 2px;
+  background: rgba(255, 255, 255, 0.28);
+  border: none; padding: 0; cursor: pointer;
+  position: relative; overflow: hidden;
+  transition: background var(--transition-hover);
+  &:hover { background: rgba(255, 255, 255, 0.5); }
+  .indicator-fill { position: absolute; inset: 0 auto 0 0; width: 0; background: #fff; }
+  &.active .indicator-fill { animation: indicatorProgress 6s linear forwards; }
+}
+@keyframes indicatorProgress { from { width: 0; } to { width: 100%; } }
+@media (prefers-reduced-motion: reduce) {
+  .indicator.active .indicator-fill { animation: none; width: 100%; }
 }
 
-@keyframes indicatorProgress {
-  from { width: 0; }
-  to { width: 100%; }
-}
-
-/* --- Slide Counter --- */
-.hero-counter {
-  position: absolute;
-  right: 40px;
-  bottom: 40px;
-  z-index: 4;
-  display: flex;
-  align-items: baseline;
-  gap: 4px;
-
-  @media (max-width: 768px) {
-    display: none;
-  }
-}
-
-.counter-current {
-  font-size: 28px;
-  font-weight: 700;
-  color: $color-white;
-}
-
-.counter-sep {
-  font-size: 16px;
-  color: rgba(255, 255, 255, 0.4);
-  margin: 0 2px;
-}
-
-.counter-total {
-  font-size: 16px;
-  color: rgba(255, 255, 255, 0.4);
-}
-
-/* --- Scroll --- */
-.hero-scroll {
-  position: absolute;
-  bottom: 40px;
-  left: 40px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  z-index: 4;
-
-  @media (max-width: 768px) {
-    display: none;
-  }
-
-  span {
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: rgba(255, 255, 255, 0.5);
-  }
-
-  .scroll-line {
-    width: 1px;
-    height: 40px;
-    background: linear-gradient(to bottom, rgba(255,255,255,0.5), transparent);
-    animation: scrollPulse 2s infinite;
-  }
-}
-
-@keyframes scrollPulse {
-  0%, 100% { opacity: 0.3; }
-  50% { opacity: 1; }
-}
-
-/* --- Fade animations --- */
-.fade-up {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-
-  &.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
+@media (max-width: 640px) {
+  .hero-meta { text-align: left; }
 }
 </style>

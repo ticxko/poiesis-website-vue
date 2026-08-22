@@ -1,75 +1,51 @@
 <template>
-  <section class="cta-section">
-    <div class="cta-bg">
-      <img src="/images/05-cempaka/cempaka-001.jpg" alt="Start your project" />
-      <div class="cta-overlay"></div>
+  <section class="cta-band" id="contact-cta">
+    <div class="cta-bg" aria-hidden="true">
+      <img src="/images/hero/cempaka.jpg" alt="" />
+      <span class="cta-scrim"></span>
+      <span class="cta-tri"></span>
     </div>
-    <div class="container cta-content">
-      <span class="section-subtitle">Start a Project</span>
-      <h2>Have a Vision?<br>Let's Build It Together.</h2>
-      <p>Before we sketch a single line, we want to hear your story.</p>
-      <router-link to="/contact" class="btn-theme btn-theme--white">
-        Get In Touch <i class="pi pi-arrow-right"></i>
-      </router-link>
+    <div class="container cta-content ps-reveal">
+      <p class="ps-label cta-label">Contact</p>
+      <h2 class="ps-h2 cta-head">A project?<br>Let's begin with the story.</h2>
+      <p class="cta-sub">Before we sketch a single line, we want to hear yours. We reply within two working days.</p>
+      <router-link to="/contact" class="btn cta-btn">Start an enquiry</router-link>
     </div>
   </section>
 </template>
 
+<script setup></script>
+
 <style lang="scss" scoped>
-@import '../assets/scss/variables';
-
-.cta-section {
+.cta-band {
   position: relative;
-  padding: $section-padding 0;
-  text-align: center;
+  padding: 120px 0;
   overflow: hidden;
+  text-align: center;
 
-  @media (max-width: 768px) {
-    padding: $section-padding-sm 0;
-  }
+  @media (max-width: 768px) { padding: 80px 0; }
 }
-
-.cta-bg {
+.cta-bg { position: absolute; inset: 0; z-index: 0; }
+.cta-bg img { width: 100%; height: 100%; object-fit: cover; }
+.cta-scrim { position: absolute; inset: 0; background: var(--scrim-flat); }
+.cta-tri {
   position: absolute;
-  inset: 0;
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+  top: 0; right: 0;
+  width: 24vw; height: 24vw;
+  background: var(--pink-studio);
+  opacity: 0.16;
+  clip-path: var(--tri-tr);
 }
 
-.cta-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(23, 23, 23, 0.82);
+.cta-content { position: relative; z-index: 2; }
+.cta-label { color: rgba(255, 255, 255, 0.78); }
+.cta-head { color: #fff; margin-top: 14px; }
+.cta-sub {
+  font: var(--weight-regular) var(--t-lead)/1.7 var(--font-ui);
+  color: rgba(255, 255, 255, 0.72);
+  max-width: 46ch;
+  margin: 22px auto 34px;
 }
-
-.cta-content {
-  position: relative;
-  z-index: 2;
-
-  .section-subtitle {
-    color: $color-accent;
-  }
-
-  h2 {
-    font-size: 48px;
-    font-weight: 700;
-    color: $color-white;
-    margin-bottom: 20px;
-    letter-spacing: -0.5px;
-
-    @media (max-width: 768px) {
-      font-size: 30px;
-    }
-  }
-
-  p {
-    font-size: 17px;
-    color: rgba(255, 255, 255, 0.6);
-    margin-bottom: 40px;
-  }
-}
+.cta-btn { background: #fff; color: var(--ink); border-color: #fff; }
+.cta-btn:hover { background: var(--accent-solid); border-color: var(--accent-solid); color: #fff; }
 </style>
