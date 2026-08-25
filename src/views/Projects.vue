@@ -5,7 +5,7 @@
       <span class="plate-scrim" aria-hidden="true"></span>
       <span class="plate-tri" aria-hidden="true"></span>
       <div class="container plate-inner">
-        <p class="ps-label plate-eyebrow">Selected work · 48 projects</p>
+        <p class="ps-label plate-eyebrow">Selected work<template v-if="count"> · {{ count }} projects</template></p>
         <h1 class="ps-display plate-title">Work</h1>
       </div>
     </section>
@@ -15,7 +15,20 @@
 </template>
 
 <script setup>
+import { ref, onMounted } from 'vue'
 import ProjectsBrowse from '../components/ProjectsBrowse.vue'
+
+// Live project count for the eyebrow — never goes stale as projects.json changes.
+const count = ref(0)
+onMounted(async () => {
+  try {
+    const res = await fetch('/data/projects.json')
+    const data = await res.json()
+    count.value = Array.isArray(data) ? data.length : 0
+  } catch {
+    /* leave 0 → the eyebrow just reads "Selected work" */
+  }
+})
 </script>
 
 <style lang="scss" scoped>

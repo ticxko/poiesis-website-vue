@@ -111,6 +111,10 @@ READY_JS = """(function(){
   var app = document.getElementById('app');
   if (!app || app.children.length === 0) return false;
   if (location.pathname.indexOf('/project/') === 0 && !document.querySelector('h1.detail-title')) return false;
+  if (location.pathname === '/projects') {
+    var eb = document.querySelector('.plate-eyebrow');
+    if (!eb || !/\\d/.test(eb.textContent)) return false;  // wait for the async count
+  }
   return !!document.title;
 })()"""
 
