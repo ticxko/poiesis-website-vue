@@ -50,7 +50,17 @@
       "telephone": "+62-812-1832-1775",
       "email": "enquiry@poiesis.id",
       "priceRange": "$$$",
-      "areaServed": "Jakarta, Indonesia",
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "09:00",
+        "closes": "18:00"
+      },
+      "areaServed": [
+        { "@type": "City", "name": "Jakarta" },
+        { "@type": "City", "name": "Tangerang Selatan" },
+        { "@type": "Country", "name": "Indonesia" }
+      ],
       "founder": {
         "@type": "Person",
         "name": "Amita Ratih Purnamasari",
