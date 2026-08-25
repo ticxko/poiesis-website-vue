@@ -20,11 +20,15 @@
             context, function, and most importantly to the people it serves.
           </p>
           <div class="studio-stats">
-            <div><span class="stat-n">11</span><span class="ps-label stat-l">Built projects</span></div>
-            <div><span class="stat-n">17</span><span class="ps-label stat-l">Design projects</span></div>
+            <div><span class="stat-n">13</span><span class="ps-label stat-l">Built projects</span></div>
+            <div><span class="stat-n">35</span><span class="ps-label stat-l">Design projects</span></div>
             <div><span class="stat-n">IAI</span><span class="ps-label stat-l">Certified principal</span></div>
           </div>
           <p class="studio-cta"><router-link to="/about" class="cta">About the studio</router-link></p>
+          <a href="https://instagram.com/poiesis.id" target="_blank" rel="noopener" class="studio-ig" aria-label="Poiesis on Instagram">
+            <i class="pi pi-instagram studio-ig-icon"></i>
+            <span class="studio-ig-handle">@poiesis.id</span>
+          </a>
         </div>
       </div>
     </div>
@@ -53,6 +57,26 @@
 .stat-l { font-size: 11px; }
 
 .studio-cta { margin-top: 28px; }
+
+.studio-ig {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 18px;
+  text-decoration: none;
+  transition: opacity var(--transition-hover);
+
+  &:hover { opacity: 0.75; }
+}
+.studio-ig-icon {
+  font-size: 18px;
+  line-height: 1;
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.studio-ig-handle { font: var(--weight-medium) 14px/1 var(--font-ui); color: var(--ink); }
 
 @media (max-width: 640px) {
   .studio-stats { gap: 28px; }

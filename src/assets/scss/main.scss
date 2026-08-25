@@ -7,7 +7,8 @@
    properties below (--ink, --accent, --font-ui, …).
    ============================================================ */
 
-@import url("https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@200;300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap");
+/* Fonts (Hanken Grotesk + Cormorant Garamond) are loaded via a <link> in index.html
+   <head> — earlier and non-render-blocking, so no CSS @import here. */
 
 :root {
   /* --- Palette runs NEUTRAL (white + soft grey). The brand pink survives only in
@@ -69,7 +70,7 @@
   /* UI face: Hanken Grotesk — a light neo-grotesque, cooler & finer than DM Sans.
      Held at 300 for display/lead, 400 for running body, 500 for tracked caps.
      Editorial face: Cormorant Garamond, kept as the serif "jewel". */
-  --font-ui: "Hanken Grotesk", "DM Sans", Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-ui: "Hanken Grotesk", Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   /* Reading face: Hanken Grotesk at ExtraLight 200 for running body/lead copy — airy
      and fine; UI chrome, labels & headings stay on --font-ui at heavier weights. */
   --font-body: "Hanken Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;

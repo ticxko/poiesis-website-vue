@@ -81,6 +81,8 @@
 <script setup>
 import { ref, onMounted, watch, computed } from 'vue'
 import { useRoute } from 'vue-router'
+import { setMeta, metaBlurb, setProjectJsonLd } from '../utils/seo'
+import { trackPageview } from '../utils/analytics'
 
 const route = useRoute()
 const projects = ref([])
@@ -140,6 +142,29 @@ async function load() {
     project.value = null
   }
   loading.value = false
+  applyMeta()
+}
+
+// Per-project title / description / share image for JS-rendering crawlers and the tab,
+// then the GA4 pageview (fired here, after the title resolves, rather than in the router).
+function applyMeta() {
+  const p = project.value
+  if (!p) {
+    setMeta({ title: 'Project not found', path: route.path })
+    setProjectJsonLd(null)
+    trackPageview({ path: route.fullPath })
+    return
+  }
+  const where = [p.location, p.year].filter(Boolean).join(' · ')
+  setMeta({
+    title: p.title,
+    description: metaBlurb(p.description || `${p.title} — ${p.category || 'a project'} by Poiesis Studio${where ? ' in ' + where : ''}.`),
+    path: `/project/${p.id}`,
+    image: p.thumbnail || (p.images && p.images[0]),
+    type: 'article',
+  })
+  setProjectJsonLd(p)
+  trackPageview({ path: route.fullPath })
 }
 
 onMounted(load)

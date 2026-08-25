@@ -5,7 +5,7 @@
       <span class="plate-scrim" aria-hidden="true"></span>
       <span class="plate-tri" aria-hidden="true"></span>
       <div class="container plate-inner">
-        <p class="ps-label plate-eyebrow">Selected work · 28 projects</p>
+        <p class="ps-label plate-eyebrow">Selected work · 48 projects</p>
         <h1 class="ps-display plate-title">Work</h1>
       </div>
     </section>
