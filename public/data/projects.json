@@ -27,8 +27,7 @@
       "/images/projects/villa-remaih/09.jpg",
       "/images/projects/villa-remaih/10.jpg",
       "/images/projects/villa-remaih/11.jpg",
-      "/images/projects/villa-remaih/12.jpg",
-      "/images/projects/villa-remaih/01.jpg"
+      "/images/projects/villa-remaih/12.jpg"
     ],
     "description": "A two-storey house that wraps daily life around light, greenery and cross-breezes, keeping a mature existing tree at the heart of its forecourt. Clean white rendered volumes are incised with black-framed glazing — a corner picture window, a clerestory ribbon lighting the kitchen, and full-height bi-fold doors that dissolve the living room into the garden. Honest, tactile touches ground the crisp shell: patterned encaustic tiles wrapping the kitchen counter and splashback, an exposed concrete counter base, a slim steel-and-timber stair balustrade, and a permeable grass-block driveway that lets the ground breathe and drain.",
     "keywords": [
@@ -49,7 +48,8 @@
     "program": "private residence (two-storey detached house)",
     "descriptionSource": "drafted-from-images",
     "draft": true,
-    "reviewNote": "Built, newly completed house at handover stage (unfurnished, site debris/motorbikes visible). No captions. Cijantung, East Jakarta; year 2026 fits a just-finished build."
+    "reviewNote": "Built, newly completed house at handover stage (unfurnished, site debris/motorbikes visible). No captions. Cijantung, East Jakarta; year 2026 fits a just-finished build.",
+    "interiorThumbnail": "/images/projects/villa-remaih/01.jpg"
   },
   {
     "id": "accessibility",
@@ -117,7 +117,7 @@
       "/images/projects/m-factory-reuse/08.jpg",
       "/images/projects/m-factory-reuse/09.jpg",
       "/images/projects/m-factory-reuse/10.jpg",
-      "/images/projects/m-factory-reuse/01.jpg"
+      "/images/projects/m-factory-reuse/11.jpg"
     ],
     "description": "M-Factory Reuse is an adaptive reuse project that transforms an existing factory building into a vibrant, multi-functional space, preserving industrial character while introducing contemporary design elements.",
     "keywords": [
@@ -129,7 +129,8 @@
       "transformation"
     ],
     "architect": "Mikael Lolonlun",
-    "descriptionSource": "extracted-images"
+    "descriptionSource": "extracted-images",
+    "interiorThumbnail": "/images/projects/m-factory-reuse/01.jpg"
   },
   {
     "id": "foresty-garden",
@@ -156,8 +157,7 @@
       "/images/projects/foresty-garden/06.jpg",
       "/images/projects/foresty-garden/07.jpg",
       "/images/projects/foresty-garden/08.jpg",
-      "/images/projects/foresty-garden/09.jpg",
-      "/images/projects/foresty-garden/01.jpg"
+      "/images/projects/foresty-garden/09.jpg"
     ],
     "description": "The Foresty Garden Residence is a modern, resort-inspired sanctuary. On a compact site of 120 sqm, we maximize space with a multi-level design blending light-colored wood, stone, and expansive frameless glass, creating a seamless indoor-outdoor connection. Inspired by an Ubud retreat, the interior uses extensive wood on the floors, walls, and ceiling for a cozy treehouse studio. This is mixed with the natural look of concrete and stone textures, creating a home that is simple, luxurious, and peaceful for the family.",
     "keywords": [
@@ -189,7 +189,8 @@
     "siteArea": "120 sqm",
     "grossArea": "178 sqm",
     "architect": "Mikael Lolonlun",
-    "descriptionSource": "extracted-images"
+    "descriptionSource": "extracted-images",
+    "interiorThumbnail": "/images/projects/foresty-garden/03.jpg"
   },
   {
     "id": "edge",
@@ -267,21 +268,19 @@
     "year": "2023",
     "completed": "February 2023",
     "location": "Villa Cinere Mas",
-    "thumbnail": "/images/projects/spanish-villa/01.jpg",
+    "thumbnail": "/images/projects/spanish-villa/01.jpg?v=2",
     "images": [
-      "/images/projects/spanish-villa/01.jpg",
-      "/images/projects/spanish-villa/02.jpg",
-      "/images/projects/spanish-villa/03.jpg",
-      "/images/projects/spanish-villa/04.jpg",
-      "/images/projects/spanish-villa/05.jpg",
-      "/images/projects/spanish-villa/06.jpg",
-      "/images/projects/spanish-villa/07.jpg",
-      "/images/projects/spanish-villa/08.jpg",
-      "/images/projects/spanish-villa/09.jpg",
-      "/images/projects/spanish-villa/10.jpg",
-      "/images/projects/spanish-villa/11.jpg",
-      "/images/projects/spanish-villa/12.jpg",
-      "/images/projects/spanish-villa/01.jpg"
+      "/images/projects/spanish-villa/01.jpg?v=2",
+      "/images/projects/spanish-villa/02.jpg?v=2",
+      "/images/projects/spanish-villa/03.jpg?v=2",
+      "/images/projects/spanish-villa/04.jpg?v=2",
+      "/images/projects/spanish-villa/05.jpg?v=2",
+      "/images/projects/spanish-villa/06.jpg?v=2",
+      "/images/projects/spanish-villa/07.jpg?v=2",
+      "/images/projects/spanish-villa/08.jpg?v=2",
+      "/images/projects/spanish-villa/09.jpg?v=2",
+      "/images/projects/spanish-villa/10.jpg?v=2",
+      "/images/projects/spanish-villa/11.jpg?v=2"
     ],
     "description": "The Spanish Villa is an architecture and interior project located in Villa Cinere Mas, designed as a dreamy, seaside revival for a family of four. Inspired by Andalusia, the home creates a relaxing atmosphere with an emphasis on flow throughout the space. The design features classic arches, a welcoming foyer and a fountain. This vision is realized through a rich palette of materials including terracotta, stone, detailed woodwork and vibrant patterns.",
     "keywords": [
@@ -303,7 +302,8 @@
     "siteArea": "487 sqm",
     "grossArea": "360 sqm",
     "architect": "Irawan Listanto",
-    "descriptionSource": "extracted-images"
+    "descriptionSource": "extracted-images",
+    "interiorThumbnail": "/images/projects/spanish-villa/09.jpg?v=2"
   },
   {
     "id": "halaman",
@@ -324,7 +324,7 @@
     "images": [
       "/images/projects/halaman/01.jpg",
       "/images/projects/halaman/02.jpg",
-      "/images/projects/halaman/03.jpg",
+      "/images/projects/halaman/03.png",
       "/images/projects/halaman/04.jpg",
       "/images/projects/halaman/05.jpg",
       "/images/projects/halaman/06.jpg",
@@ -335,7 +335,7 @@
       "/images/projects/halaman/11.jpg",
       "/images/projects/halaman/12.jpg",
       "/images/projects/halaman/13.jpg",
-      "/images/projects/halaman/01.jpg"
+      "/images/projects/halaman/14.jpg"
     ],
     "description": "Rumah Halaman in Kuningan, Jawa Barat, is a unique home designed for two young families on a single 161 sqm site. Its most innovative feature is a central, semi-public hallway finished with local terracotta, which acts as a connecting bridge and playground where the families can interact. Inspired by Scandinavian design, the home uses a large skylight to create an open and breezy atmosphere. The vision of communal living is completed by a shared backyard and garden, allowing both families to enjoy time together.",
     "keywords": [
@@ -426,7 +426,8 @@
     "siteArea": "220 sqm",
     "grossArea": "180 sqm",
     "architect": "Irawan Listanto",
-    "descriptionSource": "extracted-images"
+    "descriptionSource": "extracted-images",
+    "interiorThumbnail": "/images/projects/cempaka/11.jpg"
   },
   {
     "id": "grey",
@@ -490,7 +491,8 @@
     "siteArea": "98 sqm",
     "grossArea": "150 sqm",
     "architect": "Mikael Lolonlun",
-    "descriptionSource": "extracted-images"
+    "descriptionSource": "extracted-images",
+    "interiorThumbnail": "/images/projects/grey/07.jpg"
   },
   {
     "id": "485",
@@ -529,7 +531,7 @@
       "/images/projects/485/16.jpg",
       "/images/projects/485/17.jpg",
       "/images/projects/485/18.jpg",
-      "/images/projects/485/01.jpg"
+      "/images/projects/485/19.jpg"
     ],
     "description": "On a narrow site that only has 4.85 m width, in a dense Mampang neighborhood, this home was designed to cleverly house an extended family. Using a split-level layout, the design remarkably fits seven compact bedrooms and two kitchens. The living spaces are both smart and social; a long wooden dining table doubles as a meeting area, while the upstairs living room features unique, built-in amphitheater seating. The home feels open and airy thanks to excellent cross-ventilation and skylights, and a large front garden provides a rare patch of green in the urban environment.",
     "keywords": [
@@ -563,7 +565,8 @@
     "siteArea": "105 sqm",
     "grossArea": "172 sqm",
     "architect": "Irawan Listanto",
-    "descriptionSource": "extracted-images"
+    "descriptionSource": "extracted-images",
+    "interiorThumbnail": "/images/projects/485/11.jpg"
   },
   {
     "id": "dgp",
@@ -587,10 +590,7 @@
       "/images/projects/dgp/04.jpg",
       "/images/projects/dgp/05.jpg",
       "/images/projects/dgp/06.jpg",
-      "/images/projects/dgp/07.jpg",
-      "/images/projects/dgp/08.jpg",
-      "/images/projects/dgp/09.jpg",
-      "/images/projects/dgp/01.jpg"
+      "/images/projects/dgp/07.jpg"
     ],
     "description": "The DGP Residence, located in Duta Gema Pesona Depok, is a large, modern luxury home designed as a serene, resort-like sanctuary for a big family's parents. While the home has a modern feel, the design intentionally incorporates local elements to create a more personal atmosphere. This approach includes using local materials like concrete roster and integrating handcrafted, patterned metal louvres on the facade. Situated on a spacious 450 sqm suburban site, these local touches complement the home's wide views and strong connection to its outdoor lawn, creating a private and welcoming environment for the family to gather.",
     "keywords": [
@@ -660,7 +660,8 @@
     "program": "interior installation — donor-recognition 'Pillar of Honor' legacy wall in an institutional lobby",
     "descriptionSource": "drafted-from-images",
     "draft": true,
-    "reviewNote": "LOCATION CONFLICT: manifest says Sanur, Bali, but every readable plaque points to Faculty of Medicine, Universitas Indonesia (FKUI), Jakarta, dated 24 NOVEMBER 2025. Built photos. FLAG FOR STUDIO."
+    "reviewNote": "LOCATION CONFLICT: manifest says Sanur, Bali, but every readable plaque points to Faculty of Medicine, Universitas Indonesia (FKUI), Jakarta, dated 24 NOVEMBER 2025. Built photos. FLAG FOR STUDIO.",
+    "interiorThumbnail": "/images/projects/x-hall-imeri/04.jpg"
   },
   {
     "id": "morgen-booth",
@@ -705,7 +706,8 @@
     "program": "exhibition / trade-show booth for an electrical fittings & lighting brand",
     "descriptionSource": "drafted-from-images",
     "draft": true,
-    "reviewNote": "Mostly 3D concept renders. Text: 'MORGEN', 'THE DARK SIDE OF THE MOON', 'SWITCH & SOCKET COLLECTION'. Kemang likely client/studio base, not the fair venue. Not confirmed built."
+    "reviewNote": "Mostly 3D concept renders. Text: 'MORGEN', 'THE DARK SIDE OF THE MOON', 'SWITCH & SOCKET COLLECTION'. Kemang likely client/studio base, not the fair venue. Not confirmed built.",
+    "interiorThumbnail": "/images/projects/morgen-booth/03.jpg"
   },
   {
     "id": "fairwind",
@@ -756,7 +758,8 @@
     "program": "private residence (tropical courtyard villa)",
     "descriptionSource": "drafted-from-images",
     "draft": true,
-    "reviewNote": "CGI/3D renders, not built photos. Recurring motifs: diamond-lattice entry screen, rattan soffits. No areas/client/budget visible."
+    "reviewNote": "CGI/3D renders, not built photos. Recurring motifs: diamond-lattice entry screen, rattan soffits. No areas/client/budget visible.",
+    "interiorThumbnail": "/images/projects/fairwind/06.jpg"
   },
   {
     "id": "bangka-xii",
@@ -787,7 +790,7 @@
       "/images/projects/bangka-xii/09.jpg",
       "/images/projects/bangka-xii/10.jpg"
     ],
-    "description": "A two-storey family house arranged around a garden courtyard, where crisp white gable volumes are grounded by split-face stone, vertical timber battens, standing-seam metal and a green living wall that softens the massing. Inside, a warm minimalism prevails — micro-cement and plaster walls, fluted timber, exposed board-formed concrete, oak joinery and polished concrete floors — opening through black-framed glazing onto a lily pond, lawn and lap pool. The program reaches from an open living-kitchen and window-seat nooks to bedrooms, a walk-in dressing room and a home gym, each space drawn toward daylight and planting.",
+    "description": "For a family already rooted in Kemang, Jakarta Selatan, the brief was to bring the calm of a London suburban home to the tropics — the quiet, greenery-wrapped domesticity of a Northern-European house, reimagined for the way they live. Poiesis answered with a two-storey family house arranged around a garden courtyard, its architecture kept deliberately modern and simple: crisp white gable volumes grounded by split-face stone, vertical timber battens, standing-seam metal and a green living wall that softens the massing. The restraint outside is a foil for a premium interior. Inside, a warm minimalism prevails — micro-cement and plaster walls, fluted timber, exposed board-formed concrete, oak joinery and polished concrete floors — opening through slim black-framed glazing onto a lily pond, striped lawn and lap pool. The program reaches from an open living-kitchen and window-seat nooks to bedrooms, a walk-in dressing room and a home gym, each space drawn toward daylight and planting so the house feels less like a villa in the city than a leafy suburban retreat.",
     "keywords": [
       "residence",
       "house",
@@ -802,12 +805,16 @@
       "pool",
       "gym",
       "garden",
-      "gable"
+      "gable",
+      "london",
+      "suburban",
+      "european"
     ],
     "program": "private residence (two-storey family house)",
-    "descriptionSource": "drafted-from-images",
-    "draft": true,
-    "reviewNote": "CGI/3D renders. Home gym + lap pool + walk-in wardrobe visible. No areas/client/budget."
+    "descriptionSource": "client-brief + images",
+    "draft": false,
+    "reviewNote": "CGI/3D renders. Story from client brief: Kemang family wanting a London-suburban feel; modern-simple architecture, premium interior. Home gym + lap pool + walk-in wardrobe visible. No areas/client name/budget.",
+    "interiorThumbnail": "/images/projects/bangka-xii/07.jpg"
   },
   {
     "id": "bangka-1210",
@@ -910,7 +917,8 @@
     "program": "private residence (tropical holiday villa with private pool and outdoor bar)",
     "descriptionSource": "drafted-from-images",
     "draft": true,
-    "reviewNote": "3D design renders. 'Krobokan' = Kerobokan, Bali villa area. Areas/client/budget unknown."
+    "reviewNote": "3D design renders. 'Krobokan' = Kerobokan, Bali villa area. Areas/client/budget unknown.",
+    "interiorThumbnail": "/images/projects/summer-house/02.jpg"
   },
   {
     "id": "al-abriya-school",
@@ -1009,7 +1017,8 @@
     "program": "private residence (single-family house with veranda, conservatory and garden)",
     "descriptionSource": "drafted-from-images",
     "draft": true,
-    "reviewNote": "3D renders. 'FYC' meaning not shown (likely client/family initials). Pondok Duta is in Cimanggis, Depok. Signature: dormered roof, cantilever with tree beneath, pergola veranda with porch-swing daybeds, Victorian-style greenhouse."
+    "reviewNote": "3D renders. 'FYC' meaning not shown (likely client/family initials). Pondok Duta is in Cimanggis, Depok. Signature: dormered roof, cantilever with tree beneath, pergola veranda with porch-swing daybeds, Victorian-style greenhouse.",
+    "interiorThumbnail": "/images/projects/fyc/06.jpg"
   },
   {
     "id": "jatijajar-retreat",
@@ -1088,8 +1097,7 @@
       "/images/projects/sleman/07.jpg",
       "/images/projects/sleman/08.jpg",
       "/images/projects/sleman/09.jpg",
-      "/images/projects/sleman/10.jpg",
-      "/images/projects/sleman/01.jpg"
+      "/images/projects/sleman/10.jpg"
     ],
     "description": "A compact urban house that wears its garden on its face: a timber trellis stretched across an asymmetric gable holds a curtain of climbing green over white-plastered walls, filtering the street and cooling the rooms behind. Inside, the story turns quiet and tactile — a top-lit courtyard lined with a perforated breeze-block screen and a full-height living wall draws light and air deep into a tight plan, while polished concrete, black-framed glazing and honest timber shape calm, minimal living spaces down to a glass-walled nook and a marble-lined powder room. The result reconnects a narrow city lot to sky, planting and cross-ventilation.",
     "keywords": [
@@ -1111,60 +1119,8 @@
     "program": "Private residence (narrow multi-storey urban house)",
     "descriptionSource": "drafted-from-images",
     "draft": true,
-    "reviewNote": "Photoreal renders (not confirmed as-built). Exterior carries house number '10'. Green facade + top-lit breeze-block courtyard + living walls are the design drivers."
-  },
-  {
-    "id": "padway-co-living",
-    "code": "C11",
-    "status": "Design",
-    "title": "Padway Co-Living",
-    "category": "Architecture & Interior",
-    "tags": [
-      "architecture",
-      "interior",
-      "residential",
-      "concept",
-      "high-rise"
-    ],
-    "archRank": 17,
-    "year": "2025",
-    "completed": "February 2025",
-    "location": "Kebon Sirih, Central Jakarta",
-    "thumbnail": "/images/projects/padway-co-living/01.jpg",
-    "images": [
-      "/images/projects/padway-co-living/01.jpg",
-      "/images/projects/padway-co-living/02.jpg",
-      "/images/projects/padway-co-living/03.jpg",
-      "/images/projects/padway-co-living/04.jpg",
-      "/images/projects/padway-co-living/05.jpg",
-      "/images/projects/padway-co-living/06.jpg",
-      "/images/projects/padway-co-living/07.jpg",
-      "/images/projects/padway-co-living/08.jpg",
-      "/images/projects/padway-co-living/09.jpg",
-      "/images/projects/padway-co-living/10.jpg",
-      "/images/projects/padway-co-living/01.jpg"
-    ],
-    "description": "A co-living tower that reimagines vertical density as a warm, breathing neighbourhood in central Jakarta. The slab is wrapped in a deep terracotta-toned brise-soleil whose perforated screen tempers the sun while carved-out sky terraces stitch planting up the facade, and the building meets the ground gently through a landscaped 'forest path' of brick steps and trees rather than a hard lobby edge. Within, the shared two- and three-bedroom units pair exposed concrete and track lighting with honest timber, plaster and soft, human-scaled furnishings — communal living rendered calm, tactile and light-filled.",
-    "keywords": [
-      "coliving",
-      "highrise",
-      "tower",
-      "brisesoleil",
-      "terracotta",
-      "concrete",
-      "timber",
-      "skygarden",
-      "biophilic",
-      "residential",
-      "communal",
-      "jakarta",
-      "facade",
-      "landscape"
-    ],
-    "program": "Co-living residential high-rise",
-    "descriptionSource": "drafted-from-images",
-    "draft": true,
-    "reviewNote": "Photoreal renders, some with 'Poiesis Studio' watermark. Captions: 'NORTH FACADE', 'FOREST PATH / PEDESTRIAN ACCESS', 'UNIT INTERIOR - CO-LIVING 2/3 BEDROOMS'. NAMING: building signed 'KEBON LIVING' in renders (matches Kebon Sirih); 'Padway' may be operator/working name — confirm with studio."
+    "reviewNote": "Photoreal renders (not confirmed as-built). Exterior carries house number '10'. Green facade + top-lit breeze-block courtyard + living walls are the design drivers.",
+    "interiorThumbnail": "/images/projects/sleman/05.jpg"
   },
   {
     "id": "dtsl-panel-waf",
@@ -1218,112 +1174,6 @@
     "reviewNote": "CGI renders. Signature terracotta/corten perforated metal panel (likely the 'Panel' in the title). Graphic walls read 'DO GOOD THINGS', 'Creative Thinking'. 'DTSL'/'WAF' not decoded. Program split inferred."
   },
   {
-    "id": "basketball-hall",
-    "code": "C13",
-    "status": "Design",
-    "title": "Basketball Hall",
-    "category": "Architecture & Interior",
-    "tags": [
-      "architecture",
-      "interior",
-      "industrial & utility",
-      "concept"
-    ],
-    "archRank": 22,
-    "year": "2023",
-    "completed": "November 2023",
-    "location": "Pondok Labu, Central Jakarta",
-    "thumbnail": "/images/projects/basketball-hall/01.jpg",
-    "images": [
-      "/images/projects/basketball-hall/01.jpg",
-      "/images/projects/basketball-hall/02.jpg",
-      "/images/projects/basketball-hall/03.jpg",
-      "/images/projects/basketball-hall/04.jpg",
-      "/images/projects/basketball-hall/05.jpg",
-      "/images/projects/basketball-hall/06.jpg",
-      "/images/projects/basketball-hall/07.jpg",
-      "/images/projects/basketball-hall/08.jpg",
-      "/images/projects/basketball-hall/09.jpg",
-      "/images/projects/basketball-hall/10.jpg",
-      "/images/projects/basketball-hall/01.jpg"
-    ],
-    "description": "A two-storey sports and community hall sheathed in a rippling perforated-metal screen — punched with circular openings and cresting in a wave-like parapet — that opens onto a generous, light-filled forecourt. The brief reaches well beyond the game: a boldly colour-blocked outdoor half-court, a quiet prayer room screened in breeze-blocks carved with Kufic calligraphy, and a social plaza where a timber kiosk, café seating and hanging greenery gather people between matches. Exposed concrete, terrazzo and honest perforated screens keep the palette tropical and breathable, letting daylight and air move freely through the building.",
-    "keywords": [
-      "basketball",
-      "sports",
-      "court",
-      "facade",
-      "perforated",
-      "screen",
-      "concrete",
-      "breezeblock",
-      "plaza",
-      "prayer",
-      "community",
-      "recreation",
-      "terrazzo",
-      "greenery",
-      "tropical"
-    ],
-    "program": "sports & community facility (indoor/outdoor basketball hall, prayer room, social plaza with F&B kiosk)",
-    "descriptionSource": "drafted-from-images",
-    "draft": true,
-    "reviewNote": "Every image carries a 'Poiesis Studio' watermark + captions: 'Exterior Facade', 'Half Court Basketball', 'Prayer Room', 'Plaza'; facade signage 'Basketball Hall'. Renders. LOCATION caveat: Pondok Labu is generally South (not Central) Jakarta — confirm."
-  },
-  {
-    "id": "thamres-rejuve",
-    "code": "C14",
-    "status": "Design",
-    "title": "Thamres Rejuve",
-    "category": "Architecture & Interior",
-    "tags": [
-      "architecture",
-      "interior",
-      "concept",
-      "high-rise"
-    ],
-    "archRank": 18,
-    "year": "2023",
-    "completed": "August 2023",
-    "location": "Tanah Abang, Central Jakarta",
-    "thumbnail": "/images/projects/thamres-rejuve/01.jpg",
-    "images": [
-      "/images/projects/thamres-rejuve/01.jpg",
-      "/images/projects/thamres-rejuve/02.jpg",
-      "/images/projects/thamres-rejuve/03.jpg",
-      "/images/projects/thamres-rejuve/04.jpg",
-      "/images/projects/thamres-rejuve/05.jpg",
-      "/images/projects/thamres-rejuve/06.jpg",
-      "/images/projects/thamres-rejuve/07.jpg",
-      "/images/projects/thamres-rejuve/08.jpg",
-      "/images/projects/thamres-rejuve/09.jpg",
-      "/images/projects/thamres-rejuve/10.jpg",
-      "/images/projects/thamres-rejuve/11.jpg",
-      "/images/projects/thamres-rejuve/01.jpg"
-    ],
-    "description": "A rejuvenation of a Tanah Abang tower's shared ground and amenity floors that re-crafts the everyday journey from street to front door. At arrival, a steel-and-glass canopy with patterned metal infill and a lush vertical garden soften the boom-gated drive, while confident wayfinding — 'gate two', chevrons and yellow floor graphics — brings clarity and warmth to the raw concrete and exposed services of the parking podium. Above, a recreation lounge in light timber, terrazzo and a batten ceiling, dressed with trailing plants and set against full-height glazing, turns left-over space into a genuine place to gather.",
-    "keywords": [
-      "rejuvenation",
-      "amenity",
-      "lounge",
-      "recreation",
-      "parking",
-      "podium",
-      "arrival",
-      "gatehouse",
-      "greenwall",
-      "terrazzo",
-      "timber",
-      "concrete",
-      "wayfinding",
-      "tower"
-    ],
-    "program": "common-area & amenity rejuvenation of a high-rise tower (arrival/gatehouse, parking podium, recreation lounge)",
-    "descriptionSource": "drafted-from-images",
-    "draft": true,
-    "reviewNote": "Renders, no title captions. Legible: 'gate two', 'security', chevrons. 'Rejuve' = rejuvenation of existing shared areas. 'Thamres' + Tanah Abang suggests a Thamrin-area tower (possibly 'Thamrin Residence') — verify."
-  },
-  {
     "id": "s-urban-park",
     "code": "C15",
     "status": "Design",
@@ -1348,8 +1198,7 @@
       "/images/projects/s-urban-park/06.jpg",
       "/images/projects/s-urban-park/07.jpg",
       "/images/projects/s-urban-park/08.jpg",
-      "/images/projects/s-urban-park/09.jpg",
-      "/images/projects/s-urban-park/01.jpg"
+      "/images/projects/s-urban-park/09.jpg"
     ],
     "description": "A public park and plaza conceived as an active social ground at the foot of a Sudirman tower, S-Urban Park stitches recreation, learning and food-growing into one continuous landscape. Lightweight white-steel frames and billowing tensile canopies shelter terraced seating, an interactive water-play court and gathering steps, while a multi-level 'Green House' and 'Urban Farm' bring visible hydroponic cultivation into everyday city life. Timber boardwalks, concrete seat-walls, patterned paving and generous planting keep the ground soft and green, and open pavilions invite cross-breeze, shade and community use.",
     "keywords": [
@@ -1372,7 +1221,8 @@
     "program": "urban park / public plaza (ground-plane placemaking for a mixed-use tower, with urban farming, water-play and terraced gathering)",
     "descriptionSource": "drafted-from-images",
     "draft": true,
-    "reviewNote": "Conceptual renders. In-render signage: 'GREEN HOUSE', 'URBAN FARM'. A tower behind suggests the park is the podium/ground-plane of a larger development. No client/area legible."
+    "reviewNote": "Conceptual renders. In-render signage: 'GREEN HOUSE', 'URBAN FARM'. A tower behind suggests the park is the podium/ground-plane of a larger development. No client/area legible.",
+    "interiorThumbnail": "/images/projects/s-urban-park/01.jpg"
   },
   {
     "id": "prem-condotel",
@@ -1425,7 +1275,8 @@
     "program": "condotel (condominium-hotel) — hospitality building with compact loft/studio units and ground-floor retail",
     "descriptionSource": "drafted-from-images",
     "draft": true,
-    "reviewNote": "Conceptual renders; a red 'P' (Poiesis logo) watermark on several. Facade hybridises neoclassical masonry with an inserted glass curtain-wall volume; glazed shopfronts at grade. No unit count/areas/brand legible."
+    "reviewNote": "Conceptual renders; a red 'P' (Poiesis logo) watermark on several. Facade hybridises neoclassical masonry with an inserted glass curtain-wall volume; glazed shopfronts at grade. No unit count/areas/brand legible.",
+    "interiorThumbnail": "/images/projects/prem-condotel/09.jpg"
   },
   {
     "id": "j-i-velodrome",
@@ -1575,7 +1426,8 @@
     "program": "university engineering laboratory (hydraulics / structures & materials testing hall + research tower) for a civil & environmental engineering faculty",
     "descriptionSource": "drafted-from-images",
     "draft": true,
-    "reviewNote": "Photoreal CGI (RENDER 190917). In-render signage reads 'HYDRAULIC LAB' — DTSL = Departemen Teknik Sipil & Lingkungan (Civil & Environmental Eng.), UI Depok. Distinct from the 2025 'DTSL Panel WAF' (C12). Excluded frames CAM 03/04 (partly untextured white massing). Confirm client/faculty name, built status, and whether title should read 'DTSL Hydraulics Lab'."
+    "reviewNote": "Photoreal CGI (RENDER 190917). In-render signage reads 'HYDRAULIC LAB' — DTSL = Departemen Teknik Sipil & Lingkungan (Civil & Environmental Eng.), UI Depok. Distinct from the 2025 'DTSL Panel WAF' (C12). Excluded frames CAM 03/04 (partly untextured white massing). Confirm client/faculty name, built status, and whether title should read 'DTSL Hydraulics Lab'.",
+    "interiorThumbnail": "/images/projects/lab-dtsl/03.jpg"
   },
   {
     "id": "x10-house",
@@ -1628,6 +1480,785 @@
     "program": "private residence (narrow-lot urban house with full-height breeze-block screen)",
     "descriptionSource": "drafted-from-images",
     "draft": true,
-    "reviewNote": "Photoreal renders (RENDER/170803) — exterior + interiors, watermarked 'X10 HOUSE, Jakarta Barat'. Folder also holds EXISTING PHOTO of a prior house, so these renders are a proposal/redesign — confirm whether built. archRank 29 appended at end."
+    "reviewNote": "Photoreal renders (RENDER/170803) — exterior + interiors, watermarked 'X10 HOUSE, Jakarta Barat'. Folder also holds EXISTING PHOTO of a prior house, so these renders are a proposal/redesign — confirm whether built. archRank 29 appended at end.",
+    "interiorThumbnail": "/images/projects/x10-house/08.jpg"
+  },
+  {
+    "id": "rsui-salemba",
+    "code": "C20",
+    "status": "Design",
+    "title": "RSUI Salemba",
+    "category": "Architecture",
+    "tags": [
+      "architecture",
+      "concept"
+    ],
+    "archRank": 30,
+    "year": "2026",
+    "completed": "July 2026",
+    "location": "Salemba, Central Jakarta",
+    "thumbnail": "/images/projects/rsui-salemba/01.jpg",
+    "images": [
+      "/images/projects/rsui-salemba/01.jpg",
+      "/images/projects/rsui-salemba/02.jpg",
+      "/images/projects/rsui-salemba/03.jpg",
+      "/images/projects/rsui-salemba/04.jpg",
+      "/images/projects/rsui-salemba/05.jpg",
+      "/images/projects/rsui-salemba/01.jpg"
+    ],
+    "description": "A revitalization of Universitas Indonesia's Salemba rectorate that re-clothes a mid-century institutional block in a lightweight, high-tech identity. A rhythmic aluminium-fin brise-soleil — angled blades that catch the dusk light and throw the facade into crisp relief — wraps ranks of glazing over a warm, glowing interior, while full-height glazed stair-towers bracket the composition and a slender timber-soffit canopy marks the entrance. At grade, landscaped courtyards, feature trees and timber-decked seating soften the arrival for staff, students and patients, giving the heritage campus a calm, contemporary face.",
+    "keywords": [
+      "revitalization",
+      "institutional",
+      "hospital",
+      "university",
+      "rectorate",
+      "facade",
+      "brisesoleil",
+      "aluminium",
+      "fins",
+      "campus",
+      "glazing",
+      "dusk",
+      "courtyard",
+      "modern"
+    ],
+    "program": "revitalization / re-facade of a university rectorate & hospital administration building",
+    "descriptionSource": "drafted-from-images",
+    "draft": true,
+    "reviewNote": "Photoreal deck renders from OneDrive '188. Revitalisasi RSUI Salemba' → 'REVITALISASI REKTORAT RS UI 260728.pdf' (extracted embedded JPEGs, pages 2-6). The deck's back half (Connecting Plaza / RSKGM FKG UI, ~pp11-22) is flat SketchUp massing — EXCLUDED. Confirm exact site (Salemba, Jakarta Pusat), client (RS UI / Universitas Indonesia), and whether built. archRank 30 appended."
+  },
+  {
+    "id": "lulu-suite",
+    "code": "C21",
+    "status": "Design",
+    "title": "Lulu Suite",
+    "category": "Interior",
+    "tags": [
+      "interior",
+      "residential",
+      "concept"
+    ],
+    "year": "2025",
+    "completed": "March 2025",
+    "location": "Bogor, West Java",
+    "thumbnail": "/images/projects/lulu-suite/01.jpg",
+    "images": [
+      "/images/projects/lulu-suite/01.jpg",
+      "/images/projects/lulu-suite/02.jpg",
+      "/images/projects/lulu-suite/03.jpg",
+      "/images/projects/lulu-suite/04.jpg",
+      "/images/projects/lulu-suite/05.jpg",
+      "/images/projects/lulu-suite/06.jpg",
+      "/images/projects/lulu-suite/07.jpg",
+      "/images/projects/lulu-suite/08.jpg",
+      "/images/projects/lulu-suite/09.jpg",
+      "/images/projects/lulu-suite/10.jpg",
+      "/images/projects/lulu-suite/11.jpg",
+      "/images/projects/lulu-suite/01.jpg"
+    ],
+    "description": "A resort-grade master suite where bedroom, lounge and spa bath flow together in a warm palette of pale oak, travertine and grey stone. A concrete-panelled feature wall floats a television between smoked-glass wardrobes; an arched picture window frames a private balcony with a baby-grand piano and study nook; and the ensuite pairs a freestanding stone tub with a gridded metal screen and a sculptural black vessel basin. The story continues outdoors under a timber pergola lounge with built-in banquette seating, and a discreet, softly-lit under-stair gallery displays the owner's sneaker collection — luxury detailed at the scale of a single, generous room.",
+    "keywords": [
+      "interior",
+      "mastersuite",
+      "bedroom",
+      "ensuite",
+      "oak",
+      "travertine",
+      "stone",
+      "smokedglass",
+      "pergola",
+      "gazebo",
+      "piano",
+      "walkincloset",
+      "bathtub",
+      "luxury"
+    ],
+    "program": "private residential master suite (bedroom, lounge, walk-in closet, ensuite) with outdoor pergola lounge and under-stair display",
+    "descriptionSource": "drafted-from-images",
+    "draft": true,
+    "reviewNote": "Photoreal renders from OneDrive '165. Lulu Master Bedroom' PRESENTATION/RENDER (View 1-17) + 'PRESENTASI GAZEBO & SHOE STORAGE'. SCOPE CAUTION: this is one generous master SUITE (+ outdoor gazebo & shoe-display), NOT a whole house — titled 'Lulu Suite'. Confirm client/location (Bogor); not built. No archRank (interior-only, like x-hall-imeri/morgen-booth)."
+  },
+  {
+    "id": "shin-restaurant",
+    "code": "C22",
+    "status": "Design",
+    "title": "Shin Restaurant",
+    "category": "Interior",
+    "tags": [
+      "interior",
+      "concept"
+    ],
+    "year": "2019",
+    "completed": "May 2019",
+    "location": "Gunawarman, South Jakarta",
+    "thumbnail": "/images/projects/shin-restaurant/01.jpg",
+    "images": [
+      "/images/projects/shin-restaurant/01.jpg",
+      "/images/projects/shin-restaurant/02.jpg",
+      "/images/projects/shin-restaurant/03.jpg",
+      "/images/projects/shin-restaurant/04.jpg",
+      "/images/projects/shin-restaurant/01.jpg"
+    ],
+    "description": "A cinematic modern-hanok fine-diner where premium Korean grill is staged in near-darkness. Reclaimed timber, black lava-stone and a cascading Korean tile roof frame the entrance, while inside, banks of translucent acrylic rods hang like a frozen chandelier over dark terrazzo and stone floors. Latticed jogakbo screens, a wall of backlit paper fans and a hand-painted court-lady mural layer Korean craft against moody, low-lit stone — an atmospheric, theatrical setting scaled for slow, ceremonial dining.",
+    "keywords": [
+      "restaurant",
+      "fnb",
+      "korean",
+      "hanok",
+      "hospitality",
+      "dining",
+      "timber",
+      "lavastone",
+      "terrazzo",
+      "lattice",
+      "jogakbo",
+      "mural",
+      "moody",
+      "interior"
+    ],
+    "program": "premium Korean grill restaurant (F&B interior with facade)",
+    "descriptionSource": "drafted-from-images",
+    "draft": true,
+    "reviewNote": "Photoreal renders from Rey Backup '2018-56-Shin Restaurant' RENDER/190503 (used the 4 'SHIN VIEW' PNGs; the folder also holds unrelated 'SF'=Schoolfood and 'SKY' frames — excluded). Contractor-bidding folder exists → may be built; confirm built status + exact address (Gunawarman inferred)."
+  },
+  {
+    "id": "citra-8-interior",
+    "code": "C23",
+    "status": "Design",
+    "title": "Citra 8 Interior",
+    "category": "Interior",
+    "tags": [
+      "interior",
+      "residential",
+      "concept"
+    ],
+    "year": "2019",
+    "completed": "August 2019",
+    "location": "Citra Garden City, West Jakarta",
+    "thumbnail": "/images/projects/citra-8-interior/01.jpg",
+    "images": [
+      "/images/projects/citra-8-interior/01.jpg",
+      "/images/projects/citra-8-interior/02.jpg",
+      "/images/projects/citra-8-interior/03.jpg",
+      "/images/projects/citra-8-interior/04.jpg",
+      "/images/projects/citra-8-interior/05.jpg",
+      "/images/projects/citra-8-interior/06.jpg",
+      "/images/projects/citra-8-interior/07.jpg",
+      "/images/projects/citra-8-interior/08.jpg",
+      "/images/projects/citra-8-interior/09.jpg",
+      "/images/projects/citra-8-interior/01.jpg"
+    ],
+    "description": "A warm, collected residential interior built around a jewel-box home library. Pale oak joinery and a cushioned reading nook are lit from within, colour-blocked spines bring a playful rhythm to open shelving, and a delicate brass filigree screen filters the space beyond without closing it off. The palette stays soft and tactile — oak, cream textile, marble and warm brass — for a home that reads as quietly luxurious and genuinely lived-in.",
+    "keywords": [
+      "interior",
+      "residential",
+      "library",
+      "readingnook",
+      "oak",
+      "brass",
+      "filigree",
+      "marble",
+      "shelving",
+      "warm",
+      "luxe",
+      "joinery"
+    ],
+    "program": "private residential interior (home library, living & family spaces)",
+    "descriptionSource": "drafted-from-images",
+    "draft": true,
+    "reviewNote": "Photoreal renders from Rey Backup '2019-77-Citra 8 Interior' RENDER root (CAM01-09 jpgs; ignored the earlier RENDER/JPG 'VIEW' half-linework drafts). Confirm exact location (Citra Garden City / Citra 8 inferred) and built status."
+  },
+  {
+    "id": "fkui-dean-office",
+    "code": "C24",
+    "status": "Design",
+    "title": "FKUI Dean's Office",
+    "category": "Interior",
+    "tags": [
+      "interior",
+      "concept"
+    ],
+    "year": "2017",
+    "completed": "August 2017",
+    "location": "Salemba, Central Jakarta",
+    "thumbnail": "/images/projects/fkui-dean-office/01.jpg",
+    "images": [
+      "/images/projects/fkui-dean-office/01.jpg",
+      "/images/projects/fkui-dean-office/02.jpg",
+      "/images/projects/fkui-dean-office/03.jpg",
+      "/images/projects/fkui-dean-office/04.jpg",
+      "/images/projects/fkui-dean-office/05.jpg",
+      "/images/projects/fkui-dean-office/01.jpg"
+    ],
+    "description": "An institutional-luxe reception lounge for the dean's office at the Faculty of Medicine, Universitas Indonesia. Book-matched marble panels inlaid with slim brass reveals anchor the room, navy velvet and blush lounge chairs gather around a stone-topped coffee table, and a scatter of hexagonal acoustic tiles drifts across the walls like an art installation. Tall heritage windows, warm terracotta floor tiles and a sculptural timber ceiling light lend the dignity and richness expected of a faculty's most formal room.",
+    "keywords": [
+      "interior",
+      "office",
+      "institutional",
+      "reception",
+      "lounge",
+      "marble",
+      "brass",
+      "velvet",
+      "hexagonal",
+      "acoustic",
+      "terracotta",
+      "fkui",
+      "luxe"
+    ],
+    "program": "institutional executive interior (dean's office reception & lounge, medical faculty)",
+    "descriptionSource": "drafted-from-images",
+    "draft": true,
+    "reviewNote": "Photoreal renders from Rey Backup '2017-48-DENAKAT FKUI' RENDER/170825 (01-05.jpg). 'Denakat' is the studio's folder name for the FKUI Dean's Office. One frame has a green missing-texture object at edge (cropped out of selection). Confirm location (FKUI Salemba) and built status."
+  },
+  {
+    "id": "sunrise-garden",
+    "code": "C25",
+    "status": "Design",
+    "title": "Sunrise Garden",
+    "category": "Interior",
+    "tags": [
+      "interior",
+      "residential",
+      "concept"
+    ],
+    "year": "2018",
+    "completed": "September 2018",
+    "location": "Kedoya, West Jakarta",
+    "thumbnail": "/images/projects/sunrise-garden/01.jpg",
+    "images": [
+      "/images/projects/sunrise-garden/01.jpg",
+      "/images/projects/sunrise-garden/02.jpg",
+      "/images/projects/sunrise-garden/03.jpg",
+      "/images/projects/sunrise-garden/04.jpg",
+      "/images/projects/sunrise-garden/05.jpg",
+      "/images/projects/sunrise-garden/06.jpg",
+      "/images/projects/sunrise-garden/07.jpg",
+      "/images/projects/sunrise-garden/08.jpg",
+      "/images/projects/sunrise-garden/01.jpg"
+    ],
+    "description": "An open-plan living, dining and kitchen wrapped around a slate-walled courtyard. A book-matched Calacatta marble wall anchors the kitchen and dissolves into the dining zone under a branching black pendant, while a deep tan leather sofa, dark full-height shelving and a patterned rug ground the living space. Full-height black-framed glazing slides the whole room open to the courtyard's green, keeping the restrained, warm-luxe material palette in constant conversation with daylight and planting.",
+    "keywords": [
+      "interior",
+      "residential",
+      "openplan",
+      "living",
+      "kitchen",
+      "calacatta",
+      "marble",
+      "leather",
+      "courtyard",
+      "slate",
+      "glazing",
+      "warm",
+      "luxe"
+    ],
+    "program": "private residential interior (open-plan living/dining/kitchen around a courtyard)",
+    "descriptionSource": "drafted-from-images",
+    "draft": true,
+    "reviewNote": "Photoreal renders from Rey Backup '2018-71-Sunrise Garden House' RENDER/180921A/JPG (LIVING CAM series). Interiors only — no built exterior render. Confirm exact location (Sunrise Garden, Kedoya inferred) and built status."
+  },
+  {
+    "id": "kemurnian-residence",
+    "code": "C26",
+    "status": "Design",
+    "title": "Kemurnian Residence",
+    "category": "Architecture",
+    "tags": [
+      "architecture",
+      "residential",
+      "concept"
+    ],
+    "archRank": 31,
+    "year": "2016",
+    "completed": "May 2016",
+    "location": "Kemurnian, West Jakarta",
+    "thumbnail": "/images/projects/kemurnian-residence/01.jpg",
+    "images": [
+      "/images/projects/kemurnian-residence/01.jpg",
+      "/images/projects/kemurnian-residence/02.jpg",
+      "/images/projects/kemurnian-residence/03.jpg",
+      "/images/projects/kemurnian-residence/01.jpg"
+    ],
+    "description": "A slim infill residence that makes a quiet, modern statement on a tight urban plot. A white brick tower rises above the entrance, incised with a fine vertical steel screen and warm timber-slat panels that filter light and views while framing a small planted balcony. A low steel-baluster fence and cantilevered canopy keep the street edge open and crisp — restrained tropical modernism working hard within a narrow frontage.",
+    "keywords": [
+      "residence",
+      "house",
+      "infill",
+      "narrow",
+      "facade",
+      "whitebrick",
+      "steelscreen",
+      "timber",
+      "slats",
+      "balcony",
+      "tropical",
+      "modern"
+    ],
+    "program": "private residence (narrow-lot infill house)",
+    "descriptionSource": "drafted-from-images",
+    "draft": true,
+    "reviewNote": "Photoreal facade renders from Rey Backup '2016-23-dr Adnan House' RENDER/160503 (only 3 frames — a thin set, all exterior). Render caption reads 'RESIDENCE AT KEMURNIAN' — used as the public title instead of the client name 'dr Adnan'. Confirm location (Kemurnian, West Jakarta) and built status. archRank 31 appended."
+  },
+  {
+    "id": "malaka-asri",
+    "code": "C27",
+    "status": "Design",
+    "title": "Malaka Asri",
+    "category": "Architecture & Interior",
+    "tags": [
+      "architecture",
+      "interior",
+      "residential",
+      "concept"
+    ],
+    "archRank": 32,
+    "year": "2015",
+    "completed": "June 2015",
+    "location": "Malaka, East Jakarta",
+    "thumbnail": "/images/projects/malaka-asri/01.jpg",
+    "images": [
+      "/images/projects/malaka-asri/01.jpg",
+      "/images/projects/malaka-asri/02.jpg",
+      "/images/projects/malaka-asri/03.jpg",
+      "/images/projects/malaka-asri/04.jpg",
+      "/images/projects/malaka-asri/05.jpg",
+      "/images/projects/malaka-asri/06.jpg",
+      "/images/projects/malaka-asri/07.jpg",
+      "/images/projects/malaka-asri/08.jpg",
+      "/images/projects/malaka-asri/09.jpg"
+    ],
+    "description": "A corner-lot family house that layers tropical modernism onto a suburban plot. Broad pitched roofs with deep timber-lined eaves float over a facade of checkered split-face stone, warm timber and perforated wood screens that shade the glazing and dapple the interior light. A glass-railed balcony wraps the upper storey while a slatted timber fence and low stone plinth define the garden edge. Inside, the same honest palette carries through calm living, dining and guest rooms — an easy, layered modern home.",
+    "keywords": [
+      "residence",
+      "house",
+      "corner",
+      "tropical",
+      "pitchedroof",
+      "eaves",
+      "stone",
+      "checkered",
+      "timber",
+      "perforated",
+      "screen",
+      "balcony",
+      "modern"
+    ],
+    "program": "private residence (two-storey corner-lot family house)",
+    "descriptionSource": "drafted-from-images",
+    "draft": true,
+    "reviewNote": "Photoreal renders from Rey Backup '2015-09-Malaka Asri' RENDER/'WEB malaka asri' (6 web-ready frames: front/hook exterior + guest room/pantry/dining/living interiors). Oldest of this batch (2015). Confirm location (Malaka, East Jakarta) and built status. archRank 32 appended.",
+    "interiorThumbnail": "/images/projects/malaka-asri/01.jpg"
+  },
+  {
+    "id": "london-home",
+    "code": "B13",
+    "status": "Built",
+    "title": "London Home",
+    "category": "Interior",
+    "tags": [
+      "interior",
+      "residential",
+      "built"
+    ],
+    "year": "2026",
+    "completed": "April 2026",
+    "location": "Ozone Residence, Jakarta Selatan",
+    "thumbnail": "/images/projects/london-home/01.jpg",
+    "images": [
+      "/images/projects/london-home/01.jpg",
+      "/images/projects/london-home/02.jpg",
+      "/images/projects/london-home/03.jpg",
+      "/images/projects/london-home/04.jpg",
+      "/images/projects/london-home/05.jpg",
+      "/images/projects/london-home/06.jpg",
+      "/images/projects/london-home/07.jpg",
+      "/images/projects/london-home/08.jpg",
+      "/images/projects/london-home/09.jpg",
+      "/images/projects/london-home/10.jpg",
+      "/images/projects/london-home/01.jpg"
+    ],
+    "description": "A warm modern family home realised down to the finest built detail. Sculptural room dividers of pale oak and slim black steel — one crowned by a soft, wave-like curved shelf — screen the plan without closing it off, framing a coffee-bar station with a lever espresso machine and threading light between living, dining and kitchen. The compact kitchen pairs white bevelled subway tile and warm Calacatta marble with fluted-glass cabinets and a black-framed picture window onto the garden, while a moody study nook lined in blackened fluted timber and cove lighting offers a quiet retreat. A slatted black entry cabinet with oak cubby shoe storage grounds the arrival, and full-height glazing opens onto a private, netted basketball half-court — an unexpected, joyful heart to family life.",
+    "keywords": [
+      "interior",
+      "residential",
+      "home",
+      "oak",
+      "blacksteel",
+      "shelving",
+      "divider",
+      "flutedglass",
+      "subwaytile",
+      "calacatta",
+      "marble",
+      "coffeebar",
+      "study",
+      "basketball",
+      "court",
+      "warm",
+      "modern",
+      "built"
+    ],
+    "program": "private residential interior (family home — living, dining, kitchen, study, entry & private basketball court)",
+    "descriptionSource": "extracted-images",
+    "reviewNote": "Confirmed BUILT — professional photography supplied by the studio via Google Drive (LONDON_01-22, Sony A7/Lightroom, Apr 2026). Location per studio: Ozone Residence, Jakarta Selatan. Studio job folder: OneDrive '163. Ozone Home Interior' (a.k.a. 'London House'). Used 10 curated frames; an '02_ADDITIONAL PHOTOS' Drive subfolder exists (was empty/inaccessible on pull). Confirm client/architect/areas if wanted."
+  },
+  {
+    "id": "kemang-office",
+    "code": "C28",
+    "status": "Design",
+    "title": "Kemang Office",
+    "category": "Architecture",
+    "tags": [
+      "architecture",
+      "concept"
+    ],
+    "archRank": 33,
+    "year": "2023",
+    "completed": "June 2023",
+    "location": "Kemang, Jakarta Selatan",
+    "thumbnail": "/images/projects/kemang-office/01.jpg",
+    "images": [
+      "/images/projects/kemang-office/01.jpg",
+      "/images/projects/kemang-office/02.jpg",
+      "/images/projects/kemang-office/03.jpg",
+      "/images/projects/kemang-office/04.jpg",
+      "/images/projects/kemang-office/05.jpg",
+      "/images/projects/kemang-office/06.jpg",
+      "/images/projects/kemang-office/07.jpg",
+      "/images/projects/kemang-office/08.jpg",
+      "/images/projects/kemang-office/01.jpg"
+    ],
+    "description": "A boutique workplace that rises as a cantilevered black-steel-and-timber volume floating above a terraced garden mound. Diagonal green berms planted with palms climb toward a glazed, wood-battened upper block, tucking parking and entrances beneath so the ground reads as landscape rather than lobby. Full-height dark glazing and warm timber fins wrap flexible floorplates, while a sheltered drop-off and dusk uplighting give a small office genuine arrival drama.",
+    "keywords": [
+      "office",
+      "workplace",
+      "architecture",
+      "cantilever",
+      "terraced",
+      "greenroof",
+      "landscape",
+      "timber",
+      "glazing",
+      "blacksteel",
+      "dusk",
+      "kemang"
+    ],
+    "program": "boutique office building (workplace over a landscaped terraced plinth)",
+    "descriptionSource": "drafted-from-images",
+    "draft": true,
+    "reviewNote": "Photoreal CGI from GDrive 'From HD Putih/PROJECT/142. Kemang Office' deck 'presentasi kemang office park 230626.pdf'. Building signage reads 'KEMANG OFFICE PARK'. Confirm exact address & built status. archRank 33 appended."
+  },
+  {
+    "id": "autopia",
+    "code": "C29",
+    "status": "Design",
+    "title": "Autopia",
+    "category": "Interior",
+    "tags": [
+      "interior",
+      "concept"
+    ],
+    "year": "2021",
+    "completed": "May 2021",
+    "location": "Akmani Hotel, Jakarta",
+    "thumbnail": "/images/projects/autopia/01.jpg",
+    "images": [
+      "/images/projects/autopia/01.jpg",
+      "/images/projects/autopia/02.jpg",
+      "/images/projects/autopia/03.jpg",
+      "/images/projects/autopia/04.jpg",
+      "/images/projects/autopia/05.jpg",
+      "/images/projects/autopia/06.jpg",
+      "/images/projects/autopia/07.jpg",
+      "/images/projects/autopia/01.jpg"
+    ],
+    "description": "A sun-washed hotel breakfast-and-lounge floor that turns a ground level into a bohemian tropical resort. Rattan pendants and a herringbone white-timber ceiling hover over terrazzo floors, woven-textile columns and tribal-patterned art; a sculptural terrazzo display island anchors the entrance, arched black-steel windows and a fish-scale tiled wall frame a private VIP room, and a live-cooking bar under a reed ceiling opens onto pool-deck dining. Warm, tactile and light-filled throughout.",
+    "keywords": [
+      "hotel",
+      "lounge",
+      "breakfast",
+      "fnb",
+      "bohemian",
+      "tropical",
+      "rattan",
+      "terrazzo",
+      "herringbone",
+      "fishscale",
+      "vip",
+      "resort",
+      "interior"
+    ],
+    "program": "hotel amenity floor — breakfast, lounge, VIP room, live-cooking & pool-deck F&B",
+    "descriptionSource": "drafted-from-images",
+    "draft": true,
+    "reviewNote": "Photoreal renders from GDrive 'From HD Putih/PROJECT/103. Autopia' deck '04-05-21 AUTOPIA BREAKFAST & LOUNGE.pptx' (extracted media). Client is an Akmani hotel — CONFIRM which property/city (Legian Bali vs Jakarta) and built status. Ignored the loose clay SketchUp working views."
+  },
+  {
+    "id": "yani-house",
+    "code": "C30",
+    "status": "Design",
+    "title": "Yani House",
+    "category": "Interior",
+    "tags": [
+      "interior",
+      "residential",
+      "concept"
+    ],
+    "year": "2023",
+    "completed": "June 2023",
+    "location": "Jakarta",
+    "thumbnail": "/images/projects/yani-house/01.jpg",
+    "images": [
+      "/images/projects/yani-house/01.jpg",
+      "/images/projects/yani-house/02.jpg",
+      "/images/projects/yani-house/03.jpg",
+      "/images/projects/yani-house/04.jpg",
+      "/images/projects/yani-house/05.jpg",
+      "/images/projects/yani-house/06.jpg",
+      "/images/projects/yani-house/07.jpg",
+      "/images/projects/yani-house/08.jpg",
+      "/images/projects/yani-house/01.jpg"
+    ],
+    "description": "A serene family townhouse interior where pale oak, warm marble and soft grey plaster gather around a plant-draped light well. A brass ring pendant floats over the double-height living room, a book-matched marble kitchen sits behind a trailing-green courtyard slot that threads daylight deep into the plan, and honest natural materials — oak joinery, stone floors, linen — keep the home calm, warm and quietly luxurious.",
+    "keywords": [
+      "residential",
+      "interior",
+      "townhouse",
+      "oak",
+      "marble",
+      "lightwell",
+      "brass",
+      "doubleheight",
+      "kitchen",
+      "plaster",
+      "warm",
+      "serene"
+    ],
+    "program": "private residential interior (townhouse — living, kitchen, dining)",
+    "descriptionSource": "drafted-from-images",
+    "draft": true,
+    "reviewNote": "Photoreal V-Ray renders from GDrive 'From HD Putih/PROJECT/137. Yani House' RENDER/'RENDER 230608'. LOCATION UNCONFIRMED (set to Jakarta placeholder) — confirm site + built status with studio."
+  },
+  {
+    "id": "wahid-hasyim",
+    "code": "C31",
+    "status": "Design",
+    "title": "Wahid Hasyim Office",
+    "category": "Interior",
+    "tags": [
+      "interior",
+      "concept"
+    ],
+    "year": "2019",
+    "completed": "January 2019",
+    "location": "Wahid Hasyim, Central Jakarta",
+    "thumbnail": "/images/projects/wahid-hasyim/01.jpg",
+    "images": [
+      "/images/projects/wahid-hasyim/01.jpg",
+      "/images/projects/wahid-hasyim/02.jpg",
+      "/images/projects/wahid-hasyim/03.jpg",
+      "/images/projects/wahid-hasyim/04.jpg",
+      "/images/projects/wahid-hasyim/05.jpg",
+      "/images/projects/wahid-hasyim/06.jpg",
+      "/images/projects/wahid-hasyim/07.jpg",
+      "/images/projects/wahid-hasyim/08.jpg",
+      "/images/projects/wahid-hasyim/01.jpg"
+    ],
+    "description": "A refined corporate office fit-out in a warm palette of travertine, natural timber and brushed brass. A sculptural stair foyer stacks a gilded display shelf against a stone-clad arch, linear-slat ceilings and travertine feature walls give the meeting rooms a quiet gravitas, and VIP lounges, pantry and open work floors carry the same crisp, understated material language throughout.",
+    "keywords": [
+      "office",
+      "corporate",
+      "interior",
+      "travertine",
+      "timber",
+      "brass",
+      "meetingroom",
+      "stairfoyer",
+      "slatceiling",
+      "warm",
+      "refined"
+    ],
+    "program": "corporate office interior (reception, meeting rooms, VIP, pantry, open workspace)",
+    "descriptionSource": "drafted-from-images",
+    "draft": true,
+    "reviewNote": "Photoreal renders from GDrive 'From HD Putih/PROJECT/73. Wahid Hasyim 44' RENDER/'190123 Presentation' (the finished set; the newer clay 'FISIK' views were excluded). Studio ref 'ABS Office'. One frame carries a small Poiesis red-P watermark. Confirm client/address & built status."
+  },
+  {
+    "id": "wonosari-mosque",
+    "code": "C32",
+    "status": "Design",
+    "title": "Wonosari Mosque",
+    "category": "Architecture",
+    "tags": [
+      "architecture",
+      "concept"
+    ],
+    "archRank": 34,
+    "year": "2022",
+    "completed": "October 2022",
+    "location": "Wonosari, Gunungkidul, Yogyakarta",
+    "thumbnail": "/images/projects/wonosari-mosque/01.jpg",
+    "images": [
+      "/images/projects/wonosari-mosque/01.jpg",
+      "/images/projects/wonosari-mosque/02.jpg",
+      "/images/projects/wonosari-mosque/03.jpg",
+      "/images/projects/wonosari-mosque/04.jpg",
+      "/images/projects/wonosari-mosque/05.jpg",
+      "/images/projects/wonosari-mosque/06.jpg",
+      "/images/projects/wonosari-mosque/07.jpg",
+      "/images/projects/wonosari-mosque/08.jpg",
+      "/images/projects/wonosari-mosque/01.jpg"
+    ],
+    "description": "A circular tahfidz mosque veiled in a luminous white geometric mashrabiya screen, crowned by a floating disc roof and a slender, calligraphy-banded minaret. Vertical timber fluting and gold Arabic calligraphy wrap the drum, while inside a folded lattice screen glows over a pebbled ablution court and a golden mihrab sits beneath a woven-rattan ceiling — a serene, contemporary reading of Islamic craft for a Qur'an-memorisation school.",
+    "keywords": [
+      "mosque",
+      "masjid",
+      "tahfidz",
+      "religious",
+      "mashrabiya",
+      "lattice",
+      "geometric",
+      "minaret",
+      "mihrab",
+      "calligraphy",
+      "circular",
+      "rattan",
+      "islamic"
+    ],
+    "program": "mosque for a pondok tahfidz (Qur'an-memorisation boarding school)",
+    "descriptionSource": "drafted-from-images",
+    "draft": true,
+    "reviewNote": "Photoreal renders from GDrive 'From HD Putih/PROJECT/133. Pondok Tahfidz Wonosari' PRESENTASI/'DESAIN MASJID SETELAH KOORDINASI STRUKTUR' (A/B sets) + deck 221011. Interior/ablution-court renders used (the exterior massing render is clay-flat). Confirm site & built status. archRank 34 appended."
+  },
+  {
+    "id": "imeri-auditorium",
+    "code": "C33",
+    "status": "Design",
+    "title": "IMERI Auditorium",
+    "category": "Interior",
+    "tags": [
+      "interior",
+      "concept"
+    ],
+    "year": "2023",
+    "completed": "July 2023",
+    "location": "Salemba, Central Jakarta",
+    "thumbnail": "/images/projects/imeri-auditorium/01.jpg",
+    "images": [
+      "/images/projects/imeri-auditorium/01.jpg",
+      "/images/projects/imeri-auditorium/02.jpg",
+      "/images/projects/imeri-auditorium/03.jpg",
+      "/images/projects/imeri-auditorium/04.jpg",
+      "/images/projects/imeri-auditorium/05.jpg",
+      "/images/projects/imeri-auditorium/06.jpg",
+      "/images/projects/imeri-auditorium/01.jpg"
+    ],
+    "description": "A warm-timber ceremonial auditorium for the Faculty of Medicine, Universitas Indonesia (IMERI). A dark wood-slat stage backdrop embossed with a gilded university emblem frames a floating timber podium platform, while perforated screen side-walls glow with concealed light and polished concrete floors ground the tiered lecture seating — turning a plain faculty hall into a dignified academic stage.",
+    "keywords": [
+      "auditorium",
+      "stage",
+      "institutional",
+      "university",
+      "fkui",
+      "imeri",
+      "timber",
+      "woodslat",
+      "podium",
+      "perforated",
+      "ceremonial",
+      "interior"
+    ],
+    "program": "institutional auditorium / lecture-and-ceremony hall (medical faculty)",
+    "descriptionSource": "drafted-from-images",
+    "draft": true,
+    "reviewNote": "Photoreal renders from GDrive 'From HD Putih/PROJECT/146. Stage Auditorium IMERI' deck 'AUDITORIUM IMERI FK UI PRESENTATION 230726.pdf' (page rasters, bottom caption strip cropped off). Confirm built status."
+  },
+  {
+    "id": "arah-kopi",
+    "code": "C34",
+    "status": "Design",
+    "title": "Arah Kopi",
+    "category": "Interior",
+    "tags": [
+      "interior",
+      "concept"
+    ],
+    "year": "2021",
+    "completed": "November 2021",
+    "location": "Citra Garden City, West Jakarta",
+    "thumbnail": "/images/projects/arah-kopi/01.jpg",
+    "images": [
+      "/images/projects/arah-kopi/01.jpg",
+      "/images/projects/arah-kopi/02.jpg",
+      "/images/projects/arah-kopi/03.jpg",
+      "/images/projects/arah-kopi/04.jpg",
+      "/images/projects/arah-kopi/05.jpg",
+      "/images/projects/arah-kopi/06.jpg",
+      "/images/projects/arah-kopi/01.jpg"
+    ],
+    "description": "A luminous white-and-oak micro-café that turns a narrow shophouse into a glowing street-front coffee lantern. Bright terrazzo floors, a mustard-and-steel barista bar and warm oak joinery sit beneath a soft skylit ceiling, while a gold-lit signage box, a '#BeraniMulai' wall and full-height glazing draw passers-by into a compact, cheerful specialty-coffee bar.",
+    "keywords": [
+      "cafe",
+      "coffee",
+      "fnb",
+      "retail",
+      "shophouse",
+      "terrazzo",
+      "oak",
+      "barista",
+      "minimal",
+      "white",
+      "specialtycoffee",
+      "interior"
+    ],
+    "program": "specialty coffee shop (narrow shophouse café + shopfront)",
+    "descriptionSource": "drafted-from-images",
+    "draft": true,
+    "reviewNote": "Photoreal renders from GDrive 'From HD Putih/PROJECT/118. Arah Kopi Citra 6' deck '3D-VIEW-ARAH-KOPI_20211126_130530.pdf'. One of several Arah Kopi outlets — only the Citra 6 outlet has publish-grade renders (Condet/Citra 7 are clay/none). Confirm built status."
+  },
+  {
+    "id": "makishi",
+    "code": "C35",
+    "status": "Design",
+    "title": "Makishi Fish Shop",
+    "category": "Interior",
+    "tags": [
+      "interior",
+      "concept"
+    ],
+    "year": "2020",
+    "completed": "December 2020",
+    "location": "Pantai Indah Kapuk, North Jakarta",
+    "thumbnail": "/images/projects/makishi/01.jpg",
+    "images": [
+      "/images/projects/makishi/01.jpg",
+      "/images/projects/makishi/02.jpg",
+      "/images/projects/makishi/03.jpg",
+      "/images/projects/makishi/04.jpg",
+      "/images/projects/makishi/05.jpg",
+      "/images/projects/makishi/06.jpg",
+      "/images/projects/makishi/01.jpg"
+    ],
+    "description": "A crisp modern fishmonger that makes a wet-market trade look like a design boutique. White bevelled subway tile and a warm plywood ceiling meet a bold cobalt-blue perforated-metal accent and black track lighting; illuminated fish graphics label the catch, and a glowing angular-canopied glass storefront with neon 'MKSH' signage turns the corner shop into a night-time landmark.",
+    "keywords": [
+      "fishshop",
+      "fishmonger",
+      "retail",
+      "fnb",
+      "market",
+      "subwaytile",
+      "cobalt",
+      "perforated",
+      "plywood",
+      "neon",
+      "storefront",
+      "interior"
+    ],
+    "program": "specialty fish market / fishmonger retail (shopfront + retail interior)",
+    "descriptionSource": "drafted-from-images",
+    "draft": true,
+    "reviewNote": "Photoreal renders from GDrive 'From HD Putih/PROJECT/102. Makishi Fish Shop' deck 'MAKISHI FISH MARKET Presentation 29-12-2020.pptx' (extracted media). Hero = night-exterior storefront. Confirm exact address (PIK inferred) & built status."
   }
 ]

@@ -126,11 +126,11 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
   background: var(--neutral-white);   /* plain white box */
   color: var(--ink);                  /* dark, legible label */
   border: 1px solid var(--ink);       /* thin black line */
-  transition: background var(--transition-hover);
+  transition: background var(--transition-hover), color var(--transition-hover);
 }
-/* Higher specificity than `.nav-links a:hover` so only the background shifts to
-   light grey on hover — the label keeps its weight (no width jump). */
-.nav-links a.nav-enquire:hover { background: var(--accent-quiet); font-weight: var(--weight-medium); }
+/* Higher specificity than `.nav-links a:hover` so the box fills solid black on hover
+   with a light label — weight unchanged to avoid a width jump. */
+.nav-links a.nav-enquire:hover { background: var(--ink); color: var(--nat-cream); }
 .nav-links a.nav-enquire.router-link-exact-active { color: var(--ink); }
 .nav-footer-mobile { display: none; }
 

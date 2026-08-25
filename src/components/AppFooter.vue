@@ -15,6 +15,17 @@
             <i class="pi pi-instagram instagram-icon"></i>
             <span class="instagram-handle">@poiesis.id</span>
           </a>
+
+          <div class="footer-cert">
+            <picture>
+              <source srcset="/images/brand/iai-logo.png.webp" type="image/webp" />
+              <img src="/images/brand/iai-logo.png" alt="Ikatan Arsitek Indonesia" class="footer-cert-logo" loading="lazy" />
+            </picture>
+            <div class="footer-cert-text">
+              <span class="footer-cert-title">IAI Certified</span>
+              <span>STRA 2.01.0.0004763</span>
+            </div>
+          </div>
         </div>
 
         <div class="footer-col">
@@ -22,7 +33,7 @@
           <p>Calamus C7-35, Citra Garden Bintaro<br>Ciputat, Tangerang Selatan 15413<br>Banten, Indonesia</p>
           <p class="footer-hours">Mon – Fri · 09.00 – 18.00 WIB</p>
           <a class="footer-contact" href="tel:+6281218321775"><i class="pi pi-phone" aria-hidden="true"></i><span>+62 812 1832 1775</span></a>
-          <a class="footer-contact" href="mailto:mayang.poiesis@gmail.com"><i class="pi pi-envelope" aria-hidden="true"></i><span>mayang.poiesis@gmail.com</span></a>
+          <router-link class="footer-contact" to="/contact"><i class="pi pi-envelope" aria-hidden="true"></i><span>Start an enquiry</span></router-link>
         </div>
 
         <div class="footer-col">
@@ -113,6 +124,28 @@ const year = ref(2026)
 }
 .instagram-handle { font: var(--weight-medium) 14px/1 var(--font-ui); color: var(--ink); }
 
+/* IAI certification credential */
+.footer-cert {
+  display: flex;
+  align-items: flex-end;   /* STRA (last text line) sits level with the logo's bottom */
+  gap: 16px;
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid var(--rule-soft);
+}
+.footer-cert-logo { width: 116px; height: auto; display: block; }
+.footer-cert-text { display: flex; flex-direction: column; gap: 4px; text-align: left; }
+.footer-cert-title {
+  font: var(--weight-medium) var(--t-label)/1 var(--font-ui);
+  letter-spacing: var(--track-caps);
+  text-transform: uppercase;
+  color: var(--pink-crimson);
+}
+.footer-cert-text span:not(.footer-cert-title) {
+  font: var(--weight-regular) 13px/1.5 var(--font-ui);
+  color: var(--ink-soft);
+}
+
 .footer-col {
   h4 { color: var(--pink-crimson); margin-bottom: 18px; }
 
@@ -128,7 +161,8 @@ const year = ref(2026)
 /* Contact rows: icon + text, vertically centred. `.footer-col a.footer-contact`
    (0,2,1) beats `.footer-col a { display:block }` so the flex row survives. */
 .footer-col a.footer-contact {
-  display: inline-flex;
+  display: flex;
+  width: fit-content;
   align-items: center;
   gap: 9px;
   margin-top: 10px;

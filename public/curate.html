@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex" />
+<title>Poiesis — Category Sequencer</title>
+<style>
+  :root{
+    --ink:#1a1a1a; --ink-soft:#6b6b6b; --line:#e3e0da; --cream:#faf8f4;
+    --accent:#1a1a1a; --card:#fff; --shadow:0 1px 2px rgba(0,0,0,.06),0 8px 24px rgba(0,0,0,.06);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--cream);color:var(--ink);
+    font:15px/1.5 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  header{position:sticky;top:0;z-index:20;background:rgba(250,248,244,.92);
+    backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:16px 24px;}
+  h1{margin:0 0 2px;font-size:16px;letter-spacing:.02em}
+  .sub{color:var(--ink-soft);font-size:13px}
+  .wrap{max-width:1180px;margin:0 auto;padding:24px}
+  /* tabs */
+  .tabs{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 6px}
+  .tab{border:1px solid var(--line);background:#fff;padding:8px 14px;border-radius:999px;
+    cursor:pointer;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);}
+  .tab.active{background:var(--ink);border-color:var(--ink);color:#fff}
+  .tab .n{opacity:.6;margin-left:6px;font-variant-numeric:tabular-nums}
+  .tab.dirty::after{content:"•";color:#c0392b;margin-left:6px}
+  .hint{color:var(--ink-soft);font-size:13px;margin:14px 0 18px}
+  /* grid */
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  @media(max-width:980px){.grid{grid-template-columns:repeat(3,1fr)}}
+  @media(max-width:680px){.grid{grid-template-columns:repeat(2,1fr)}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden;
+    box-shadow:var(--shadow);cursor:grab;user-select:none;transition:transform .12s,box-shadow .12s,opacity .12s;position:relative}
+  .card:active{cursor:grabbing}
+  .card.dragging{opacity:.4}
+  .card.over{outline:2px solid var(--ink);outline-offset:2px}
+  .thumb{aspect-ratio:3/2;background:#eee;display:block;width:100%;object-fit:cover}
+  .meta{display:flex;align-items:baseline;gap:8px;padding:10px 12px}
+  .pos{font-variant-numeric:tabular-nums;font-weight:700;font-size:12px;color:#fff;background:var(--ink);
+    border-radius:6px;min-width:26px;height:22px;display:inline-flex;align-items:center;justify-content:center;
+    position:absolute;top:8px;left:8px;box-shadow:0 1px 4px rgba(0,0,0,.3)}
+  .title{font-weight:600;font-size:13.5px;line-height:1.25}
+  .yr{color:var(--ink-soft);font-size:12px;margin-left:auto;white-space:nowrap}
+  .badge{position:absolute;top:8px;right:8px;background:rgba(255,255,255,.9);color:#333;
+    font-size:10px;letter-spacing:.05em;text-transform:uppercase;padding:3px 7px;border-radius:5px}
+  /* export bar */
+  .bar{position:sticky;bottom:0;z-index:20;margin-top:24px;background:rgba(250,248,244,.95);
+    backdrop-filter:blur(8px);border-top:1px solid var(--line);padding:14px 24px;display:flex;
+    align-items:center;gap:12px;flex-wrap:wrap}
+  button.act{border:1px solid var(--ink);background:var(--ink);color:#fff;padding:10px 18px;border-radius:8px;
+    cursor:pointer;font-size:13px;font-weight:600}
+  button.ghost{background:#fff;color:var(--ink)}
+  button.act:disabled{opacity:.4;cursor:not-allowed}
+  .status{color:var(--ink-soft);font-size:13px}
+  details{margin-left:auto}
+  summary{cursor:pointer;color:var(--ink-soft);font-size:13px}
+  textarea{width:100%;height:220px;margin-top:10px;font:12px/1.5 ui-monospace,Menlo,Consolas,monospace;
+    border:1px solid var(--line);border-radius:8px;padding:10px}
+  kbd{background:#fff;border:1px solid var(--line);border-bottom-width:2px;border-radius:5px;padding:1px 6px;font-size:11px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Poiesis — Category Sequencer</h1>
+  <div class="sub">Drag thumbnails to set the order projects appear in each category on <b>/projects</b>. Position 1 shows first.</div>
+</header>
+
+<div class="wrap">
+  <div class="tabs" id="tabs"></div>
+  <div class="hint">
+    Drag a card onto another to drop it there. Order is saved <b>per category</b> and kept as you switch tabs.
+    The <b>interior</b> tab shows each project's interior thumbnail (what visitors actually see there).
+    When happy, <b>Download</b> and hand the file back, or drop it into <code>public/data/category-order.json</code>.
+  </div>
+  <div class="grid" id="grid"></div>
+</div>
+
+<div class="bar">
+  <button class="act" id="download">Download category-order.json</button>
+  <button class="act ghost" id="copy">Copy JSON</button>
+  <button class="act ghost" id="reset">Reset all changes</button>
+  <span class="status" id="status">Loading…</span>
+  <details>
+    <summary>Show JSON</summary>
+    <textarea id="json" readonly spellcheck="false"></textarea>
+  </details>
+</div>
+
+<script>
+const TAGS = ['architecture','interior','exhibition','residential','industrial & utility','built','concept','high-rise'];
+let projects = [];            // all projects, by id lookup
+let byId = {};
+let order = {};               // working order {tag:[ids]}
+let original = {};            // pristine copy for reset/dirty check
+let active = TAGS[0];
+
+const $ = s => document.querySelector(s);
+const smWebp = src => { if(!src) return src; const [p,q]=src.split('?'); const s=p.replace(/\.(png|jpe?g)$/i,'-sm.jpg.webp'); return q?`${s}?${q}`:s; };
+const sm     = src => { if(!src) return src; const [p,q]=src.split('?'); const s=p.replace(/\.(png|jpe?g)$/i,'-sm.jpg'); return q?`${s}?${q}`:s; };
+const thumbFor = (p,tag) => (tag==='interior' && p.interiorThumbnail) ? p.interiorThumbnail : p.thumbnail;
+
+async function load(){
+  const [pr, or] = await Promise.all([ fetch('/data/projects.json'), fetch('/data/category-order.json') ]);
+  projects = await pr.json();
+  byId = Object.fromEntries(projects.map(p=>[p.id,p]));
+  const seed = or.ok ? await or.json() : {};
+  // Build a complete, valid order for every tag: seeded ids first (that still carry the tag),
+  // then any tagged project missing from the seed, appended in file order.
+  for(const tag of TAGS){
+    const tagged = projects.filter(p=>Array.isArray(p.tags)&&p.tags.includes(tag)).map(p=>p.id);
+    const seq = (seed[tag]||[]).filter(id=>tagged.includes(id));
+    for(const id of tagged) if(!seq.includes(id)) seq.push(id);
+    order[tag]=seq;
+  }
+  original = JSON.parse(JSON.stringify(order));
+  renderTabs(); render(); sync();
+  $('#status').textContent = `${projects.length} projects · ${TAGS.length} categories loaded`;
+}
+
+function renderTabs(){
+  const t = $('#tabs'); t.innerHTML='';
+  for(const tag of TAGS){
+    const b=document.createElement('button');
+    b.className='tab'+(tag===active?' active':'')+(dirty(tag)?' dirty':'');
+    b.innerHTML=`${tag}<span class="n">${order[tag].length}</span>`;
+    b.onclick=()=>{active=tag;renderTabs();render();};
+    t.appendChild(b);
+  }
+}
+
+let dragId=null;
+function render(){
+  const g=$('#grid'); g.innerHTML='';
+  order[active].forEach((id,idx)=>{
+    const p=byId[id]; if(!p) return;
+    const c=document.createElement('div');
+    c.className='card'; c.draggable=true; c.dataset.id=id;
+    const isInt = active==='interior' && p.interiorThumbnail;
+    c.innerHTML=`
+      <span class="pos">${idx+1}</span>
+      ${isInt?'<span class="badge">interior</span>':''}
+      <img class="thumb" loading="lazy" src="${sm(thumbFor(p,active))}"
+           onerror="this.onerror=null;this.src='${thumbFor(p,active)}'">
+      <div class="meta"><span class="title">${p.title||id}</span><span class="yr">${p.year||''}</span></div>`;
+    c.addEventListener('dragstart',e=>{dragId=id;c.classList.add('dragging');e.dataTransfer.effectAllowed='move';});
+    c.addEventListener('dragend',()=>{dragId=null;c.classList.remove('dragging');document.querySelectorAll('.card.over').forEach(x=>x.classList.remove('over'));});
+    c.addEventListener('dragover',e=>{e.preventDefault();c.classList.add('over');});
+    c.addEventListener('dragleave',()=>c.classList.remove('over'));
+    c.addEventListener('drop',e=>{e.preventDefault();c.classList.remove('over');move(dragId,id);});
+    g.appendChild(c);
+  });
+}
+
+function move(fromId,toId){
+  if(!fromId||fromId===toId) return;
+  const arr=order[active];
+  arr.splice(arr.indexOf(fromId),1);
+  arr.splice(arr.indexOf(toId),0,fromId);
+  renderTabs(); render(); sync();
+}
+
+const dirty = tag => JSON.stringify(order[tag])!==JSON.stringify(original[tag]);
+function sync(){
+  $('#json').value = JSON.stringify(order,null,2);
+  const anyDirty = TAGS.some(dirty);
+  $('#download').disabled=false;
+  $('#status').textContent = anyDirty ? 'Unsaved changes — Download to keep them.' : 'No changes yet.';
+}
+
+$('#download').onclick=()=>{
+  const blob=new Blob([JSON.stringify(order,null,2)+'\n'],{type:'application/json'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='category-order.json';a.click();
+};
+$('#copy').onclick=async()=>{await navigator.clipboard.writeText(JSON.stringify(order,null,2));$('#status').textContent='Copied JSON to clipboard.';};
+$('#reset').onclick=()=>{order=JSON.parse(JSON.stringify(original));renderTabs();render();sync();};
+
+load().catch(e=>{$('#status').textContent='Failed to load: '+e.message;});
+</script>
+</body>
+</html>

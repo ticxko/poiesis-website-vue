@@ -45,11 +45,11 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 
 const slides = [
-  { image: '/images/hero/edge.jpg', alt: 'Edge House — Poiesis Studio' },
-  { image: '/images/hero/spanish.jpg', alt: 'Spanish Villa — Poiesis Studio' },
+  { image: '/images/hero/bangka.jpg', alt: 'Bangka 1210 — Poiesis Studio' },
   { image: '/images/hero/cempaka.jpg', alt: 'Rumah Cempaka — Poiesis Studio' },
   { image: '/images/hero/mampang.jpeg', alt: '485 — Poiesis Studio' },
   { image: '/images/hero/wanggamet.jpg', alt: 'Wanggamet — Poiesis Studio' },
+  { image: '/images/hero/jatijajar.jpg', alt: 'Jatijajar Retreat — Poiesis Studio' },
 ]
 
 const currentSlide = ref(0)

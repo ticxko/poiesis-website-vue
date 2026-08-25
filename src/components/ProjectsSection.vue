@@ -31,8 +31,8 @@
         >
           <div class="card-media">
             <picture>
-              <source :srcset="smThumbWebp(project.thumbnail)" type="image/webp" />
-              <img :src="smThumb(project.thumbnail)" :alt="project.title" loading="lazy" decoding="async" />
+              <source :srcset="cardSrcWebp(project)" type="image/webp" />
+              <img :src="cardSrc(project)" :alt="project.title" loading="lazy" decoding="async" />
             </picture>
           </div>
           <div class="card-row">
@@ -78,12 +78,34 @@ function smThumbWebp(src) {
   const sm = path.replace(/\.(png|jpe?g)$/i, '-sm.jpg.webp')
   return q ? `${sm}?${q}` : sm
 }
+// Append `.webp` to a full image path (01.jpg -> 01.jpg.webp), preserving any ?v= query.
+function fullWebp(src) {
+  if (!src) return src
+  const [path, q] = src.split('?')
+  const w = path.replace(/(\.(?:png|jpe?g))$/i, '$1.webp')
+  return q ? `${w}?${q}` : w
+}
+// Home (featured) grid uses each project's full hero image (`images[0]`) for crispness;
+// the /projects listing keeps the lightweight ~800px `-sm` thumbnail.
+function cardSrc(project) {
+  return props.limit ? (project.images?.[0] || project.thumbnail) : smThumb(project.thumbnail)
+}
+function cardSrcWebp(project) {
+  return props.limit ? fullWebp(project.images?.[0] || project.thumbnail) : smThumbWebp(project.thumbnail)
+}
 
 const filteredProjects = computed(() => {
-  const list = activeFilter.value === 'all'
+  // Home grid (limit set): show the curated `featured` projects in rank order,
+  // falling back to file order if none are flagged.
+  if (props.limit) {
+    const feat = allProjects.value
+      .filter(p => p.featured)
+      .sort((a, b) => a.featured - b.featured)
+    return (feat.length ? feat : allProjects.value).slice(0, props.limit)
+  }
+  return activeFilter.value === 'all'
     ? allProjects.value
     : allProjects.value.filter(p => p.category === activeFilter.value)
-  return props.limit ? list.slice(0, props.limit) : list
 })
 
 function setFilter(cat) {

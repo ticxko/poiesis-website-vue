@@ -35,8 +35,8 @@
           <div>
             <p class="ps-lead detail-desc">{{ project.description }}</p>
             <p v-if="project.program" class="ps-body detail-program"><span class="prog-k">Program</span> {{ project.program }}</p>
-            <ul v-if="project.keywords && project.keywords.length" class="detail-tags">
-              <li v-for="k in project.keywords.slice(0, 12)" :key="k">{{ k }}</li>
+            <ul v-if="curatedKeywords.length" class="detail-tags">
+              <li v-for="k in curatedKeywords" :key="k">{{ prettyKeyword(k) }}</li>
             </ul>
           </div>
         </div>
@@ -95,6 +95,30 @@ function onHeroLoad(e) {
   const img = e.target
   heroClass.value = img.naturalHeight && img.naturalWidth / img.naturalHeight >= 1.4 ? 'is-wide' : 'is-tall'
 }
+
+// Keyword chips: the raw `keywords` are an internal, SEO-ish grab-bag (lowercase,
+// up to 25 per project, with the odd junk token). We curate them to a tasteful few
+// clean material/concept tags, drop the weak/quantity ones, and Title-Case them.
+const KEYWORD_BLOCK = new Set([
+  'sky', 'hook', 'wind', 'bike', 'backhome', 'bigfamily', 'bestview',
+  'backyard', 'arrival', 'breatheable',
+])
+// Compound slugs that need spacing/typography a plain capitalise can't give.
+const KEYWORD_PRETTY = {
+  secondskin: 'Second Skin', frontplaza: 'Front Plaza', breezeblock: 'Breeze Block',
+  blackandwhite: 'Black & White', brisesoleil: 'Brise-Soleil', blacksteel: 'Black Steel',
+  'board-formed': 'Board-Formed', 'barrier-free': 'Barrier-Free',
+}
+function prettyKeyword(k) {
+  if (KEYWORD_PRETTY[k]) return KEYWORD_PRETTY[k]
+  return k.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join('-')
+}
+const curatedKeywords = computed(() => {
+  const ks = project.value?.keywords || []
+  return ks
+    .filter(k => k && !/^\d/.test(k) && !KEYWORD_BLOCK.has(k.toLowerCase()))
+    .slice(0, 6)
+})
 
 const next = computed(() => {
   if (!project.value || !projects.value.length) return null

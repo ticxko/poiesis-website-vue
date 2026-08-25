@@ -1,7 +1,7 @@
 <template>
   <main>
     <section class="page-plate">
-      <img src="/images/hero/spanish.jpg" alt="" />
+      <img src="/images/hero/jatijajar.jpg" alt="" />
       <span class="plate-scrim" aria-hidden="true"></span>
       <span class="plate-tri" aria-hidden="true"></span>
       <div class="container plate-inner">
@@ -10,12 +10,12 @@
       </div>
     </section>
 
-    <ProjectsSection :limit="0" :showViewAll="false" />
+    <ProjectsBrowse />
   </main>
 </template>
 
 <script setup>
-import ProjectsSection from '../components/ProjectsSection.vue'
+import ProjectsBrowse from '../components/ProjectsBrowse.vue'
 </script>
 
 <style lang="scss" scoped>

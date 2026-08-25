@@ -9,13 +9,15 @@ import { spawn } from 'node:child_process';
 const PORT = Number(process.env.PORT || 8787);
 const HOST = process.env.HOST || '127.0.0.1';
 
-const FROM = 'Poiesis Website <hello@poiesis.id>';
-const ENVELOPE_FROM = 'hello@poiesis.id';
-const RECIPIENTS = [
-  'mayang.poiesis@gmail.com',
-  'ticxko@gmail.com',
-  'nice.permadi92@gmail.com',
-];
+// Sender is the dedicated enquiry mailbox on the kvm4 mail server (DKIM-signed
+// for poiesis.id). Recipients / sender can be overridden via env for testing
+// (e.g. a systemd drop-in setting CONTACT_RECIPIENTS=ticxko@gmail.com).
+const FROM = process.env.CONTACT_FROM || 'Poiesis Enquiries <enquiry@poiesis.id>';
+const ENVELOPE_FROM = process.env.CONTACT_ENVELOPE_FROM || 'enquiry@poiesis.id';
+const RECIPIENTS = (
+  process.env.CONTACT_RECIPIENTS ||
+  'mayang.poiesis@gmail.com,ticxko@gmail.com,nice.permadi92@gmail.com'
+).split(',').map((s) => s.trim()).filter(Boolean);
 
 const MAX_BODY_BYTES = 20_000;
 
