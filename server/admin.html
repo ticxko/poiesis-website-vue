@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex,nofollow" />
+<title>Poiesis · Enquiries</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,500;1,400&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ink:#2C2C2C; --ink-soft:#57575A; --label:#6E6E70; --rule:#E5E5E1; --rule-soft:#EDEDEA;
+    --ground:#F3F3F2; --card:#ffffff; --accent:#8B1A2B; --ok:#1a7f37; --chip:#F0EFEC;
+    --font:"Hanken Grotesk",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --serif:"Cormorant Garamond",Georgia,serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--font);background:var(--ground);color:var(--ink);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+  header.top{border-bottom:1px solid var(--rule);background:#fff}
+  .top-in{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 0}
+  .brand{display:flex;flex-direction:column;gap:2px}
+  .brand b{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600}
+  .brand h1{font:400 26px/1.1 var(--serif);color:var(--ink)}
+  .top-actions{display:flex;align-items:center;gap:14px}
+  .muted{color:var(--label);font-size:12.5px}
+  button.btn{font-family:var(--font);font-size:12px;letter-spacing:.05em;text-transform:uppercase;font-weight:600;color:#fff;background:var(--ink);border:0;padding:10px 16px;border-radius:0;cursor:pointer}
+  button.btn:hover{background:#000}
+  main{padding:26px 0 60px}
+  section{margin-bottom:26px}
+  .sec-label{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--label);font-weight:600;margin-bottom:12px}
+
+  .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .card{background:var(--card);border:1px solid var(--rule);padding:18px 20px}
+  .card .n{font:500 34px/1 var(--serif);color:var(--ink)}
+  .card .k{font-size:12px;color:var(--label);margin-top:8px;text-transform:uppercase;letter-spacing:.06em}
+  .card .sub{font-size:12px;color:var(--ink-soft);margin-top:4px}
+
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .panel{background:var(--card);border:1px solid var(--rule);padding:18px 20px}
+  .bar-row{display:grid;grid-template-columns:130px 1fr 34px;align-items:center;gap:10px;margin:9px 0}
+  .bar-row .bl{font-size:13px;color:var(--ink-soft);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .bar-track{height:8px;background:var(--rule-soft);position:relative}
+  .bar-fill{position:absolute;inset:0 auto 0 0;background:var(--ink)}
+  .bar-row .bc{font-size:12.5px;color:var(--label);text-align:right}
+
+  .trend{display:flex;align-items:flex-end;gap:6px;height:110px;margin-top:8px}
+  .trend .tcol{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:6px;height:100%}
+  .trend .tbar{width:70%;min-height:2px;background:var(--ink)}
+  .trend .tn{font-size:11px;color:var(--label)}
+  .trend .tk{font-size:10px;color:var(--label);white-space:nowrap}
+
+  .list-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+  .search{font-family:var(--font);font-size:14px;padding:10px 14px;border:1px solid var(--rule);background:#fff;min-width:220px}
+  table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--rule)}
+  th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--rule-soft);font-size:13.5px;vertical-align:top}
+  th{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--label);font-weight:600;background:#fafaf9}
+  tr.row{cursor:pointer}
+  tr.row:hover{background:#faf9f7}
+  .seq{font:500 15px/1 var(--serif);color:var(--accent)}
+  .nm{font-weight:500}
+  .pill{display:inline-block;font-size:11px;padding:3px 9px;background:var(--chip);color:var(--ink-soft);border-radius:999px;white-space:nowrap}
+  .detail{background:#faf9f7}
+  .detail td{padding:0}
+  .detail-in{padding:18px 16px 22px;display:grid;grid-template-columns:1fr 1fr;gap:10px 26px}
+  .dl{display:flex;gap:10px;font-size:13.5px;padding:5px 0;border-bottom:1px solid var(--rule-soft)}
+  .dl dt{color:var(--label);min-width:130px;flex:none}
+  .dl dd{color:var(--ink)}
+  .photos{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+  .photos img{width:96px;height:96px;object-fit:cover;border:1px solid var(--rule);cursor:zoom-in}
+  .reply{grid-column:1/-1;display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+  .reply a{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;letter-spacing:.04em;text-transform:uppercase;font-weight:600;text-decoration:none;padding:11px 18px}
+  .reply .wa{background:#25D366;color:#fff}
+  .reply .em{border:1px solid var(--ink);color:var(--ink)}
+  .reply .dr{border:1px solid var(--rule);color:var(--ink-soft)}
+  .empty{padding:40px;text-align:center;color:var(--label)}
+
+  .lightbox{position:fixed;inset:0;background:rgba(20,20,20,.9);display:none;align-items:center;justify-content:center;z-index:50;padding:20px}
+  .lightbox.on{display:flex}
+  .lightbox img{max-width:100%;max-height:100%}
+
+  @media(max-width:820px){
+    .cards{grid-template-columns:1fr 1fr}
+    .grid2{grid-template-columns:1fr}
+    .detail-in{grid-template-columns:1fr}
+    .hide-sm{display:none}
+    .trend .tk{display:none}
+  }
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap top-in">
+    <div class="brand"><b>Poiesis Studio</b><h1>Enquiries</h1></div>
+    <div class="top-actions">
+      <span class="muted" id="gen"></span>
+      <button class="btn" id="refresh">Refresh</button>
+    </div>
+  </div>
+</header>
+<main class="wrap">
+  <section><div class="cards" id="cards"></div></section>
+  <section>
+    <div class="grid2">
+      <div class="panel"><div class="sec-label">Lingkup &amp; Jenis</div><div id="bd-scope"></div><div style="height:14px"></div><div id="bd-work"></div></div>
+      <div class="panel"><div class="sec-label">Anggaran &amp; Rencana mulai</div><div id="bd-budget"></div><div style="height:14px"></div><div id="bd-start"></div></div>
+    </div>
+  </section>
+  <section class="panel">
+    <div class="sec-label">Enquiry per minggu (12 minggu terakhir)</div>
+    <div class="trend" id="trend"></div>
+  </section>
+  <section>
+    <div class="list-head">
+      <div class="sec-label" style="margin:0">Daftar Enquiry</div>
+      <input class="search" id="search" placeholder="Cari nama, lokasi, email…" />
+    </div>
+    <table>
+      <thead><tr>
+        <th style="width:44px">#</th><th style="width:96px">Tanggal</th><th>Nama</th>
+        <th class="hide-sm">Lingkup</th><th class="hide-sm">Anggaran</th><th class="hide-sm">Lokasi</th><th style="width:56px">Foto</th>
+      </tr></thead>
+      <tbody id="rows"></tbody>
+    </table>
+    <div class="empty" id="empty" style="display:none">Belum ada enquiry.</div>
+  </section>
+</main>
+<div class="lightbox" id="lightbox"><img id="lightbox-img" alt="" /></div>
+
+<script>
+const SCOPE={arsitektur:'Arsitektur',interior:'Interior',keduanya:'Arsitektur & Interior'};
+const WORK={'bangun-baru':'Bangun Baru','renovasi-total':'Renovasi Total','renovasi-minor':'Renovasi Minor',penambahan:'Penambahan Ruang','fit-out':'Fit-out Interior'};
+const BUDGET={'<500':'< Rp500 jt','500-1000':'Rp500 jt – 1 M','1000-2500':'Rp1 – 2,5 M','2500-5000':'Rp2,5 – 5 M','>5000':'> Rp5 M',unknown:'Belum tahu'};
+const START={'0-3':'< 3 bulan','3-6':'3–6 bulan','6-12':'6–12 bulan','>12':'> setahun',unsure:'Belum tahu'};
+const FLOOR={'1':'1 lantai','2':'2 lantai','3':'3 lantai','4+':'4+ lantai',unsure:'Belum tahu'};
+const CHAN={whatsapp:'WhatsApp',email:'Email'};
+const lbl=(m,v)=>m[v]||v||'—';
+const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const fmtDate=iso=>{try{const d=new Date(iso);return d.toLocaleDateString('id-ID',{day:'2-digit',month:'short',year:'2-digit'})}catch{return iso}};
+const fmtDateTime=iso=>{try{return new Date(iso).toLocaleString('id-ID',{day:'2-digit',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'})}catch{return iso}};
+function waLink(w){let d=String(w||'').replace(/\D/g,'');if(!d)return'';if(d[0]==='0')d='62'+d.slice(1);else if(d[0]==='8')d='62'+d;return'https://wa.me/'+d;}
+
+let ALL=[];
+async function load(){
+  const r=await fetch('/admin/data',{headers:{'Accept':'application/json'}});
+  const d=await r.json();
+  ALL=d.enquiries||[];
+  document.getElementById('gen').textContent='Diperbarui '+fmtDateTime(d.generated_at);
+  render();
+}
+function within(iso,days){const t=Date.parse(iso);return isFinite(t)&&(Date.now()-t)<=days*864e5;}
+function startOfWeek(t){const d=new Date(t);const day=(d.getDay()+6)%7;d.setHours(0,0,0,0);d.setDate(d.getDate()-day);return d.getTime();}
+
+function counts(arr,key,map){
+  const c={};arr.forEach(e=>{const v=e[key]||'';if(!v)return;c[v]=(c[v]||0)+1;});
+  const order=map?Object.keys(map):null;
+  let ent=Object.entries(c);
+  if(order)ent.sort((a,b)=>order.indexOf(a[0])-order.indexOf(b[0]));else ent.sort((a,b)=>b[1]-a[1]);
+  return ent;
+}
+function barBlock(el,arr,key,map){
+  const ent=counts(arr,key,map);const max=Math.max(1,...ent.map(e=>e[1]));
+  el.innerHTML=ent.length?ent.map(([k,n])=>`<div class="bar-row"><span class="bl">${esc(lbl(map,k))}</span><span class="bar-track"><span class="bar-fill" style="width:${Math.round(n/max*100)}%"></span></span><span class="bc">${n}</span></div>`).join(''):'<div class="muted" style="font-size:13px">—</div>';
+}
+
+function render(){
+  const total=ALL.length, wk=ALL.filter(e=>within(e.created_at,7)).length, mo=ALL.filter(e=>within(e.created_at,30)).length;
+  const withImgs=ALL.filter(e=>(e.images||[]).length).length;
+  document.getElementById('cards').innerHTML=[
+    ['Total enquiry',total,''],
+    ['7 hari terakhir',wk,''],
+    ['30 hari terakhir',mo,''],
+    ['Menyertakan foto',withImgs,total?Math.round(withImgs/total*100)+'% dari total':''],
+  ].map(([k,n,sub])=>`<div class="card"><div class="n">${n}</div><div class="k">${k}</div>${sub?`<div class="sub">${sub}</div>`:''}</div>`).join('');
+
+  barBlock(document.getElementById('bd-scope'),ALL,'scope',SCOPE);
+  barBlock(document.getElementById('bd-work'),ALL,'work_type',WORK);
+  barBlock(document.getElementById('bd-budget'),ALL,'budget_range',BUDGET);
+  barBlock(document.getElementById('bd-start'),ALL,'start_timeline',START);
+
+  // weekly trend, last 12 weeks
+  const weeks=[];const now=startOfWeek(Date.now());
+  for(let i=11;i>=0;i--)weeks.push(now-i*7*864e5);
+  const wc=weeks.map(w=>ALL.filter(e=>startOfWeek(Date.parse(e.created_at))===w).length);
+  const wmax=Math.max(1,...wc);
+  document.getElementById('trend').innerHTML=weeks.map((w,i)=>{
+    const dt=new Date(w);const lab=dt.toLocaleDateString('id-ID',{day:'2-digit',month:'short'});
+    return `<div class="tcol"><span class="tn">${wc[i]||''}</span><span class="tbar" style="height:${Math.round(wc[i]/wmax*88)}%"></span><span class="tk">${lab}</span></div>`;
+  }).join('');
+
+  renderRows();
+}
+
+function renderRows(){
+  const q=(document.getElementById('search').value||'').toLowerCase().trim();
+  const rows=ALL.filter(e=>!q||[e.name,e.location,e.email,e.whatsapp,lbl(SCOPE,e.scope),lbl(BUDGET,e.budget_range)].join(' ').toLowerCase().includes(q));
+  const tb=document.getElementById('rows');
+  document.getElementById('empty').style.display=rows.length?'none':'block';
+  tb.innerHTML=rows.map(e=>{
+    const nphoto=(e.images||[]).length;
+    return `<tr class="row" data-seq="${e.seq}">
+      <td><span class="seq">${e.seq}</span></td>
+      <td>${fmtDate(e.created_at)}</td>
+      <td><span class="nm">${esc(e.name)}</span>${e.source==='deploy-test'?' <span class="pill">tes</span>':''}<div class="muted">${esc(e.whatsapp||e.email||'')}</div></td>
+      <td class="hide-sm">${esc(lbl(SCOPE,e.scope))}</td>
+      <td class="hide-sm">${esc(lbl(BUDGET,e.budget_range))}</td>
+      <td class="hide-sm">${esc(e.location||'—')}</td>
+      <td>${nphoto?nphoto:'—'}</td>
+    </tr>
+    <tr class="detail" id="d-${e.seq}" style="display:none"><td colspan="7">${detailHtml(e)}</td></tr>`;
+  }).join('');
+  tb.querySelectorAll('tr.row').forEach(tr=>tr.onclick=()=>{
+    const d=document.getElementById('d-'+tr.dataset.seq);
+    d.style.display=d.style.display==='none'?'table-row':'none';
+  });
+}
+
+function detailHtml(e){
+  const rows=[
+    ['Diterima',fmtDateTime(e.created_at)],
+    ['Kontak pilihan',lbl(CHAN,e.preferred_channel)],
+    ['WhatsApp',e.whatsapp],['Email',e.email],
+    ['Lingkup',lbl(SCOPE,e.scope)],['Jenis pekerjaan',lbl(WORK,e.work_type)],
+    ['Ukuran lahan',e.land_width_m&&e.land_length_m?`${e.land_width_m} × ${e.land_length_m} m${e.land_area_m2?` (≈ ${e.land_area_m2} m²)`:''}`:''],
+    ['Lokasi',e.location],['Jumlah lantai',lbl(FLOOR,e.floors)],
+    ['Penghuni',e.occupants],['Ruang',(e.rooms||[]).join(', ')],
+    ['Gaya',e.style_text],['Tautan inspirasi',(e.inspiration_links||[]).join('  ·  ')],
+    ['Anggaran',lbl(BUDGET,e.budget_range)],['Rencana mulai',lbl(START,e.start_timeline)],
+    ['Catatan',e.notes],['Arsip Drive',e.archive_folder],
+  ].filter(r=>r[1]);
+  const dl=rows.map(([k,v])=>`<div class="dl"><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('');
+  const photos=(e.images||[]).map(im=>`<img loading="lazy" src="/admin/photo?draft=${encodeURIComponent(e.draft_id)}&file=${encodeURIComponent(im.fileId)}" alt="${esc(im.name)}" onclick="zoom(this.src)">`).join('');
+  const wa=waLink(e.whatsapp);
+  const reply=`<div class="reply">
+    ${wa?`<a class="wa" href="${wa}" target="_blank" rel="noopener">Balas WhatsApp</a>`:''}
+    ${e.email?`<a class="em" href="mailto:${esc(e.email)}?subject=${encodeURIComponent('Re: Enquiry Poiesis Studio')}">Balas Email</a>`:''}
+    <a class="dr" href="https://drive.google.com/drive/folders/1eFIiYC9AqzRO9veiA1Ldb84Gr3cm9xoh" target="_blank" rel="noopener">Buka folder Drive</a>
+  </div>`;
+  return `<div class="detail-in">${dl}${photos?`<div class="photos">${photos}</div>`:''}${reply}</div>`;
+}
+
+function zoom(src){const lb=document.getElementById('lightbox');document.getElementById('lightbox-img').src=src;lb.classList.add('on');}
+document.getElementById('lightbox').onclick=function(){this.classList.remove('on')};
+document.getElementById('search').addEventListener('input',renderRows);
+document.getElementById('refresh').onclick=load;
+load().catch(err=>{document.getElementById('rows').innerHTML=`<tr><td colspan="7" class="empty">Gagal memuat data: ${esc(err.message)}</td></tr>`;});
+</script>
+</body>
+</html>

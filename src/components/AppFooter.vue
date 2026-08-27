@@ -18,8 +18,8 @@
 
           <div class="footer-cert">
             <picture>
-              <source srcset="/images/brand/iai-logo.png.webp" type="image/webp" />
-              <img src="/images/brand/iai-logo.png" alt="Ikatan Arsitek Indonesia" class="footer-cert-logo" loading="lazy" />
+              <source srcset="/images/brand/iai-logo.png.webp?v=1" type="image/webp" />
+              <img src="/images/brand/iai-logo.png?v=1" alt="Ikatan Arsitek Indonesia" class="footer-cert-logo" loading="lazy" />
             </picture>
             <div class="footer-cert-text">
               <span class="footer-cert-title">IAI Certified</span>
@@ -33,7 +33,7 @@
           <p>Calamus C7-35, Citra Garden Bintaro<br>Ciputat, Tangerang Selatan 15413<br>Banten, Indonesia</p>
           <p class="footer-hours">Mon – Fri · 09.00 – 18.00 WIB</p>
           <a class="footer-contact" href="tel:+6281218321775"><i class="pi pi-phone" aria-hidden="true"></i><span>+62 812 1832 1775</span></a>
-          <router-link class="footer-contact" to="/contact"><i class="pi pi-envelope" aria-hidden="true"></i><span>Start an enquiry</span></router-link>
+          <router-link class="footer-contact" to="/enquiry" @click="trackEvent('cta_click', { location: 'footer' })"><i class="pi pi-envelope" aria-hidden="true"></i><span>Start an enquiry</span></router-link>
         </div>
 
         <div class="footer-col">
@@ -42,7 +42,7 @@
             <li><router-link to="/">Home</router-link></li>
             <li><router-link to="/projects">Work</router-link></li>
             <li><router-link to="/about">Studio</router-link></li>
-            <li><router-link to="/contact">Enquire</router-link></li>
+            <li><router-link to="/enquiry">Enquire</router-link></li>
           </ul>
         </div>
 
@@ -70,6 +70,7 @@
 
 <script setup>
 import { ref } from 'vue'
+import { trackEvent } from '../utils/analytics'
 const year = ref(2026)
 </script>
 

@@ -12,4 +12,11 @@ export default defineConfig({
       }
     })
   ],
+  // In dev, proxy the enquiry/contact API to a locally-running backend (contact-server.mjs on :8787),
+  // mirroring the nginx `location /api/` prefix in production. No-op if nothing is listening there.
+  server: {
+    proxy: {
+      '/api': { target: 'http://127.0.0.1:8787', changeOrigin: false },
+    },
+  },
 })

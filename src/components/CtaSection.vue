@@ -1,20 +1,21 @@
 <template>
   <section class="cta-band" id="contact-cta">
     <div class="cta-bg" aria-hidden="true">
-      <img src="/images/hero/cempaka.jpg" alt="" />
+      <img src="/images/projects/bangka-1210/04.jpg?v=1" alt="" />
       <span class="cta-scrim"></span>
-      <span class="cta-tri"></span>
     </div>
     <div class="container cta-content ps-reveal">
       <p class="ps-label cta-label">Contact</p>
       <h2 class="ps-h2 cta-head">A project?<br>Let's begin with the story.</h2>
       <p class="cta-sub">Before we sketch a single line, we want to hear yours. We reply within two working days.</p>
-      <router-link to="/contact" class="btn cta-btn">Start an enquiry</router-link>
+      <router-link to="/enquiry" class="btn cta-btn" @click="trackEvent('cta_click', { location: 'cta-band' })">Start an enquiry</router-link>
     </div>
   </section>
 </template>
 
-<script setup></script>
+<script setup>
+import { trackEvent } from '../utils/analytics'
+</script>
 
 <style lang="scss" scoped>
 .cta-band {
@@ -28,14 +29,6 @@
 .cta-bg { position: absolute; inset: 0; z-index: 0; }
 .cta-bg img { width: 100%; height: 100%; object-fit: cover; }
 .cta-scrim { position: absolute; inset: 0; background: var(--scrim-flat); }
-.cta-tri {
-  position: absolute;
-  top: 0; right: 0;
-  width: 24vw; height: 24vw;
-  background: var(--pink-studio);
-  opacity: 0.16;
-  clip-path: var(--tri-tr);
-}
 
 .cta-content { position: relative; z-index: 2; }
 .cta-label { color: rgba(255, 255, 255, 0.78); }

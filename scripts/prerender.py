@@ -30,7 +30,7 @@ with open(os.path.join(DIST, "index.html"), "rb") as f:
 
 # ---- routes ----
 projects = json.load(open(os.path.join(ROOT, "public/data/projects.json")))
-ROUTES = ["/", "/projects", "/about", "/contact"] + [f"/project/{p['id']}" for p in projects]
+ROUTES = ["/", "/projects", "/about", "/enquiry", "/contact"] + [f"/project/{p['id']}" for p in projects]
 
 # ---- SPA static server (fallback → index.html) ----
 class Handler(BaseHTTPRequestHandler):

@@ -4,7 +4,6 @@
     <section class="detail-hero" :class="heroClass">
       <img :src="project.images[0]" :alt="project.title" @load="onHeroLoad" />
       <span class="detail-scrim" aria-hidden="true"></span>
-      <span class="detail-tri" aria-hidden="true"></span>
       <div class="container detail-hero-inner">
         <p class="ps-label detail-eyebrow">{{ project.location }}<template v-if="project.year"> · {{ project.year }}</template></p>
         <h1 class="ps-display detail-title">{{ project.title }}</h1>
@@ -197,7 +196,6 @@ watch(() => route.params.id, load)
   .detail-hero.is-wide { height: 68vh; }
 }
 .detail-scrim { position: absolute; inset: 0; background: var(--scrim); }
-.detail-tri { position: absolute; top: 0; right: 0; width: 28vw; height: 28vw; background: var(--pink-studio); opacity: .16; clip-path: var(--tri-tr); }
 .detail-hero-inner { position: relative; z-index: 2; width: 100%; padding-bottom: 48px; }
 .detail-eyebrow { color: rgba(255,255,255,.78); }
 .detail-title { color: #fff; margin-top: 10px; }

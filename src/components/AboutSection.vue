@@ -3,7 +3,7 @@
     <div class="container">
       <div class="split ps-reveal studio-split">
         <div class="studio-media">
-          <img src="/images/hero/intro.jpg" alt="Poiesis Studio" loading="lazy" />
+          <img src="/images/projects/grey/10.jpg?v=1" alt="Poiesis Studio — Grey project" loading="lazy" />
         </div>
         <div class="studio-body">
           <p class="ps-label">The studio</p>
@@ -20,8 +20,8 @@
             context, function, and most importantly to the people it serves.
           </p>
           <div class="studio-stats">
-            <div><span class="stat-n">13</span><span class="ps-label stat-l">Built projects</span></div>
-            <div><span class="stat-n">35</span><span class="ps-label stat-l">Design projects</span></div>
+            <div><span class="stat-n">24</span><span class="ps-label stat-l">Built projects</span></div>
+            <div><span class="stat-n">20</span><span class="ps-label stat-l">Design projects</span></div>
             <div><span class="stat-n">IAI</span><span class="ps-label stat-l">Certified principal</span></div>
           </div>
           <p class="studio-cta"><router-link to="/about" class="cta">About the studio</router-link></p>
@@ -39,7 +39,7 @@
 
 <style lang="scss" scoped>
 .studio-split { align-items: start; }
-.studio-media img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; }
+.studio-media img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; }
 .studio-head { margin-top: 14px; }
 .studio-p { margin-top: 22px; }
 .studio-p + .studio-p { margin-top: 1em; }

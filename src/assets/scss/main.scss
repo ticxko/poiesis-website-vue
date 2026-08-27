@@ -229,6 +229,10 @@ h1, h2, h3, h4, h5, h6 { font-weight: 600; line-height: 1.2; }
 
 /* --- Utility + scroll reveal --- */
 .text-accent { color: var(--accent); }
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}
 .ps-reveal { opacity: 0; transform: translateY(var(--reveal-shift)); transition: var(--transition-reveal); }
 .ps-reveal.is-in { opacity: 1; transform: none; }
 .fade-in { opacity: 0; transform: translateY(var(--reveal-shift)); transition: var(--transition-reveal); }

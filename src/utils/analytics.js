@@ -13,3 +13,9 @@ export function trackPageview({ path, title } = {}) {
     page_path: path || window.location.pathname,
   })
 }
+
+// Fire a custom GA4 event (e.g. enquiry_submitted). No-ops safely when gtag is absent.
+export function trackEvent(name, params = {}) {
+  if (typeof window === 'undefined' || typeof window.gtag !== 'function') return
+  window.gtag('event', name, params)
+}

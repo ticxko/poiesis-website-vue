@@ -1,0 +1,14 @@
+{
+  "name": "poiesis-contact",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Poiesis enquiry + contact backend — email (sendmail) + SQLite store + JSONL mirror + Google Drive archival (rclone).",
+  "main": "contact-server.mjs",
+  "scripts": {
+    "start": "node contact-server.mjs"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.8.1"
+  }
+}

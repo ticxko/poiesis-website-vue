@@ -1,6 +1,5 @@
 {
   "architecture": [
-    "villa-remaih",
     "rsui-salemba",
     "bangka-xii",
     "fyc",
@@ -68,7 +67,6 @@
     "morgen-booth"
   ],
   "residential": [
-    "villa-remaih",
     "london-home",
     "fairwind",
     "bangka-xii",
@@ -98,7 +96,6 @@
     "lab-dtsl"
   ],
   "built": [
-    "villa-remaih",
     "london-home",
     "foresty-garden",
     "x-hall-imeri",

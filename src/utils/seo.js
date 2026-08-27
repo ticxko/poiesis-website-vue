@@ -12,7 +12,7 @@ const SITE = {
   defaultTitle: 'Poiesis Studio — Architecture & Interior Design',
   defaultDescription:
     'Poiesis Studio is a Jakarta-based Architecture & Interior Design consultancy. Design Through Stories.',
-  defaultImage: 'https://poiesis.id/images/hero/intro.jpg',
+  defaultImage: 'https://poiesis.id/images/projects/bangka-1210/02.jpg',
 }
 
 function upsertMeta(attr, key, content) {

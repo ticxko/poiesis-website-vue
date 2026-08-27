@@ -9,7 +9,6 @@
       >
         <img :src="slide.image" :alt="slide.alt" />
       </div>
-      <span class="hero-tri"></span>
       <span class="hero-scrim"></span>
     </div>
 
@@ -45,11 +44,11 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 
 const slides = [
-  { image: '/images/hero/bangka.jpg', alt: 'Bangka 1210 — Poiesis Studio' },
-  { image: '/images/hero/cempaka.jpg', alt: 'Rumah Cempaka — Poiesis Studio' },
-  { image: '/images/hero/mampang.jpeg', alt: '485 — Poiesis Studio' },
-  { image: '/images/hero/wanggamet.jpg', alt: 'Wanggamet — Poiesis Studio' },
-  { image: '/images/hero/jatijajar.jpg', alt: 'Jatijajar Retreat — Poiesis Studio' },
+  { image: '/images/hero/bangka.jpg?v=1', alt: 'Bangka 1210 — Poiesis Studio' },
+  { image: '/images/hero/cempaka.jpg?v=1', alt: 'Rumah Cempaka — Poiesis Studio' },
+  { image: '/images/hero/mampang.jpeg?v=1', alt: '485 — Poiesis Studio' },
+  { image: '/images/hero/wanggamet.jpg?v=1', alt: 'Wanggamet — Poiesis Studio' },
+  { image: '/images/hero/jatijajar.jpg?v=1', alt: 'Jatijajar Retreat — Poiesis Studio' },
 ]
 
 const currentSlide = ref(0)
@@ -97,15 +96,6 @@ onUnmounted(() => clearInterval(slideInterval))
 
   img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.02); transition: transform 7s ease; }
   &.active { opacity: 1; img { transform: scale(1.09); } }
-}
-.hero-tri {
-  position: absolute;
-  top: 0; right: 0;
-  width: 34vw; height: 34vw;
-  background: var(--pink-studio);
-  opacity: 0.16;
-  clip-path: var(--tri-tr);
-  z-index: 2;
 }
 .hero-scrim { position: absolute; inset: 0; z-index: 2; background: var(--scrim); }
 

@@ -15,7 +15,7 @@
           </div>
         </div>
         <div class="belief-media">
-          <img src="/images/hero/spanish.jpg" alt="Poiesis Studio project" loading="lazy" />
+          <img src="/images/projects/bangka-1210/02.jpg?v=1" alt="Bangka 1210 — Poiesis Studio" loading="lazy" />
         </div>
       </div>
     </div>
@@ -31,10 +31,10 @@
 .belief-cite { margin-top: 28px; display: flex; flex-direction: column; gap: 4px; }
 .belief-cite b { font: var(--weight-medium) var(--t-body)/1.4 var(--font-ui); }
 .belief-role { font-size: 11.5px; }
-.belief-media img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; }
+/* Landscape frame matching Bangka 1210 / 02 (2000×1100) so the shot isn't cropped. */
+.belief-media img { width: 100%; aspect-ratio: 2000 / 1100; object-fit: cover; }
 
 @media (max-width: 991px) {
   .belief-media { order: -1; }
-  .belief-media img { aspect-ratio: 16 / 10; }
 }
 </style>

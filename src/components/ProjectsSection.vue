@@ -87,11 +87,12 @@ function fullWebp(src) {
 }
 // Home (featured) grid uses each project's full hero image (`images[0]`) for crispness;
 // the /projects listing keeps the lightweight ~800px `-sm` thumbnail.
+// Home (featured) grid: prefer an explicit `featuredImage` override, else the hero (images[0]).
 function cardSrc(project) {
-  return props.limit ? (project.images?.[0] || project.thumbnail) : smThumb(project.thumbnail)
+  return props.limit ? (project.featuredImage || project.images?.[0] || project.thumbnail) : smThumb(project.thumbnail)
 }
 function cardSrcWebp(project) {
-  return props.limit ? fullWebp(project.images?.[0] || project.thumbnail) : smThumbWebp(project.thumbnail)
+  return props.limit ? fullWebp(project.featuredImage || project.images?.[0] || project.thumbnail) : smThumbWebp(project.thumbnail)
 }
 
 const filteredProjects = computed(() => {

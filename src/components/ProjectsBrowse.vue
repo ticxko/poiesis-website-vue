@@ -145,11 +145,14 @@ onMounted(async () => {
     document.querySelectorAll('.browse .browse-card').forEach(el => el.classList.add('visible'))
     return
   }
+  // threshold 0 (not a fraction of the section): a fractional threshold can never be
+  // reached when the section is taller than the viewport — which happens for the full
+  // ALL list on phones — leaving every card stuck at opacity:0. Fire on first contact.
   observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) { animateCards(); observer.disconnect() }
     })
-  }, { threshold: 0.04 })
+  }, { threshold: 0 })
   if (sectionRef.value) observer.observe(sectionRef.value)
 })
 

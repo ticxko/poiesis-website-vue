@@ -2,9 +2,8 @@
   <main>
     <!-- Plate -->
     <section class="page-plate">
-      <img src="/images/studio/company-05.jpg" alt="" />
+      <img src="/images/projects/j-i-velodrome/01.jpg?v=1" alt="" />
       <span class="plate-scrim" aria-hidden="true"></span>
-      <span class="plate-tri" aria-hidden="true"></span>
       <div class="container plate-inner">
         <p class="ps-label plate-eyebrow">Design Through Stories</p>
         <h1 class="ps-display plate-title">The studio</h1>
@@ -19,6 +18,9 @@
             <p class="ps-label">Our story</p>
             <h2 class="ps-h1 about-intro-head">We design through stories.</h2>
           </div>
+          <figure class="about-intro-media">
+            <img src="/images/studio/vision-01.jpg?v=1" alt="The Poiesis Studio team" loading="lazy" />
+          </figure>
           <div>
             <p class="ps-body">
               Poiesis Studio is a Jakarta-based Architecture &amp; Interior Design consultancy
@@ -66,11 +68,12 @@
           <h2 class="ps-h1">Five disciplines, one practice.</h2>
         </div>
         <div class="services-list">
-          <article class="service-item ps-reveal" v-for="(s, i) in services" :key="s.name">
-            <div class="service-lead">
-              <span class="service-num">{{ String(i + 1).padStart(2, '0') }}</span>
-              <h3 class="service-name">{{ s.name }}</h3>
+          <article class="service-item ps-reveal" v-for="s in services" :key="s.name">
+            <div class="service-media">
+              <img v-if="s.image" :src="s.image" :alt="s.name" loading="lazy" />
+              <span v-else class="service-media-ph">21 : 9</span>
             </div>
+            <h3 class="service-name">{{ s.name }}</h3>
             <p class="service-desc">{{ s.desc }}</p>
           </article>
         </div>
@@ -95,12 +98,14 @@ const steps = [
   { title: 'Specification & Budget', desc: 'Considered materials and finishes, set against a clear, transparent cost estimate.' },
   { title: 'Tender & Appointment', desc: 'Selecting and appointing the right hands to bring the work into being.' },
 ]
+// `image` is the 21:9 discipline photo — left empty for now so a labelled placeholder
+// renders; drop a path in each to go live with the real image.
 const services = [
-  { name: 'Architecture', desc: 'Ground-up buildings shaped around a story — from private homes to community-scale places.' },
-  { name: 'Interior Design', desc: 'Interiors composed in light, material and proportion, tuned to the way you truly live.' },
-  { name: 'Master Planning', desc: 'The larger frame — how buildings, landscape and people come together across a whole site.' },
-  { name: 'Landscape', desc: 'Gardens and outdoor rooms that let the architecture breathe and meet the natural world.' },
-  { name: 'Furniture', desc: 'Bespoke pieces designed for the space and made in honest, tactile materials.' },
+  { name: 'Architecture', image: '/images/studio/discipline-architecture.jpg?v=1', desc: 'Ground-up buildings shaped around a story — from private homes to community-scale places.' },
+  { name: 'Interior Design', image: '/images/studio/discipline-interior.jpg?v=1', desc: 'Interiors composed in light, material and proportion, tuned to the way you truly live.' },
+  { name: 'Furniture', image: '/images/studio/discipline-furniture.jpg?v=1', desc: 'Bespoke pieces designed for the space and made in honest, tactile materials.' },
+  { name: 'Master Planning', image: '/images/studio/discipline-masterplanning.jpg?v=1', desc: 'The larger frame — how buildings, landscape and people come together across a whole site.' },
+  { name: 'High Rise', image: '/images/studio/discipline-highrise.jpg?v=1', desc: 'Towers and vertical communities — high-density living and mixed-use blocks shaped for light, air and shared ground.' },
 ]
 </script>
 
@@ -116,13 +121,26 @@ const services = [
   > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 }
 .plate-scrim { position: absolute; inset: 0; background: var(--scrim); }
-.plate-tri { position: absolute; top: 0; right: 0; width: 26vw; height: 26vw; background: var(--pink-studio); opacity: .16; clip-path: var(--tri-tr); }
 .plate-inner { position: relative; z-index: 2; width: 100%; padding-bottom: 44px; }
 .plate-eyebrow { color: rgba(255,255,255,.78); }
 .plate-title { color: #fff; margin-top: 10px; }
 
+/* Three columns: heading · team photo · narrative. Overrides the 2-col `.split`. */
+.about-intro {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--gap-col);
+  align-items: start;
+}
 .about-intro-head { margin-top: 14px; max-width: 16ch; }
 .about-intro .ps-body + .ps-body { margin-top: 1em; }
+.about-intro-media { margin: 0; }
+.about-intro-media img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block; }
+
+@media (max-width: 900px) {
+  .about-intro { grid-template-columns: 1fr; gap: 34px; }
+  .about-intro-head { max-width: none; }
+}
 
 /* Process — numbered items in two columns, Cormorant numeral as the quiet jewel */
 .process-head { margin-bottom: 56px; }
@@ -147,22 +165,34 @@ const services = [
 .process-item-title { font: var(--weight-medium) var(--t-lead)/1.3 var(--font-ui); }
 .process-item-desc { margin-top: 10px; color: var(--ink-soft); font-size: 15px; line-height: 1.62; max-width: 44ch; }
 
-/* Services — five disciplines as an editorial list, names in the serif jewel */
+/* Services — five disciplines as cards: 21:9 image, name (serif jewel), short desc */
 .services-head { margin-bottom: 48px; }
-.service-item {
+.services-list {
   display: grid;
-  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-  gap: 20px 48px;
-  padding: 36px 0;
-  border-top: var(--border-hairline);
-  align-items: baseline;
-  transition: padding-left var(--transition-hover);
-  &:last-child { border-bottom: var(--border-hairline); }
-  &:hover { padding-left: 12px; }
-  @media (max-width: 768px) { grid-template-columns: 1fr; gap: 12px; }
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 56px var(--gap-col);
+  @media (max-width: 900px) { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 44px var(--gap-col); }
+  @media (max-width: 560px) { grid-template-columns: 1fr; gap: 40px; }
 }
-.service-lead { display: flex; align-items: baseline; gap: 18px; }
-.service-num { font: var(--weight-regular) 12px/1 var(--font-mono); color: var(--ink-label); }
-.service-name { font: var(--weight-light) clamp(26px, 3vw, 38px)/1.05 var(--font-editorial); letter-spacing: .005em; }
-.service-desc { color: var(--ink-soft); font-size: 16px; line-height: 1.65; max-width: 52ch; }
+.service-item { margin: 0; }
+.service-media {
+  aspect-ratio: 21 / 9;
+  overflow: hidden;
+  background: var(--ground-alt);
+  border: var(--border-hairline);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform var(--dur-slow) var(--ease); }
+}
+.service-item:hover .service-media img { transform: scale(1.03); }
+.service-media-ph {
+  font: var(--weight-regular) 11px/1 var(--font-mono);
+  letter-spacing: var(--track-caps);
+  text-transform: uppercase;
+  color: var(--ink-label);
+}
+.service-name { font: var(--weight-light) clamp(24px, 2.4vw, 32px)/1.08 var(--font-editorial); letter-spacing: .005em; }
+.service-desc { color: var(--ink-soft); font-size: 15.5px; line-height: 1.6; margin-top: 10px; max-width: 46ch; }
 </style>

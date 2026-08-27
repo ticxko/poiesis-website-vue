@@ -15,6 +15,7 @@ const staticUrls = [
   { loc: '/', priority: '1.0' },
   { loc: '/projects', priority: '0.9' },
   { loc: '/about', priority: '0.8' },
+  { loc: '/enquiry', priority: '0.7' },
   { loc: '/contact', priority: '0.7' },
 ]
 

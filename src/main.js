@@ -5,6 +5,7 @@ import router from './router'
 import App from './App.vue'
 import { initImageFade } from './utils/imgFade'
 
+import './assets/fonts.css'   // self-hosted @font-face (replaces Google Fonts <link>)
 import 'primeicons/primeicons.css'
 import './assets/scss/main.scss'
 

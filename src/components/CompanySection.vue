@@ -1,14 +1,6 @@
 <template>
   <section class="section section--cream company-section">
     <div class="container">
-      <!-- Pull quote -->
-      <div class="company-quote ps-reveal">
-        <span class="tri" aria-hidden="true"></span>
-        <blockquote class="ps-quote company-quote-text">
-          It's important to make a real, positive impact to our lives.
-        </blockquote>
-      </div>
-
       <!-- About company -->
       <div class="company-about ps-reveal">
         <div class="company-about-head">
@@ -38,7 +30,7 @@
           </div>
         </div>
         <div class="company-about-image media">
-          <img src="/images/projects/halaman/05.jpg" alt="Poiesis Studio project" loading="lazy" />
+          <img src="/images/projects/jatijajar-retreat/08.jpg?v=1" alt="Jatijajar Retreat — Poiesis Studio" loading="lazy" />
         </div>
       </div>
 
@@ -58,10 +50,9 @@
           and a lasting positive impact.
         </p>
         <div class="vision-gallery">
-          <img src="/images/projects/edge/01.jpg" alt="Edge House" loading="lazy" />
-          <img src="/images/studio/company-03.jpg" alt="Material detail" loading="lazy" />
-          <img src="/images/projects/cempaka/04.jpg" alt="Cempaka House" loading="lazy" />
-          <img src="/images/projects/halaman/01.jpg" alt="Halaman House" loading="lazy" />
+          <img src="/images/studio/vision-03.jpg?v=1" alt="The Icy Garden — concept design for Foom" loading="lazy" />
+          <img src="/images/studio/vision-04.jpg?v=1" alt="Material palette detail" loading="lazy" />
+          <img src="/images/studio/vision-02.jpg?v=1" alt="Residential design study" loading="lazy" />
         </div>
       </div>
     </div>
@@ -71,17 +62,7 @@
 <script setup></script>
 
 <style lang="scss" scoped>
-.company-quote {
-  display: flex;
-  flex-direction: column;
-  gap: 22px;
-  align-items: center;
-  text-align: center;
-  padding-bottom: 80px;
-}
-.company-quote-text { max-width: 22ch; font-size: clamp(24px, 3.4vw, 36px); }
-
-.company-about { border-top: var(--border-hairline); padding-top: 52px; }
+.company-about { padding-top: 8px; }
 .company-about-head {
   display: flex;
   justify-content: space-between;
@@ -107,10 +88,26 @@
 .vision-text { max-width: 68ch; margin-top: 20px; }
 .vision-gallery {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-  margin-top: 44px;
-  img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; }
-  @media (max-width: 768px) { grid-template-columns: 1fr 1fr; }
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 52px;
+  img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    display: block;
+    background: #fff;
+    border: var(--border-hairline);
+    box-shadow: 0 1px 2px rgba(20, 20, 20, 0.04), 0 12px 28px rgba(20, 20, 20, 0.06);
+    transition: transform 0.5s var(--ease, ease), box-shadow 0.5s var(--ease, ease);
+  }
+  img:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 2px 4px rgba(20, 20, 20, 0.05), 0 20px 40px rgba(20, 20, 20, 0.10);
+  }
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
 }
 </style>
