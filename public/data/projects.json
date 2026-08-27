@@ -154,9 +154,9 @@
                 "year": "2024",
                 "completed": "September 2024",
                 "location": "La Vintage BSD City",
-                "thumbnail": "/images/projects/edge/01.jpg",
+                "thumbnail": "/images/projects/edge/01.jpg?v=2",
                 "images": [
-                        "/images/projects/edge/01.jpg",
+                        "/images/projects/edge/01.jpg?v=2",
                         "/images/projects/edge/02.jpg",
                         "/images/projects/edge/03.jpg",
                         "/images/projects/edge/04.jpg",
@@ -166,7 +166,7 @@
                         "/images/projects/edge/08.jpg",
                         "/images/projects/edge/09.jpg",
                         "/images/projects/edge/10.jpg",
-                        "/images/projects/edge/01.jpg"
+                        "/images/projects/edge/01.jpg?v=2"
                 ],
                 "description": "Designed as a breathable home for a family of five, the Edge House creates a welcoming connection to its neighborhood through a unique semi-public front plaza. This terrace celebrates the homeowner's weekend hobby of bike riding. A roster brick garage opens to park bikes after a ride, allowing fellow bikers to gather and relax in the plaza. The home's facade makes a modern and natural statement with a black and white color palette complemented by a wood louvre second skin. This dynamic facade connects the inside to the outdoors and projects an interesting play of light and shadow throughout the interior. Within the inside space, a large void and a functional attic provide a surprising sense of spaciousness. It crafts a comfortable environment perfect for family life.",
                 "keywords": [
