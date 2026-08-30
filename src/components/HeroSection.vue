@@ -45,9 +45,9 @@ import { ref, onMounted, onUnmounted } from 'vue'
 
 const slides = [
   { image: '/images/hero/bangka.jpg?v=1', alt: 'Bangka 1210 — Poiesis Studio' },
-  { image: '/images/hero/cempaka.jpg?v=1', alt: 'Rumah Cempaka — Poiesis Studio' },
-  { image: '/images/hero/mampang.jpeg?v=1', alt: '485 — Poiesis Studio' },
-  { image: '/images/hero/wanggamet.jpg?v=1', alt: 'Wanggamet — Poiesis Studio' },
+  { image: '/images/hero/kemang-office.jpg?v=1', alt: 'Kemang Office — Poiesis Studio' },
+  { image: '/images/hero/rsui-salemba.jpg?v=1', alt: 'RSUI Salemba — Poiesis Studio' },
+  { image: '/images/hero/prem-condotel.jpg?v=3', alt: 'Prem-Condotel — Poiesis Studio' },
   { image: '/images/hero/jatijajar.jpg?v=1', alt: 'Jatijajar Retreat — Poiesis Studio' },
 ]
 

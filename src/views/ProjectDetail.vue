@@ -2,7 +2,17 @@
   <main v-if="project">
     <!-- Project plate -->
     <section class="detail-hero" :class="heroClass">
-      <img :src="project.images[0]" :alt="project.title" @load="onHeroLoad" />
+      <img
+        :src="project.images[0]"
+        :alt="project.title"
+        class="is-zoomable"
+        role="button"
+        tabindex="0"
+        @load="onHeroLoad"
+        @click="openLightbox(0)"
+        @keydown.enter.prevent="openLightbox(0)"
+        @keydown.space.prevent="openLightbox(0)"
+      />
       <span class="detail-scrim" aria-hidden="true"></span>
       <div class="container detail-hero-inner">
         <p class="ps-label detail-eyebrow">{{ project.location }}<template v-if="project.year"> · {{ project.year }}</template></p>
@@ -48,7 +58,16 @@
         <p class="ps-label gallery-label ps-reveal">Gallery · {{ project.images.length - 1 }} images</p>
         <div class="gallery">
           <figure class="gallery-item ps-reveal" v-for="(img, i) in project.images.slice(1)" :key="i">
-            <img :src="img" :alt="`${project.title} — ${i + 2}`" loading="lazy" />
+            <img
+              :src="img"
+              :alt="`${project.title} — ${i + 2}`"
+              loading="lazy"
+              role="button"
+              tabindex="0"
+              @click="openLightbox(i + 1)"
+              @keydown.enter.prevent="openLightbox(i + 1)"
+              @keydown.space.prevent="openLightbox(i + 1)"
+            />
           </figure>
         </div>
       </div>
@@ -67,6 +86,15 @@
         </div>
       </div>
     </section>
+
+    <ImageLightbox
+      :images="project.images"
+      :open="lightboxOpen"
+      :index="lightboxIndex"
+      :alt="project.title"
+      @update:index="lightboxIndex = $event"
+      @close="lightboxOpen = false"
+    />
   </main>
 
   <main v-else-if="!loading" class="section">
@@ -82,12 +110,21 @@ import { ref, onMounted, watch, computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { setMeta, metaBlurb, setProjectJsonLd } from '../utils/seo'
 import { trackPageview } from '../utils/analytics'
+import ImageLightbox from '../components/ImageLightbox.vue'
 
 const route = useRoute()
 const projects = ref([])
 const project = ref(null)
 const loading = ref(true)
 const heroClass = ref('')
+
+// Lightbox: click the hero or any gallery image to view it enlarged, browse prev/next.
+const lightboxOpen = ref(false)
+const lightboxIndex = ref(0)
+function openLightbox(i) {
+  lightboxIndex.value = i
+  lightboxOpen.value = true
+}
 
 // Adapt the hero plate to the hero image's orientation: landscape/wide images
 // get a 16:9 band (fills without clipping a tall subject); portrait heroes keep
@@ -182,6 +219,7 @@ watch(() => route.params.id, load)
   background: var(--stripe-dark);
 
   > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+  > img.is-zoomable { cursor: zoom-in; }
 }
 /* Landscape/wide heroes: full-bleed width, height driven toward 16:9 (56.25vw)
    but capped at 86vh. Using an explicit height (not aspect-ratio + max-height)
@@ -195,8 +233,11 @@ watch(() => route.params.id, load)
 @media (max-width: 640px) {
   .detail-hero.is-wide { height: 68vh; }
 }
-.detail-scrim { position: absolute; inset: 0; background: var(--scrim); }
-.detail-hero-inner { position: relative; z-index: 2; width: 100%; padding-bottom: 48px; }
+/* Both overlays sit above the hero <img> — let clicks pass through to the zoomable
+   image beneath (role="button") so the whole hero opens the lightbox, not just the
+   thin edges the scrim/title don't cover. Neither overlay holds interactive elements. */
+.detail-scrim { position: absolute; inset: 0; background: var(--scrim); pointer-events: none; }
+.detail-hero-inner { position: relative; z-index: 2; width: 100%; padding-bottom: 48px; pointer-events: none; }
 .detail-eyebrow { color: rgba(255,255,255,.78); }
 .detail-title { color: #fff; margin-top: 10px; }
 
@@ -232,7 +273,7 @@ watch(() => route.params.id, load)
 .gallery { columns: 2; column-gap: 26px; }
 @media (max-width: 640px) { .gallery { columns: 1; } }
 .gallery-item { margin: 0 0 26px; break-inside: avoid; }
-.gallery-item img { width: 100%; height: auto; display: block; }
+.gallery-item img { width: 100%; height: auto; display: block; cursor: zoom-in; }
 
 /* --- Next --- */
 .detail-next { border-top: var(--border-soft); }

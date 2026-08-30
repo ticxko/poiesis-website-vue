@@ -25,7 +25,6 @@
     "m-factory-reuse",
     "j-i-velodrome",
     "lab-dtsl",
-    "accessibility",
     "x10-house",
     "merah-delima",
     "kemurnian-residence",
@@ -60,7 +59,8 @@
     "sunrise-garden",
     "x10-house",
     "fkui-dean-office",
-    "malaka-asri"
+    "malaka-asri",
+    "accessibility"
   ],
   "exhibition": [
     "x-hall-imeri",
@@ -87,13 +87,6 @@
     "merah-delima",
     "kemurnian-residence",
     "malaka-asri"
-  ],
-  "industrial & utility": [
-    "dtsl-panel-waf",
-    "s-urban-park",
-    "m-factory-reuse",
-    "j-i-velodrome",
-    "lab-dtsl"
   ],
   "built": [
     "london-home",
@@ -144,6 +137,15 @@
     "malaka-asri"
   ],
   "high-rise": [
-    "prem-condotel"
+    "prem-condotel",
+    "kemang-office",
+    "dtsl-panel-waf",
+    "rsui-salemba",
+    "lab-dtsl"
+  ],
+  "sport & park": [
+    "basketball-hall",
+    "j-i-velodrome",
+    "s-urban-park"
   ]
 }

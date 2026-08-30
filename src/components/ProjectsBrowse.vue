@@ -56,7 +56,7 @@
 import { ref, computed, onMounted, onUnmounted, nextTick } from 'vue'
 
 // The category taxonomy, in the display/section order used for chips and groups.
-const TAGS = ['architecture', 'interior', 'exhibition', 'residential', 'industrial & utility', 'built', 'concept', 'high-rise']
+const TAGS = ['architecture', 'interior', 'exhibition', 'residential', 'sport & park', 'built', 'concept', 'high-rise']
 
 const allProjects = ref([])
 // Manual, human-curated sequence per category (data/category-order.json):

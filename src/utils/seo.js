@@ -41,6 +41,17 @@ function absolute(src) {
   return src.startsWith('http') ? src : SITE.url + src
 }
 
+// Map a full image to its ~800px `-sm.jpg` sibling for social previews. Social scrapers
+// (WhatsApp, Facebook, …) download the og:image before showing the thumbnail, so pointing
+// them at the small sibling (~80KB vs ~875KB) makes the preview appear far faster. The
+// on-page hero and the JSON-LD image stay full-resolution — this only swaps the social tag.
+function socialVariant(src) {
+  if (!src) return src
+  const [path, q] = src.split('?')
+  const sm = path.replace(/\.(png|jpe?g)$/i, '-sm.jpg')
+  return q ? `${sm}?${q}` : sm
+}
+
 // Trim a long body to a clean meta-length blurb (~200 chars, no mid-word cut).
 export function metaBlurb(text, max = 200) {
   if (!text) return SITE.defaultDescription
@@ -53,7 +64,7 @@ export function setMeta({ title, description, path = '', image, type = 'website'
   const fullTitle = title ? `${title} — ${SITE.name}` : SITE.defaultTitle
   const desc = description || SITE.defaultDescription
   const url = SITE.url + path
-  const img = absolute(image)
+  const social = socialVariant(absolute(image)) // lightweight -sm image for fast previews
 
   document.title = fullTitle
   upsertMeta('name', 'description', desc)
@@ -64,14 +75,14 @@ export function setMeta({ title, description, path = '', image, type = 'website'
   upsertMeta('property', 'og:title', fullTitle)
   upsertMeta('property', 'og:description', desc)
   upsertMeta('property', 'og:url', url)
-  upsertMeta('property', 'og:image', img)
+  upsertMeta('property', 'og:image', social)
 
   upsertMeta('property', 'og:image:alt', title || SITE.name)
 
   upsertMeta('name', 'twitter:card', 'summary_large_image')
   upsertMeta('name', 'twitter:title', fullTitle)
   upsertMeta('name', 'twitter:description', desc)
-  upsertMeta('name', 'twitter:image', img)
+  upsertMeta('name', 'twitter:image', social)
 }
 
 // Upsert a keyed <script type="application/ld+json"> block in <head>. Pass `data=null`
