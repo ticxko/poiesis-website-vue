@@ -136,11 +136,7 @@
                     <div class="field">
                       <span class="ps-label">Perkiraan anggaran konstruksi</span>
                       <SegmentedCards v-model="answers.budget" name="budget" legend="Perkiraan anggaran" :options="BUDGET_OPTIONS" />
-                      <p class="field-hint fee-hint">
-                        Fee desain kami dihitung dari <strong>persentase perkiraan biaya konstruksi</strong>
-                        (acuan IAI Kategori 3), bukan paket tetap. Angka ini hanya membantu kami memahami skala proyek.
-                        <a href="#panduan-fee" class="cta fee-hint-link" @click="closeToGuide">Lihat Panduan Fee</a>
-                      </p>
+                      <p class="field-hint">Angka ini hanya membantu kami memahami skala proyek.</p>
                     </div>
 
                     <div class="field">
@@ -201,8 +197,6 @@
         </div>
       </div>
     </section>
-
-    <FeeGuide />
   </main>
 </template>
 
@@ -213,7 +207,6 @@ import EnquiryProgress from '../components/enquiry/EnquiryProgress.vue'
 import SegmentedCards from '../components/enquiry/SegmentedCards.vue'
 import ChipMultiSelect from '../components/enquiry/ChipMultiSelect.vue'
 import ImageUploader from '../components/enquiry/ImageUploader.vue'
-import FeeGuide from '../components/enquiry/FeeGuide.vue'
 import { useEnquiryForm, SCOPE_OPTIONS, WORK_OPTIONS, FLOOR_OPTIONS, BUDGET_OPTIONS, START_OPTIONS, ROOM_OPTIONS, labelOf } from '../composables/useEnquiryForm'
 import { useEnquiryDraft } from '../composables/useEnquiryDraft'
 import { useImageUpload } from '../composables/useImageUpload'
@@ -362,7 +355,6 @@ function removeLink(i) {
   answers.inspirationLinks.splice(i, 1)
   if (!answers.inspirationLinks.length) answers.inspirationLinks.push('')
 }
-function closeToGuide() { /* anchor navigation handled by href; hook kept for future analytics */ }
 
 // --- Reset ---
 function resetAll() {
@@ -472,8 +464,6 @@ async function submit() {
 
 .field-hint { margin-top: 10px; font: var(--weight-regular) 13px/1.6 var(--font-ui); color: var(--ink-label); }
 .field-err { margin-top: 8px; font: var(--weight-regular) 13px/1.5 var(--font-ui); color: var(--pink-dark-rose); }
-.fee-hint { max-width: 62ch; strong { color: var(--ink); font-weight: var(--weight-medium); } }
-.fee-hint-link { margin-left: 6px; }
 
 /* Inspiration links */
 .link-row { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
